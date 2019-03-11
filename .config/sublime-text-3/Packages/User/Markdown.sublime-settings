@@ -1,0 +1,10 @@
+{
+	"color_scheme": "Packages/User/MarkdownEditor-themes/ME-MonokaiC.tmTheme",
+	"extensions":
+	[
+		"md",
+		"md",
+		"md"
+	],
+	"line_numbers": true
+}

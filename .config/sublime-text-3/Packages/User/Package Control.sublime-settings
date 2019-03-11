@@ -1,0 +1,38 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"AutoPEP8",
+		"BracketHighlighter",
+		"Dockerfile Syntax Highlighting",
+		"FileIcons",
+		"FileSystem Autocompletion",
+		"Git",
+		"GitGutter",
+		"Increment Selection",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"MarkdownTOC",
+		"nginx",
+		"Package Control",
+		"PlainTasks",
+		"Pretty JSON",
+		"Pretty YAML",
+		"rainbow_csv",
+		"requirementstxt",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-yamllint",
+		"Table Editor",
+		"Terminus",
+		"Terraform",
+		"Theme - Monokai Pro",
+		"TodoReview",
+		"TOML"
+	]
+}

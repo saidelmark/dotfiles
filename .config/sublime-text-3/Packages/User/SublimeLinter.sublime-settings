@@ -1,0 +1,57 @@
+// SublimeLinter Settings - User
+{
+    "gutter_theme": "Packages/Theme - Monokai Pro/Monokai Pro.gutter-theme",
+    "styles": [
+        {
+            "mark_style": "none",
+            "priority": 1,
+            "scope": "region.orangish",
+            "icon": "warning",
+            "types": [
+                "warning"
+            ]
+        },
+        {
+            "mark_style": "none",
+            "priority": 1,
+            "scope": "region.redish",
+            "icon": "error",
+            "types": [
+                "error"
+            ]
+        }
+    ]
+}
+
+
+// {
+//     "gutter_theme": "Hands",
+//     "styles": [
+//           {
+//             // Determines, for overlapping errors, which one is visualised.
+//             "priority": 1,
+
+//             // The icon displayed in the gutter area
+//             // - "circle", "dot" or "bookmark"
+//             // - "none" to remove the icon
+//             // - A path to an icon file like
+//             //   "Packages/SublimeLinter/gutter-themes/Blueberry Cross/error.png"
+//             // - One provided by a gutter theme (e.g. "warning" or "error").
+//             //   In theme Default: warning, error, cog, x,
+//             //   and diamond, heart, pointer, square, star, triangle, which all
+//             //   also have an -outline variant.
+//             "icon": "none",
+
+//             // The highlight style:
+//             // - "none"
+//             // - "fill", "outline",
+//             // - "solid_underline", "squiggly_underline", "stippled_underline"
+//             // The underline styles are replaced with outlines when there is
+//             // whitespace in the problem region, because underlines aren't drawn
+//             // on whitespace (ST issue #137).
+//             "mark_style": "outline",
+
+//             "scope": "region.redish markup.error.sublime_linter"
+//         }
+//   ]
+// }
