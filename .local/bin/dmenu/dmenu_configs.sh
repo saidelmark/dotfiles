@@ -4,12 +4,11 @@
 
 declare -a options=(" bash 
  bspwm 
+ compton 
  kitty 
  polybar 
- st 
  sxhkd 
  vim 
- xmonad 
  zsh 
  quit ")
 
@@ -25,23 +24,20 @@ case "$choice" in
   ' bspwm ')
     exec kitty vim $HOME/.config/bspwm/bspwmrc
     ;;
+  ' compton ')
+    exec kitty vim .config/compton/compton.conf
+    ;;
   ' kitty ')
     exec kitty vim $HOME/.config/kitty/kitty.conf
     ;;
   ' polybar ')
     exec kitty vim $HOME/.config/polybar/config
     ;;
-  ' st ')
-    exec kitty vim $HOME/st/config.h
-    ;;
   ' sxhkd ')
     exec kitty vim $HOME/.config/sxhkd/sxhkdrc
     ;;
   ' vim ')
     exec kitty vim $HOME/.vim/vimrc
-    ;;
-  ' xmonad ')
-    exec kitty vim $HOME/.xmonad/xmonad.hs
     ;;
   ' zsh ')
     exec kitty vim $HOME/.zshrc
