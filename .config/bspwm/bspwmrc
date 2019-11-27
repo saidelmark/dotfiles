@@ -1,0 +1,70 @@
+#! /bin/sh
+
+# First of all, I want monitor configuration set up
+if [ -n "`xrandr | grep 'HDMI-1 connected'`" ]
+  then
+    # export MONITOR
+    xrandr --output HDMI-1 --primary
+    bspc monitor HDMI-1 -d I II III IV V VI VII VIII 
+    bspc monitor eDP-1 -d IX X
+    bspc wm --reorder-monitors HDMI-1 eDP-1
+  else
+    bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
+fi
+
+xsetroot -cursor_name left_ptr
+compton -b --config ~/.config/compton/compton.conf
+# (re)start notification daemon
+killall dunst; dunst &
+# set a desktop wallpaper
+feh --randomize --bg-scale ~/Pictures/WallPapers/
+
+# check if hotkey deamon is started,
+# if it is, then reload the settings,
+# if not, then start it
+if [ "`ps -e | grep sxhkd`" ]
+then
+  pkill -USR1 -x sxhkd
+else
+  sxhkd &
+fi
+
+# Start polybar
+$HOME/.config/polybar/launch.sh
+
+bspc config border_width         1
+
+bspc config window_gap           10
+
+bspc config focused_border_color "#00bfff"
+bspc config presel_feedback_color "#888888"
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       false
+
+bspc config pointer_follows_monitor true
+
+bspc rule -a Gimp desktop='^6' state=floating follow=on
+bspc rule -a Peek state=floating
+bspc rule -a Screenkey manage=off
+bspc rule -a TelegramDesktop desktop='^9'
+bspc rule -a Skype desktop='^9'
+bspc rule -a Code desktop='^1'
+
+
+# launch some apps
+# bspc wm -h off
+# prev=$(bspc query --desktops --desktop prev:focused)
+# focused=$(bspc query --desktops --desktop focused:focused)
+skypeforlinux &
+telegram-desktop &
+
+# After launching, restore focused desktops
+# bspc desktop primary:focused -f
+# bspc desktop -f $prev
+# bspc desktop -f $focused
+
+# bspc wm -h on
+wmname compiz
