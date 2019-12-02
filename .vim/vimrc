@@ -1,0 +1,108 @@
+" ============
+" PLUGINS CONFIGURATION
+" ============
+
+" This is a list of plugins
+call plug#begin()
+  " adds commands for surrounding text objects
+  Plug 'tpope/vim-surround'
+  " adds pretty status line
+  Plug 'vim-airline/vim-airline'
+  " adds new text object: arguement
+  Plug 'vim-scripts/argtextobj.vim'
+  " Have more changes repeateable
+  Plug 'tpope/vim-repeat'
+  " Support for Language Server Protocol
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'derekwyatt/vim-scala'
+  " adds smooth scrolling
+  " Plug 'yuttie/comfortable-motion.vim'
+  " must add a handy action to toggle comments
+  Plug 'tpope/vim-commentary'
+  " simple x hot key daemon
+  Plug 'kovetskiy/sxhkd-vim'
+  " Haskell
+  " syntax highlighting
+  " Plug 'neovimhaskell/haskell-vim'
+call plug#end()
+
+" ============
+" BASE CONFIGURATION
+" ============
+
+" This will show lines numbers.
+" 'relativenumber' option shows offset from current line to every other one
+set number relativenumber
+highlight LineNr ctermfg=grey
+highlight CursorLineNr ctermfg=grey
+" This just says that my terminal background is dark
+set background=dark
+" This option changes default `tab` behavior
+" tabs are replaces with spaces and are 2 symbols wide
+set expandtab
+set shiftwidth=2
+set tabstop=2
+
+" " Enable folding
+" set foldmethod=indent
+" set foldlevel=99
+
+" These two options are for searching
+" hlsearch highlights found occurencies
+set hlsearch
+" incsearch searches on the fly, while you type
+set incsearch
+
+filetype plugin on
+
+" This option shows the command on the bottom of the screen
+set showcmd
+" Don't save backup files
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" Show the line and column number of the cursor position
+set ruler
+" When a bracket is inserted, briefly jump to the matching one.  The
+" jump is only done if the match can be seen on the screen.  The time to
+" show the match can be set with 'matchtime'.
+" set showmatch
+
+" This makes open new splits below and to the right
+set splitbelow splitright
+
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+if has('syntax') && has('eval')
+  packadd matchit
+endif
+
+" ===========
+" FILETYPES
+" ===========
+" Scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+
+"Python
+au BufRead,BufNewFile *.py 
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" ============
+" AIRLINE CONFIGURATION
+" ============
+
+  " This enables airline style for tabline
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_buffers = 0
+  " enables better fonts, nicer symbols, etc
+  let g:airline_powerline_fonts = 1
+
