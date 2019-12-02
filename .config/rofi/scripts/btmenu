@@ -20,7 +20,8 @@ notify() {
     is_error=${2:-0}
 
     if command -v notify-send >/dev/null 2>&1; then
-        notify-send "btmenu" "$msg"  # TODO: escaping
+      dunstify -t 1000 -r 2323 -u low "$msg"
+        # notify-send "btmenu" "$msg"  # TODO: escaping
     fi
 
     if (( is_error )); then

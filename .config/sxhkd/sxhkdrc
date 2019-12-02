@@ -8,7 +8,7 @@ super + Return
 	kitty
 
 # program launcher
-super + @space
+super + space
 	appsmenu
 	# rofi -show drun -scroll-method 1 -show-icons
 
