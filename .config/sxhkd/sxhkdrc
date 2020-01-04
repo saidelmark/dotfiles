@@ -9,7 +9,7 @@ super + Return
 
 # program launcher
 super + space
-	appsmenu
+	rofi-appsmenu
 	# rofi -show drun -scroll-method 1 -show-icons
 
 # Different utilities with dmenu
@@ -17,7 +17,7 @@ super + d; {e,c}
 	~/.local/bin/dmenu/dmenu_{emoji,configs}.sh
 
 super + d; {s,n,b}
-	{scrotmenu,networkmenu,bluetoothmenu}
+	{rofi-scrot,rofi-network,rofi-bluetooth}
 
 super + d; shift + s
 	~/.local/bin/dmenu/dmenu_screenshot.sh --with-timeout
@@ -29,7 +29,7 @@ super + Escape
 
 # Lock the screen
 super + x
-	powermenu
+	rofi-power
 
 #
 # bspwm hotkeys
@@ -198,4 +198,4 @@ super + KP_Multiply
 #
 
 super + o; {_,shift} +  n
-	{networkmenu,nmvpnmenu}
+	{rofi-network,rofi-vpn}

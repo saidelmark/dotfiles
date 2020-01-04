@@ -1,23 +1,23 @@
 #! /bin/sh
 
 # First of all, I want monitor configuration set up
-if [ -n "`xrandr | grep 'HDMI-1 connected'`" ]
+if [ -n "`xrandr | grep 'HDMI2 connected'`" ]
   then
     # export MONITOR
-    xrandr --output HDMI-1 --primary
-    bspc monitor HDMI-1 -d I II III IV V VI VII VIII 
-    bspc monitor eDP-1 -d IX X
-    bspc wm --reorder-monitors HDMI-1 eDP-1
+    xrandr --output HDMI2 --primary --right-of eDP1
+    bspc monitor HDMI2 -d I II III IV V VI VII VIII 
+    bspc monitor eDP1 -d IX X
+    bspc wm --reorder-monitors HDMI2 eDP1
   else
-    bspc monitor eDP-1 -d I II III IV V VI VII VIII IX X
+    bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
 fi
 
 xsetroot -cursor_name left_ptr
-compton -b --config ~/.config/compton/compton.conf
+picom -b --config ~/.config/picom/picom.conf
 # (re)start notification daemon
 killall dunst; dunst &
 # set a desktop wallpaper
-feh --randomize --bg-scale ~/Pictures/WallPapers/
+feh --randomize --bg-scale ~/Pictures/Wallpapers/
 
 # check if hotkey deamon is started,
 # if it is, then reload the settings,

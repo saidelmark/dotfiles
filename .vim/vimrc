@@ -13,7 +13,7 @@ call plug#begin()
   " Have more changes repeateable
   Plug 'tpope/vim-repeat'
   " Support for Language Server Protocol
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'derekwyatt/vim-scala'
   " adds smooth scrolling
   " Plug 'yuttie/comfortable-motion.vim'
