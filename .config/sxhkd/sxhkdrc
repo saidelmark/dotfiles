@@ -74,8 +74,17 @@ super + {_,shift + }r
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + t
+	bspc node -t tiled
+
+super + f
+	bspc node -t {fullscreen,\~fullscreen}
+
+super + s
+	bspc node -t {floating,\~floating}
+
+super + shift + t
+	bspc node -t {pseudo_tiled,\~pseudo_tiled}
 
 # TODO: find out what each flag means
 # set the node flags
