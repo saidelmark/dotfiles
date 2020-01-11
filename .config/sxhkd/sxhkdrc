@@ -197,10 +197,10 @@ XF86AudioMute
 
 # Toggle mic
 XF86AudioMicMute
-	volume.sh mic
+	volume.sh mute-input
 
 super + KP_Multiply
-	volume.sh mic
+	volume.sh mute-input
 
 #
 # open application
