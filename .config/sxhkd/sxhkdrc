@@ -14,13 +14,13 @@ super + space
 
 # Different utilities with dmenu
 super + d; {e,c}
-	~/.local/bin/dmenu/dmenu_{emoji,configs}.sh
+	dmenu_{emoji,configs}.sh
 
 super + d; {s,n,b}
 	{rofi-scrot,rofi-network,rofi-bluetooth}
 
 super + d; shift + s
-	~/.local/bin/dmenu/dmenu_screenshot.sh --with-timeout
+	dmenu_screenshot.sh --with-timeout
 
 # restart bspwm
 super + Escape
