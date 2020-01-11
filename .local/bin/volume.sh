@@ -1,21 +1,22 @@
-#!/bin/bash
+#!/bin/sh
 
 # Arbitrary but unique message id
 msgId="991049"
+time="1000"
 
-function get_volume {
+get_volume() {
   pulseaudio-ctl full-status | awk '{print $1}'
 }
 
-function is_mute {
+is_mute() {
   pulseaudio-ctl full-status | awk '{print $2}'
 }
 
-function is_mute_input {
+is_mute_input() {
   pulseaudio-ctl full-status | awk '{print $3}'
 }
 
-function notify {
+notify() {
   if [ "$1" = "mic" ]
   then
     if [ "$(is_mute_input)" = "yes" ]; then
@@ -42,7 +43,7 @@ function notify {
   fi
 
   # empty message so as to show only icons
-  dunstify -a "changeVolume" -u low -i "$icon" -r "$msgId" ""
+  dunstify -a "changeVolume" -u low -t "$time" -i "$icon" -r "$msgId" ""
 }
 
 case "$1" in

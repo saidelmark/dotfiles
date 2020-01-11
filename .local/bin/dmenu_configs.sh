@@ -19,28 +19,28 @@ case "$choice" in
     echo "Program terminated."
     ;;
   ' bash ')
-    exec kitty vim $HOME/.bashrc
+    exec kitty vim "$HOME"/.bashrc
     ;;
   ' bspwm ')
-    exec kitty vim $HOME/.config/bspwm/bspwmrc
+    exec kitty vim "$HOME"/.config/bspwm/bspwmrc
     ;;
   ' compton ')
-    exec kitty vim .config/compton/compton.conf
+    exec kitty vim "$HOME"/.config/compton/compton.conf
     ;;
   ' kitty ')
-    exec kitty vim $HOME/.config/kitty/kitty.conf
+    exec kitty vim "$HOME"/.config/kitty/kitty.conf
     ;;
   ' polybar ')
-    exec kitty vim $HOME/.config/polybar/config
+    exec kitty vim "$HOME"/.config/polybar/config
     ;;
   ' sxhkd ')
-    exec kitty vim $HOME/.config/sxhkd/sxhkdrc
+    exec kitty vim "$HOME"/.config/sxhkd/sxhkdrc
     ;;
   ' vim ')
-    exec kitty vim $HOME/.vim/vimrc
+    exec kitty vim "$HOME"/.vim/vimrc
     ;;
   ' zsh ')
-    exec kitty vim $HOME/.zshrc
+    exec kitty vim "$HOME"/.zshrc
     ;;
   *)
     echo "Unknown command"
