@@ -2,6 +2,13 @@
 " PLUGINS CONFIGURATION
 " ============
 
+" " Uncomment in a new environment to download plugin manager
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+
 " This is a list of plugins
 call plug#begin()
   " adds commands for surrounding text objects
@@ -10,10 +17,16 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   " adds new text object: arguement
   Plug 'vim-scripts/argtextobj.vim'
+  " Adds new text object: indentation
+  Plug 'michaeljsmith/vim-indent-object'
   " Have more changes repeateable
   Plug 'tpope/vim-repeat'
   " Linting engine
   Plug 'dense-analysis/ale'
+  " Sidebar with file system
+  Plug 'preservim/nerdtree'
+  " git status for sidebar
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   " Support for Language Server Protocol
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'derekwyatt/vim-scala'
@@ -68,10 +81,12 @@ set cmdheight=2
 
 " Show the line and column number of the cursor position
 set ruler
-" When a bracket is inserted, briefly jump to the matching one.  The
-" jump is only done if the match can be seen on the screen.  The time to
-" show the match can be set with 'matchtime'.
-" set showmatch
+
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
 
 " This makes open new splits below and to the right
 set splitbelow splitright
@@ -85,18 +100,19 @@ endif
 " ===========
 " FILETYPES
 " ===========
-" Scala
-au BufRead,BufNewFile *.sbt set filetype=scala
 
-"Python
-au BufRead,BufNewFile *.py 
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+  " Scala
+  au BufRead,BufNewFile *.sbt set filetype=scala
+
+  "Python
+  au BufRead,BufNewFile *.py 
+      \ set tabstop=4 |
+      \ set softtabstop=4 |
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set expandtab |
+      \ set autoindent |
+      \ set fileformat=unix
 
 " ============
 " AIRLINE CONFIGURATION
