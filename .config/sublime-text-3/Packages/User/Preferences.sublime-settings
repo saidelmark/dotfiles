@@ -13,6 +13,7 @@
 		"sudo",
 		"todo"
 	],
+	"font_face": "JetBrains Mono",
 	"font_size": 14,
 	"ignored_packages":
 	[
