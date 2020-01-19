@@ -1,7 +1,7 @@
 #!/bin/bash
 # Dmenu script for editing some of my most frequently edited config files.
 
-
+TERMINAL=kitty
 declare -a options=(" bash 
  bspwm 
  compton 
@@ -19,28 +19,28 @@ case "$choice" in
     echo "Program terminated."
     ;;
   ' bash ')
-    exec kitty vim "$HOME"/.bashrc
+    exec "$TERMINAL" vim "$HOME"/.bashrc
     ;;
   ' bspwm ')
-    exec kitty vim "$HOME"/.config/bspwm/bspwmrc
+    exec "$TERMINAL" vim "$HOME"/.config/bspwm/bspwmrc
     ;;
   ' compton ')
-    exec kitty vim "$HOME"/.config/compton/compton.conf
+    exec "$TERMINAL" vim "$HOME"/.config/compton/compton.conf
     ;;
   ' kitty ')
-    exec kitty vim "$HOME"/.config/kitty/kitty.conf
+    exec "$TERMINAL" vim "$HOME"/.config/kitty/kitty.conf
     ;;
   ' polybar ')
-    exec kitty vim "$HOME"/.config/polybar/config
+    exec "$TERMINAL" vim "$HOME"/.config/polybar/config
     ;;
   ' sxhkd ')
-    exec kitty vim "$HOME"/.config/sxhkd/sxhkdrc
+    exec "$TERMINAL" vim "$HOME"/.config/sxhkd/sxhkdrc
     ;;
   ' vim ')
-    exec kitty vim "$HOME"/.vim/vimrc
+    exec "$TERMINAL" vim "$HOME"/.vim/vimrc
     ;;
   ' zsh ')
-    exec kitty vim "$HOME"/.zshrc
+    exec "$TERMINAL" vim "$HOME"/.zshrc
     ;;
   *)
     echo "Unknown command"

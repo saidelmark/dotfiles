@@ -1,15 +1,15 @@
 #! /bin/sh
 
 # First of all, I want monitor configuration set up
-if [ -n "`xrandr | grep 'HDMI2 connected'`" ]
+if xrandr | grep -q 'HDMI2 connected' 
   then
     # export MONITOR
-    xrandr --output HDMI2 --primary --right-of eDP1
-    bspc monitor HDMI2 -d I II III IV V VI VII VIII 
-    bspc monitor eDP1 -d IX X
+    xrandr --output HDMI2 --right-of eDP1 --primary 
+    bspc monitor HDMI2 -d 1 2 3 4 5 6 7 8 
+    bspc monitor eDP1 -d 9 10
     bspc wm --reorder-monitors HDMI2 eDP1
   else
-    bspc monitor eDP1 -d I II III IV V VI VII VIII IX X
+    bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 10
 fi
 
 xsetroot -cursor_name left_ptr
@@ -22,7 +22,7 @@ feh --randomize --bg-scale ~/Pictures/Wallpapers/
 # check if hotkey deamon is started,
 # if it is, then reload the settings,
 # if not, then start it
-if [ "`ps -e | grep sxhkd`" ]
+if [ -n "$( pgrep sxhkd )" ]
 then
   pkill -USR1 -x sxhkd
 else
@@ -30,7 +30,7 @@ else
 fi
 
 # Start polybar
-$HOME/.config/polybar/launch.sh
+"$HOME"/.config/polybar/launch.sh
 
 bspc config border_width         1
 
@@ -55,16 +55,7 @@ bspc rule -a Code desktop='^1'
 
 
 # launch some apps
-# bspc wm -h off
-# prev=$(bspc query --desktops --desktop prev:focused)
-# focused=$(bspc query --desktops --desktop focused:focused)
 skypeforlinux &
 telegram-desktop &
 
-# After launching, restore focused desktops
-# bspc desktop primary:focused -f
-# bspc desktop -f $prev
-# bspc desktop -f $focused
-
-# bspc wm -h on
 wmname compiz
