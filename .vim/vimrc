@@ -12,6 +12,8 @@ call plug#begin()
   Plug 'vim-scripts/argtextobj.vim'
   " Have more changes repeateable
   Plug 'tpope/vim-repeat'
+  " Linting engine
+  Plug 'dense-analysis/ale'
   " Support for Language Server Protocol
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'derekwyatt/vim-scala'
