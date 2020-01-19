@@ -14,6 +14,7 @@
 		"Git",
 		"GitGutter",
 		"Increment Selection",
+		"INI",
 		"MarkdownEditing",
 		"MarkdownPreview",
 		"MarkdownTOC",
@@ -31,8 +32,8 @@
 		"Table Editor",
 		"Terminus",
 		"Terraform",
-		"Theme - Monokai Pro",
 		"TodoReview",
-		"TOML"
+		"TOML",
+		"UnicodeMath"
 	]
 }
