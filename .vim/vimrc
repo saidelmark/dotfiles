@@ -9,8 +9,14 @@
 "   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " endif
 
-" This is a list of plugins
+" list of plugins
 call plug#begin()
+  " Sane defaults, just to clean this file up a bit
+  Plug 'tpope/vim-sensible'
+  " Git wrapper and helper
+  Plug 'tpope/vim-fugitive'
+  " Git status markers
+  Plug 'airblade/vim-gitgutter'
   " adds commands for surrounding text objects
   Plug 'tpope/vim-surround'
   " adds pretty status line
@@ -27,92 +33,73 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   " git status for sidebar
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  " Support for Language Server Protocol
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Plug 'derekwyatt/vim-scala'
-  " adds smooth scrolling
-  " Plug 'yuttie/comfortable-motion.vim'
-  " must add a handy action to toggle comments
+  " Icons and hghlighting for files according to their types
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  " Toggles comment on any given text object
   Plug 'tpope/vim-commentary'
-  " simple x hot key daemon
+  " simple x hot key daemon syntax
   Plug 'kovetskiy/sxhkd-vim'
-  " Haskell
-  " syntax highlighting
+  " Haskell syntax highlighting
   " Plug 'neovimhaskell/haskell-vim'
+  " Shortcuts for some commands, usually going in pairs (like next/prev)
+  Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " ============
 " BASE CONFIGURATION
 " ============
 
-" This will show lines numbers.
-" 'relativenumber' option shows offset from current line to every other one
-set number relativenumber
-highlight LineNr ctermfg=grey
-highlight CursorLineNr ctermfg=grey
-" This just says that my terminal background is dark
-set background=dark
-" This option changes default `tab` behavior
-" tabs are replaces with spaces and are 2 symbols wide
-set expandtab
-set shiftwidth=2
-set tabstop=2
+  " How oftem vim refreshes the buffer
+  set updatetime=100
+  " This will show lines numbers.
+  " 'relativenumber' option shows offset from current line to every other one
+  set number relativenumber
+  highlight LineNr ctermfg=grey
+  highlight CursorLineNr ctermfg=grey
+  " This just says that my terminal background is dark
+  set background=dark
+  " This option changes default `tab` behavior
+  " tabs are replaces with spaces and are 2 symbols wide
+  set expandtab
+  set shiftwidth=2
+  set tabstop=2
 
-" " Enable folding
-" set foldmethod=indent
-" set foldlevel=99
+  " " Enable folding
+  " set foldmethod=indent
+  " set foldlevel=99
 
-" These two options are for searching
-" hlsearch highlights found occurencies
-set hlsearch
-" incsearch searches on the fly, while you type
-set incsearch
+  " These two options are for searching
+  " hlsearch highlights found occurencies
+  set hlsearch
 
-filetype plugin on
+  " This option shows the command on the bottom of the screen
+  set showcmd
+  " Don't save backup files
+  set nobackup
+  set nowritebackup
 
-" This option shows the command on the bottom of the screen
-set showcmd
-" Don't save backup files
-set nobackup
-set nowritebackup
+  " Better display for messages
+  set cmdheight=2
 
-" Better display for messages
-set cmdheight=2
+  " Provides tab-completion for all file-related tasks
+  set path+=**
 
-" Show the line and column number of the cursor position
-set ruler
-
-" Provides tab-completion for all file-related tasks
-set path+=**
-
-" Display all matching files when we tab complete
-set wildmenu
-
-" This makes open new splits below and to the right
-set splitbelow splitright
-
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-if has('syntax') && has('eval')
-  packadd matchit
-endif
+  " This makes open new splits below and to the right
+  set splitbelow splitright
 
 " ===========
 " FILETYPES
 " ===========
 
-  " Scala
-  au BufRead,BufNewFile *.sbt set filetype=scala
-
   "Python
   au BufRead,BufNewFile *.py 
-      \ set tabstop=4 |
-      \ set softtabstop=4 |
-      \ set shiftwidth=4 |
-      \ set textwidth=79 |
-      \ set expandtab |
-      \ set autoindent |
-      \ set fileformat=unix
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
 " ============
 " AIRLINE CONFIGURATION
@@ -123,4 +110,14 @@ endif
   let g:airline#extensions#tabline#show_buffers = 0
   " enables better fonts, nicer symbols, etc
   let g:airline_powerline_fonts = 1
+
+" ============
+" NERD TREE CONFIGURATION
+" ============
+
+  let g:NERDTreeFileExtensionHighlightFullName = 1
+  let g:NERDTreeExactMatchHighlightFullName = 1
+  let g:NERDTreePatternMatchHighlightFullName = 1
+  let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
 
