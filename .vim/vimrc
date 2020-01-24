@@ -142,8 +142,12 @@ call plug#end()
 " AIRLINE CONFIGURATION
 " ============
 
+  " Only show tabline if there are tabs
+  let g:airline#extensions#tabline#tab_min_count = 2
+
   " This enables airline style for tabline
   let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_tabs = 1
   " Don't ever show buffer list as if they are tabs
   let g:airline#extensions#tabline#show_buffers = 0
   " enables better fonts, nicer symbols, etc
@@ -152,6 +156,9 @@ call plug#end()
 
   " Don't show keymap segment, xkb-switch is enough
   let g:airline#extensions#keymap#enabled = 0
+
+  let g:airline_skip_empty_sections = 1
+  let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 " ============
 " NERD TREE CONFIGURATION
