@@ -54,6 +54,7 @@ call plug#end()
   " This will show lines numbers.
   " 'relativenumber' option shows offset from current line to every other one
   set number relativenumber
+  " Colors of line numbers
   highlight LineNr ctermfg=grey
   highlight CursorLineNr ctermfg=grey
   " This just says that my terminal background is dark
@@ -63,6 +64,9 @@ call plug#end()
   set expandtab
   set shiftwidth=2
   set tabstop=2
+
+  " visible tabs and trailing spaces
+  set list
 
   " " Enable folding
   " set foldmethod=indent
@@ -87,12 +91,32 @@ call plug#end()
   " This makes open new splits below and to the right
   set splitbelow splitright
 
+  " kind of magic, found on SO
+  " autosources vimrc after every :w
+  augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+  augroup END
+
+
+" ===========
+" Language
+" ===========
+
+  set keymap=russian-jcukenwin
+  set iminsert=0
+  set imsearch=0
+  " TODO: this line doesn't work, find solution
+  highlight lCursor guifg=NONE guibg=Cyan
+
+  set spelllang=ru_yo,en_us
+
 " ===========
 " FILETYPES
 " ===========
 
   "Python
-  au BufRead,BufNewFile *.py 
+  au BufRead,BufNewFile *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -107,9 +131,11 @@ call plug#end()
 
   " This enables airline style for tabline
   let g:airline#extensions#tabline#enabled = 1
+  " Don't ever show buffer list as if they are tabs
   let g:airline#extensions#tabline#show_buffers = 0
   " enables better fonts, nicer symbols, etc
   let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " ============
 " NERD TREE CONFIGURATION
@@ -119,5 +145,4 @@ call plug#end()
   let g:NERDTreeExactMatchHighlightFullName = 1
   let g:NERDTreePatternMatchHighlightFullName = 1
   let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-
 
