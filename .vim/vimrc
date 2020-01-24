@@ -33,7 +33,7 @@ call plug#begin()
   Plug 'preservim/nerdtree'
   " git status for sidebar
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  " Icons and hghlighting for files according to their types
+  " Icons and highlighting for files according to their types
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " Toggles comment on any given text object
   Plug 'tpope/vim-commentary'
@@ -43,13 +43,15 @@ call plug#begin()
   " Plug 'neovimhaskell/haskell-vim'
   " Shortcuts for some commands, usually going in pairs (like next/prev)
   Plug 'tpope/vim-unimpaired'
+  " Automatically switch layout in insert mode
+  Plug 'lyokha/vim-xkbswitch'
 call plug#end()
 
 " ============
 " BASE CONFIGURATION
 " ============
 
-  " How oftem vim refreshes the buffer
+  " How often vim refreshes the buffer
   set updatetime=100
   " This will show lines numbers.
   " 'relativenumber' option shows offset from current line to every other one
@@ -73,7 +75,7 @@ call plug#end()
   " set foldlevel=99
 
   " These two options are for searching
-  " hlsearch highlights found occurencies
+  " hlsearch highlights found occurrences
   set hlsearch
 
   " This option shows the command on the bottom of the screen
@@ -103,16 +105,27 @@ call plug#end()
 " Language
 " ===========
 
+  " This section doesn't really work as described, should tweak it
+
   set keymap=russian-jcukenwin
   set iminsert=0
   set imsearch=0
   " TODO: this line doesn't work, find solution
   highlight lCursor guifg=NONE guibg=Cyan
 
+  let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
+  let g:XkbSwitchEnabled = 1
+  let g:XkbSwitchIMappings = ['ru']
+  let g:XkbSwitchNLayout = 'us'
+
+  let g:XkbSwitchKeymapNames = {'ru' : 'russian-jcukenwin'}
+  let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
+  let g:XkbSwitchAssistSKeymap = 1    " for search lines
+
   set spelllang=ru_yo,en_us
 
 " ===========
-" FILETYPES
+" FILE TYPES
 " ===========
 
   "Python
@@ -136,6 +149,9 @@ call plug#end()
   " enables better fonts, nicer symbols, etc
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+  " Don't show keymap segment, xkb-switch is enough
+  let g:airline#extensions#keymap#enabled = 0
 
 " ============
 " NERD TREE CONFIGURATION
