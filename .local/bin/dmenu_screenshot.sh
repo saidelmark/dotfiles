@@ -12,7 +12,7 @@ declare -a timeoutOptions=("3
 10")
 
 choice=$(echo -e "${options[@]}" | rofi -dmenu -i -p 'Make a screenshot of ')
-filePattern='%Y-%m-%d_%h-%M-%S_$wx$h.png'
+filePattern='%Y-%m-%d_%H-%M-%S_$wx$h.png'
 destination="$HOME/Pictures/screenshots"
 postCommand='mv $f'
 
