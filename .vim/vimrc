@@ -45,22 +45,36 @@ call plug#begin()
   Plug 'tpope/vim-unimpaired'
   " Automatically switch layout in insert mode
   Plug 'lyokha/vim-xkbswitch'
+Plug 'ErichDonGubler/vim-sublime-monokai'
 call plug#end()
 
 " ============
 " BASE CONFIGURATION
 " ============
 
+  " Use TrueColor option
+  " TODO: enable it only in terminals that support it, otherwise use t_Co=256
+  set termguicolors
+  colorscheme sublimemonokai
+  let g:sublimemonokai_term_italic = 1
   " How often vim refreshes the buffer
   set updatetime=100
+
   " This will show lines numbers.
   " 'relativenumber' option shows offset from current line to every other one
   set number relativenumber
   " Colors of line numbers
-  highlight LineNr ctermfg=grey
-  highlight CursorLineNr ctermfg=grey
+  highlight LineNrAbove ctermfg=grey
+  highlight LineNrBelow ctermfg=grey
+  highlight LineNr ctermfg=brown
+  highlight CursorLineNr ctermfg=darkgreen
+  set cursorline
+
+  set scrolloff=10
+
   " This just says that my terminal background is dark
-  set background=dark
+  " set background=dark
+
   " This option changes default `tab` behavior
   " tabs are replaces with spaces and are 2 symbols wide
   set expandtab
@@ -102,6 +116,70 @@ call plug#end()
 
 
 " ===========
+" Key bindings
+" ===========
+
+  let mapleader = "\\"
+  let maplocalleader = "="
+
+  " I'm too lazy to hit shift all the time
+  nnoremap : ;
+  nnoremap ; :
+  vnoremap : ;
+  vnoremap ; :
+
+  nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+  noremap <up> <nop>
+  noremap <down> <nop>
+  noremap <left> <nop>
+  noremap <right> <nop>
+
+  noremap <pageup> <nop>
+  noremap <pagedown> <nop>
+  noremap <end> <nop>
+  noremap <home> <nop>
+
+  inoremap <up> <nop>
+  inoremap <down> <nop>
+  inoremap <left> <nop>
+  inoremap <right> <nop>
+
+  inoremap <pageup> <nop>
+  inoremap <pagedown> <nop>
+  inoremap <end> <nop>
+  inoremap <home> <nop>
+
+" ===========
+" Auto commands
+" ===========
+
+  " Some buffers have to be checked unconditionally
+  augroup spelling
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd FileType gitcommit setlocal spell
+  augroup END
+
+  augroup markdown_defaults
+    autocmd!
+    " In markdown trailing spaces may be useful
+    autocmd FileType markdown setlocal nolist
+  augroup END
+
+  augroup python_defaults
+    autocmd!
+    au BufRead,BufNewFile *.py
+      \ set tabstop=4 |
+      \ set softtabstop=4 |
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set expandtab |
+      \ set autoindent |
+      \ set fileformat=unix
+  augroup END
+
+" ===========
 " Language
 " ===========
 
@@ -111,7 +189,7 @@ call plug#end()
   set iminsert=0
   set imsearch=0
   " TODO: this line doesn't work, find solution
-  highlight lCursor guifg=NONE guibg=Cyan
+  " highlight lCursor guifg=NONE guibg=Cyan
 
   let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
   let g:XkbSwitchEnabled = 1
@@ -122,21 +200,7 @@ call plug#end()
   let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
   let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
-  set spelllang=ru_yo,en_us
-
-" ===========
-" FILE TYPES
-" ===========
-
-  "Python
-  au BufRead,BufNewFile *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+  set spelllang=en_us,ru_yo
 
 " ============
 " AIRLINE CONFIGURATION
@@ -159,6 +223,7 @@ call plug#end()
 
   let g:airline_skip_empty_sections = 1
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+  let g:airline#parts#ffenc#skip_expected_string='[unix]'
 
 " ============
 " NERD TREE CONFIGURATION
