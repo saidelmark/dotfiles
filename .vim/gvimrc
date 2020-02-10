@@ -1,0 +1,16 @@
+" ============
+" GUI CONFIGURATION
+" ============
+
+  set guifont=JetBrains\ Mono\ Regular\ 14
+
+  " c for console dialogs instead of pop-up windows
+  " d for dark theme
+  set guioptions=aidc
+  set termguicolors
+" ===========
+" Key bindings
+" ===========
+
+  " In gvim I need gvimrc more than vimrc
+  nnoremap <leader>ev :vsplit $MYGVIMRC<cr>
