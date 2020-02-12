@@ -1,11 +1,6 @@
-#
-# wm independent hotkeys
-#
-# use `xev` to get key name
-
 # terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # program launcher
 super + space
