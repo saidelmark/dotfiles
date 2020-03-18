@@ -4,7 +4,7 @@ super + Return
 
 # program launcher
 super + space
-	appsmenu
+	rofi-appsmenu
 	# rofi -show drun -scroll-method 1 -show-icons
 
 # Different utilities with dmenu
