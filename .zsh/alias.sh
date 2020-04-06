@@ -7,7 +7,7 @@ alias dotfiles='git --git-dir=$HOME/dotfiles.git'
 alias cfbsp='$EDITOR ~/.config/bspwm/bspwmrc'
 alias cfsxhk='$EDITOR ~/.config/sxhkd/sxhkdrc'
 alias cfpb='$EDITOR ~/.config/polybar/config'
-alias cfcomp='$EDITOR ~/.config/compton/compton.conf'
+alias cfcomp='$EDITOR ~/.config/picom/picom.conf'
 
 ## Zsh
 alias cfz='$EDITOR ~/.zshrc'
