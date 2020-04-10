@@ -2,6 +2,9 @@
 alias _='sudo'
 alias dotfiles='git --git-dir=$HOME/dotfiles.git'
 
+alias la='exa -laF --icons --group-directories-first --time-style long-iso'
+alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore'
+
 # Editing
 ## WM and hotkeys
 alias cfbsp='$EDITOR ~/.config/bspwm/bspwmrc'
