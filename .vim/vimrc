@@ -117,18 +117,19 @@ call plug#end()
   " kind of magic, found on SO
   " autosources vimrc after every :w
   augroup myvimrc
-    au!
-    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    autocmd!
+    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   augroup END
 
 " ===========
 " C specific
 " ===========
 
-  " For C I'm trying to follow Linux Kernel's style
-  set noexpandtab
-  set tabstop=8
-  set shiftwidth=8
+  augroup filetype_c
+    autocmd!
+    " For C I'm trying to follow Linux Kernel's style
+    autocmd filetype c setlocal noexpandtab tabstop=8 shiftwidth=8
+  augroup END
 
 " ===========
 " Key bindings
