@@ -121,6 +121,14 @@ call plug#end()
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
   augroup END
 
+" ===========
+" C specific
+" ===========
+
+  " For C I'm trying to follow Linux Kernel's style
+  set noexpandtab
+  set tabstop=8
+  set shiftwidth=8
 
 " ===========
 " Key bindings
@@ -230,7 +238,7 @@ call plug#end()
 
   let g:airline_skip_empty_sections = 1
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-  let g:airline#parts#ffenc#skip_expected_string='[unix]'
+  " let g:airline#parts#ffenc#skip_expected_string='[unix]'
 
 " ============
 " NERD TREE CONFIGURATION
