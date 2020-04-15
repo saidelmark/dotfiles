@@ -12,14 +12,13 @@ super + d; {e,c}
 	dmenu_{emoji,configs}.sh
 
 super + d; {s,n,b}
-	{rofi-scrot,rofi-network,rofi-bluetooth}
+	{dmenu_screenshot.sh,rofi-network,rofi-bluetooth}
 
 super + d; shift + s
-	dmenu_screenshot.sh --with-timeout
+	dmenu_screenshot.sh --timeout
 
 # restart bspwm
 super + Escape
-	killall compton; \
 	bspc wm -r
 
 # Lock the screen

@@ -1,34 +1,41 @@
 #!/bin/bash
-# Dmenu script for editing some of my more frequently edited config files.
+# Theme taken from rofi-menus
+# Added a more sane location for screenshots,
+# clipboard integration, timeout management
 
-timeout=0
+rofi_command="rofi -theme /usr/share/rofi-menus-git/themes/scrotmenu.rasi"
 
-declare -a options=(" an area 
- current window 
- the whole screen ")
+### Options ###
+screen=""
+area=""
+window=""
+# Variable passed to rofi
+options="$screen\n$area\n$window"
 
-declare -a timeoutOptions=("3
-5
-10")
-
-choice=$(echo -e "${options[@]}" | rofi -dmenu -i -p 'Make a screenshot of ')
 filePattern='%Y-%m-%d_%H-%M-%S_$wx$h.png'
 destination="$HOME/Pictures/screenshots"
 postCommand='mv $f'
 
-if [ "$1" ]
+timeout=0
+
+timeoutOptions=("3\n5\n10")
+
+choice="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
+
+if [ "$1" = "--timeout" ]
 then
-  timeout=$(echo -e "${timeoutOptions[@]}" | rofi -dmenu -i -p "With timeout (seconds)" )
+  timeout=${2:-5}
+  echo "timeout is $timeout"
 fi
 
 case "$choice" in
-  ' an area ')
+  "$area")
     scrot --silent --select "$filePattern" --exec "$postCommand $destination" --delay "$timeout" --count
     ;;
-  ' current window ')
+  "$window")
     scrot --focused --silent "$filePattern" --exec "$postCommand $destination" --delay "$timeout" --count
     ;;
-  ' the whole screen ')
+  "$screen")
     scrot --silent "$filePattern" --exec "$postCommand $destination" --delay "$timeout" --count
     ;;
   *)
