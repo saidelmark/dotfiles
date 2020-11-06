@@ -35,6 +35,8 @@ call plug#begin()
   Plug 'Xuyuanp/nerdtree-git-plugin'
   " Icons and highlighting for files according to their types
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  " Personal wiki
+  Plug 'vimwiki/vimwiki'
   " Toggles comment on any given text object
   Plug 'tpope/vim-commentary'
   " simple x hot key daemon syntax
@@ -217,6 +219,8 @@ call plug#end()
   let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
   set spelllang=en_us,ru_yo
+
+  let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
 
 " ============
 " AIRLINE CONFIGURATION
