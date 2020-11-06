@@ -29,12 +29,6 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   " Linting engine
   Plug 'dense-analysis/ale'
-  " Sidebar with file system
-  Plug 'preservim/nerdtree'
-  " git status for sidebar
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  " Icons and highlighting for files according to their types
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   " Personal wiki
   Plug 'vimwiki/vimwiki'
   " Toggles comment on any given text object
@@ -245,12 +239,5 @@ call plug#end()
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
   " let g:airline#parts#ffenc#skip_expected_string='[unix]'
 
-" ============
-" NERD TREE CONFIGURATION
-" ============
 
-  let g:NERDTreeFileExtensionHighlightFullName = 1
-  let g:NERDTreeExactMatchHighlightFullName = 1
-  let g:NERDTreePatternMatchHighlightFullName = 1
-  let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
