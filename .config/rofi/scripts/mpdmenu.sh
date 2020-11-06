@@ -45,24 +45,24 @@ if [[ -z "$current" ]]; then
 fi
 
 # Spawn the mpd menu with the "Play / Pause" entry selected by default
-chosen="$(echo -e "$options" | $rofi_command -p "$current" -dmenu $active $urgent -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "$current" -dmenu "$active" "$urgent" -selected-row 1)"
 case $chosen in
-    $previous)
+    "$previous")
         mpc -q prev
         ;;
-    $play_pause)
+    "$play_pause")
         mpc -q toggle
         ;;
-    $stop)
+    "$stop")
         mpc -q stop
         ;;
-    $next)
+    "$next")
         mpc -q next
         ;;
-    $tog_repeat)
+    "$tog_repeat")
         mpc -q repeat
         ;;
-    $tog_random)
+    "$tog_random")
         mpc -q random
         ;;
 esac

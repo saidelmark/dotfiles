@@ -4,7 +4,7 @@ super + Return
 
 # program launcher
 super + space
-	rofi-appsmenu
+	appsmenu
 	# rofi -show drun -scroll-method 1 -show-icons
 
 # Different utilities with dmenu
@@ -12,10 +12,10 @@ super + d; {e,c}
 	dmenu_{emoji,configs}.sh
 
 super + d; {s,n,b}
-	{dmenu_screenshot.sh,rofi-network,rofi-bluetooth}
+	{scrotmenu,networkmenu,rofi-bluetooth}
 
 super + d; shift + s
-	dmenu_screenshot.sh --timeout
+	scrotmenu --timeout
 
 # restart bspwm
 super + Escape
@@ -23,7 +23,7 @@ super + Escape
 
 # Lock the screen
 super + x
-	rofi-power
+	powermenu
 
 #
 # bspwm hotkeys
@@ -196,9 +196,11 @@ XF86AudioMicMute
 super + KP_Multiply
 	volume.sh mute-input
 
+XF86AudioPlay
+	mocp -G
 #
 # open application
 #
 
 super + o; {_,shift} +  n
-	{rofi-network,rofi-vpn}
+	{networkmenu,nmvpnmenu}
