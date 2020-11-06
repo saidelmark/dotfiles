@@ -198,9 +198,9 @@ colors: *ayu_dark
 
 window:
 
-  # padding:
-  #   x: 1
-  #   y: 1
+  padding:
+    x: 1
+    y: 1
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
