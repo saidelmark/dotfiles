@@ -2,13 +2,6 @@
 " PLUGINS CONFIGURATION
 " ============
 
-" " Uncomment in a new environment to download plugin manager
-" if empty(glob('~/.vim/autoload/plug.vim'))
-"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-" endif
-
 " list of plugins
 call plug#begin()
   " Sane defaults, just to clean this file up a bit
@@ -70,13 +63,9 @@ call plug#end()
   highlight LineNrAbove ctermfg=grey
   highlight LineNrBelow ctermfg=grey
   highlight LineNr ctermfg=brown
-  highlight CursorLineNr ctermfg=darkgreen
   set cursorline
 
-  set scrolloff=10
-
-  " This just says that my terminal background is dark
-  " set background=dark
+  set scrolloff=5
 
   " Enable mouse scrolling (not only, but it's the main feature for me).
   " ttymouse is alacritty-specific, see https://github.com/alacritty/alacritty/issues/803 for details
@@ -88,21 +77,19 @@ call plug#end()
   " tabs are replaces with spaces and are 2 symbols wide
   set expandtab
   set shiftwidth=2
-  set tabstop=2
+  set tabstop=8
 
   " visible tabs and trailing spaces
-  set list
+  " set list
 
   " " Enable folding
   " set foldmethod=indent
   " set foldlevel=99
 
-  " These two options are for searching
-  " hlsearch highlights found occurrences
-  set hlsearch
-
   " This option shows the command on the bottom of the screen
   set showcmd
+
+  " Not sure if I want to disable backups
   " Don't save backup files
   set nobackup
   set nowritebackup
@@ -116,11 +103,14 @@ call plug#end()
   " This makes open new splits below and to the right
   set splitbelow splitright
 
-  " kind of magic, found on SO
   " autosources vimrc after every :w
   augroup myvimrc
     autocmd!
-    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+      \ so $MYVIMRC |
+      \ if has('gui_running') |
+        \ so $MYGVIMRC |
+      \ endif
   augroup END
 
 " ===========
@@ -130,7 +120,10 @@ call plug#end()
   augroup filetype_c
     autocmd!
     " For C I'm trying to follow Linux Kernel's style
-    autocmd filetype c setlocal noexpandtab tabstop=8 shiftwidth=8
+    autocmd filetype c
+      \ setlocal noexpandtab |
+      \ setlocal tabstop=8 |
+      \ setlocal shiftwidth=8
   augroup END
 
 " ===========
@@ -188,13 +181,13 @@ call plug#end()
   augroup python_defaults
     autocmd!
     au BufRead,BufNewFile *.py
-      \ set tabstop=4 |
-      \ set softtabstop=4 |
-      \ set shiftwidth=4 |
-      \ set textwidth=79 |
-      \ set expandtab |
-      \ set autoindent |
-      \ set fileformat=unix
+      \ setlocal tabstop=4 |
+      \ setlocal softtabstop=4 |
+      \ setlocal shiftwidth=4 |
+      \ setlocal textwidth=79 |
+      \ setlocal expandtab |
+      \ setlocal autoindent |
+      \ setlocal fileformat=unix
   augroup END
 
 " ===========
