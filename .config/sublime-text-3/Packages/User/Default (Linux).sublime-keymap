@@ -8,6 +8,7 @@
             "setting": "word_wrap"
         }
     },
+    { "keys": ["ctrl+b"], "command": "toggle_side_bar" },
 // Git
     { "keys": ["ctrl+k"], "command": "git_commit" },
     { "keys": ["ctrl+alt+k"], "command": "git_commit_amend" },
