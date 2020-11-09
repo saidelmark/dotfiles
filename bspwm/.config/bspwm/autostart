@@ -1,0 +1,23 @@
+#! /bin/sh
+
+# check if hotkey deamon is started,
+# if it is, then reload the settings,
+# if not, then start it
+if [ -n "$( pgrep sxhkd )" ]
+then
+  pkill -USR1 -x sxhkd
+else
+  sxhkd -m -1 &
+fi
+
+"$HOME"/.config/polybar/launch.sh
+
+picom -b --config ~/.config/picom/picom.conf
+# (re)start notification daemon
+killall dunst; dunst &
+# set a desktop wallpaper
+feh --randomize --bg-scale ~/Pictures/Wallpapers/
+
+skypeforlinux &
+telegram-desktop &
+

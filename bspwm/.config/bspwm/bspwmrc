@@ -3,7 +3,6 @@
 # First of all, I want monitor configuration set up
 if xrandr | grep -q 'HDMI2 connected'
   then
-    # export MONITOR
     xrandr --output HDMI2 --right-of eDP1 --primary
     bspc monitor HDMI2 -d 1 2 3 4 5 6 7 8
     bspc monitor eDP1 -d 9 10
@@ -13,26 +12,7 @@ if xrandr | grep -q 'HDMI2 connected'
 fi
 
 xsetroot -cursor_name left_ptr
-picom -b --config ~/.config/picom/picom.conf
-# (re)start notification daemon
-killall dunst; dunst &
-# set a desktop wallpaper
-feh --randomize --bg-scale ~/Pictures/Wallpapers/
-
 setxkbmap -option grp:caps_toggle -option grp_led:caps us,ru &
-
-# check if hotkey deamon is started,
-# if it is, then reload the settings,
-# if not, then start it
-if [ -n "$( pgrep sxhkd )" ]
-then
-  pkill -USR1 -x sxhkd
-else
-  sxhkd -m -1 &
-fi
-
-# Start polybar
-"$HOME"/.config/polybar/launch.sh
 
 bspc config border_width         1
 
@@ -54,10 +34,5 @@ bspc rule -a Screenkey manage=off
 bspc rule -a TelegramDesktop desktop='^9'
 bspc rule -a Skype desktop='^9'
 bspc rule -a Code desktop='^1'
-
-
-# launch some apps
-skypeforlinux &
-telegram-desktop &
 
 wmname compiz
