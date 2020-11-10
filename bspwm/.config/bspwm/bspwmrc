@@ -36,3 +36,4 @@ bspc rule -a Skype desktop='^9'
 bspc rule -a Code desktop='^1'
 
 wmname compiz
+sh ~/.config/bspwm/autostart
