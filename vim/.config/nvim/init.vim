@@ -10,6 +10,8 @@ call plug#begin()
   Plug 'tpope/vim-fugitive'
   " Git status markers
   Plug 'airblade/vim-gitgutter'
+  " Try out an enhanced file manager
+  Plug 'tpope/vim-vinegar'
   " adds commands for surrounding text objects
   Plug 'tpope/vim-surround'
   " adds pretty status line
