@@ -40,6 +40,8 @@ call plug#begin()
   Plug 'lyokha/vim-xkbswitch'
   " I like sublime's default colors
   Plug 'ErichDonGubler/vim-sublime-monokai'
+  " Highly experimental, Borland-like menus and windows
+  Plug 'skywind3000/vim-quickui'
 call plug#end()
 
 " ============
@@ -253,3 +255,4 @@ call plug#end()
   \   ],
   \ }
 
+source $HOME/.config/nvim/vim-quickui.vim
