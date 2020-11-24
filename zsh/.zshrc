@@ -1,4 +1,8 @@
 bindkey -v
+# Dot't show ".." in directories' completion
+zstyle ':completion:*' special-dirs false
+# Always complete hidden files
+setopt globdots
 
 # Import some aliases
 source ~/.zsh/alias.sh
