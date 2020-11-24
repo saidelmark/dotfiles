@@ -7,8 +7,11 @@ super + space
 	appsmenu
 	# rofi -show drun -scroll-method 1 -show-icons
 
-super + d; {s,n,b,e}
-	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh}
+super + d; {s,n,b,e,p}
+	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh,passmenu}
+
+Print
+	flameshot gui
 
 super + d; shift + s
 	scrotmenu --timeout
