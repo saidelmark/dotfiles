@@ -1,6 +1,6 @@
 # terminal emulator
 super + Return
-	alacritty
+	alacritty -e tmux
 
 # program launcher
 super + space
