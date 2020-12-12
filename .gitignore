@@ -1,5 +1,5 @@
-*.user-ca-bundle
-*.hidden-color-scheme
+sublime-merge
+sublime-text
 
 vim/.vim/plugged
 vim/.vim/autoload/plug.vim
