@@ -8,7 +8,6 @@ schemes:
     primary:
       background: '0x272822'
       foreground: '0xF8F8F2'
-    # Normal colors
     normal:
       black:   '0x272822'
       red:     '0xF92672'
@@ -18,7 +17,6 @@ schemes:
       magenta: '0xAE81FF'
       cyan:    '0xA1EFE4'
       white:   '0xF8F8F2'
-    # Bright colors
     bright:
       black:   '0x75715E'
       red:     '0xF92672'
@@ -42,11 +40,9 @@ schemes:
       bright_foreground: '#d9d9d9'
       dim_background:    '#202020' # not sure
       bright_background: '#3a3a3a' # not sure
-    # Cursor colors
     cursor:
       text:   '#2c2c2c'
       cursor: '#d9d9d9'
-    # Normal colors
     normal:
       black:   '#1c1c1c'
       red:     '#bc5653'
@@ -56,7 +52,6 @@ schemes:
       magenta: '#aa6292'
       cyan:    '#86d3ce'
       white:   '#cacaca'
-    # Bright colors
     bright:
       black:   '#636363'
       red:     '#bc5653'
@@ -66,7 +61,6 @@ schemes:
       magenta: '#aa6292'
       cyan:    '#86d3ce'
       white:   '#f7f7f7'
-    # Dim colors
     dim:
       black:   '#232323'
       red:     '#74423f'
@@ -77,15 +71,12 @@ schemes:
       cyan:    '#5c8482'
       white:   '#828282'
   argonaut: &argonaut
-    # Default colors
     primary:
       background: '#292C3E'
       foreground: '#EBEBEB'
-    # Cursor colors
     cursor:
       text:   '#2c2c2c'
       cursor: '#d9d9d9'
-    # Normal colors
     normal:
       black:   '#0d0d0d'
       red:     '#FF301B'
@@ -95,7 +86,6 @@ schemes:
       magenta: '#8763B8'
       cyan:    '#21DEEF'
       white:   '#EBEBEB'
-    # Bright colors
     bright:
       black:   '#6D7070'
       red:     '#FF4352'
@@ -106,11 +96,9 @@ schemes:
       cyan:    '#73FBF1'
       white:   '#FEFEF8'
   ayu_dark: &ayu_dark
-    # Default colors
     primary:
       background: '#0A0E14'
       foreground: '#B3B1AD'
-    # Normal colors
     normal:
       black: '#01060E'
       red: '#EA6C73'
@@ -120,7 +108,6 @@ schemes:
       magenta: '#FAE994'
       cyan: '#90E1C6'
       white: '#C7C7C7'
-    # Bright colors
     bright:
       black: '#686868'
       red: '#F07178'
