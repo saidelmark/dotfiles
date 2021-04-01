@@ -42,6 +42,11 @@ call plug#begin()
   Plug 'ErichDonGubler/vim-sublime-monokai'
   " Highly experimental, Borland-like menus and windows
   Plug 'skywind3000/vim-quickui'
+  " Tmux-specific plugins
+  " Allows syntax for tmux config and live config application
+  Plug 'tmux-plugins/vim-tmux'
+  " Fixes FocusGained and FocusLost autocommand events while inside tmux
+  Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 
 " ============
@@ -204,6 +209,11 @@ call plug#end()
       \ setlocal expandtab |
       \ setlocal autoindent |
       \ setlocal fileformat=unix
+  augroup END
+
+  augroup refresh_buffers
+    autocmd!
+    autocmd FocusGained,BufEnter * :checktime
   augroup END
 
 " ===========
