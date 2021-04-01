@@ -2,6 +2,12 @@
 // and are overridden in turn by syntax-specific settings.
 {
 	"font_face": "JetBrains Mono",
-	"font_size": 15,
-	"hide_menu": true
+	"font_size": 16,
+	"hide_menu": true,
+	"always_show_command_status": true,
+	"hardware_acceleration": "opengl",
+	"ignore_diff_white_space": false,
+	"render_commit_dialog_message_at_top": true,
+	"time_format": "24h",
+	"side_bar_layout": "columns",
 }
