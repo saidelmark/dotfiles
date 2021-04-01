@@ -42,6 +42,10 @@ call plug#begin()
   Plug 'ErichDonGubler/vim-sublime-monokai'
   " Highly experimental, Borland-like menus and windows
   Plug 'skywind3000/vim-quickui'
+  " Fuzzy finding files, buffers, some other nice things
+  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf.vim'
+
   " Tmux-specific plugins
   " Allows syntax for tmux config and live config application
   Plug 'tmux-plugins/vim-tmux'
