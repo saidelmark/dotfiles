@@ -41,7 +41,7 @@ call plug#begin()
   " I like sublime's default colors
   Plug 'ErichDonGubler/vim-sublime-monokai'
   " Highly experimental, Borland-like menus and windows
-  Plug 'skywind3000/vim-quickui'
+  " Plug 'skywind3000/vim-quickui'
   " Fuzzy finding files, buffers, some other nice things
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
@@ -279,4 +279,3 @@ call plug#end()
   \   ],
   \ }
 
-source $HOME/.config/nvim/vim-quickui.vim
