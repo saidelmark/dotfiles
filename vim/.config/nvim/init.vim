@@ -82,7 +82,7 @@ call plug#end()
       set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
     endif
     set foldmethod=indent               " not as cool as syntax, but faster
-    set foldlevelstart=1                " start unfolded
+    set foldlevelstart=0                " start folded
     set foldtext=saidelman#settings#foldtext()
   endif
 
