@@ -10,6 +10,7 @@ call plug#begin()
   Plug 'tpope/vim-unimpaired'
   " Git wrapper and helper
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
   " Git status markers
   Plug 'airblade/vim-gitgutter'
   " Try out an enhanced file manager
