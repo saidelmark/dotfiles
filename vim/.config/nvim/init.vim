@@ -6,6 +6,8 @@
 call plug#begin()
   " Sane defaults, just to clean this file up a bit
   Plug 'tpope/vim-sensible'
+  " Shortcuts for some commands, usually going in pairs (like next/prev)
+  Plug 'tpope/vim-unimpaired'
   " Git wrapper and helper
   Plug 'tpope/vim-fugitive'
   " Git status markers
@@ -14,14 +16,14 @@ call plug#begin()
   Plug 'tpope/vim-vinegar'
   " adds commands for surrounding text objects
   Plug 'tpope/vim-surround'
+  " Have more changes repeateable
+  Plug 'tpope/vim-repeat'
   " adds pretty status line
   Plug 'vim-airline/vim-airline'
   " adds new text object: arguement
   Plug 'vim-scripts/argtextobj.vim'
   " Adds new text object: indentation
   Plug 'michaeljsmith/vim-indent-object'
-  " Have more changes repeateable
-  Plug 'tpope/vim-repeat'
   " Linting engine
   Plug 'dense-analysis/ale'
   " LSP support (check for conflicts with ALE
@@ -34,8 +36,6 @@ call plug#begin()
   Plug 'kovetskiy/sxhkd-vim'
   " Haskell syntax highlighting
   Plug 'neovimhaskell/haskell-vim'
-  " Shortcuts for some commands, usually going in pairs (like next/prev)
-  Plug 'tpope/vim-unimpaired'
   " Automatically switch layout in insert mode
   Plug 'lyokha/vim-xkbswitch'
   " I like sublime's default colors
