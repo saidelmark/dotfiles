@@ -113,11 +113,7 @@ call plug#end()
   set tabstop=8
 
   " visible tabs and trailing spaces
-  " set list
-
-  " " Enable folding
-  " set foldmethod=indent
-  " set foldlevel=99
+  set list
 
   " This option shows the command on the bottom of the screen
   set showcmd
