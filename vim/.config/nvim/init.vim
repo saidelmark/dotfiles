@@ -42,6 +42,13 @@ call plug#begin()
   Plug 'ErichDonGubler/vim-sublime-monokai'
   " Highly experimental, Borland-like menus and windows
   " Plug 'skywind3000/vim-quickui'
+  " Try more sane syntax for dockerfiles
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'chr4/nginx.vim'
+  Plug 'towolf/vim-helm'
+  Plug 'hashivim/vim-terraform'
+  Plug 'cespare/vim-toml'
+
   " Fuzzy finding files, buffers, some other nice things
   Plug 'junegunn/fzf'
   Plug 'junegunn/fzf.vim'
