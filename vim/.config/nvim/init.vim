@@ -139,7 +139,7 @@ call plug#end()
   " autosources vimrc after every :w
   augroup myvimrc
     autocmd!
-    autocmd BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
+    autocmd BufWritePost init.vim,.vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
       \ so $MYVIMRC |
       \ if has('gui_running') |
         \ so $MYGVIMRC |
