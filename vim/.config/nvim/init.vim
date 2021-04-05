@@ -139,19 +139,6 @@ call plug#end()
   augroup END
 
 " ===========
-" C specific
-" ===========
-
-  augroup filetype_c
-    autocmd!
-    " For C I'm trying to follow Linux Kernel's style
-    autocmd filetype c
-      \ setlocal noexpandtab |
-      \ setlocal tabstop=8 |
-      \ setlocal shiftwidth=8
-  augroup END
-
-" ===========
 " Key bindings
 " ===========
 
@@ -166,25 +153,6 @@ call plug#end()
 
   nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-  noremap <up> <nop>
-  noremap <down> <nop>
-  noremap <left> <nop>
-  noremap <right> <nop>
-
-  noremap <pageup> <nop>
-  noremap <pagedown> <nop>
-  noremap <end> <nop>
-  noremap <home> <nop>
-
-  inoremap <up> <nop>
-  inoremap <down> <nop>
-  inoremap <left> <nop>
-  inoremap <right> <nop>
-
-  inoremap <pageup> <nop>
-  inoremap <pagedown> <nop>
-  inoremap <end> <nop>
-  inoremap <home> <nop>
 
 " ===========
 " Auto commands
