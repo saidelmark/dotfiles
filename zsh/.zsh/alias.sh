@@ -20,3 +20,8 @@ wttr() {
 alias ghc='stack exec ghc -- '
 alias ghci='stack exec ghci -- '
 alias runhaskell='stack exec runhaskell -- '
+fay() {
+  # fuzzy search through arch repos and install selected
+  # https://wiki.archlinux.org/index.php/Fzf#Arch_specific_fzf_uses
+  yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S
+}
