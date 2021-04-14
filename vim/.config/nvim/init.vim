@@ -155,6 +155,8 @@ call plug#end()
   vnoremap : ;
   vnoremap ; :
 
+  nnoremap <F2> :w<CR>
+
   nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 
