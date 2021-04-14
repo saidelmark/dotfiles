@@ -7,8 +7,11 @@ setopt globdots
 # Import some aliases
 source ~/.zsh/alias.sh
 
-export PATH="$PATH:$HOME/.cabal/bin"
+source ~/.zsh/alias.sh
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --inline-info --ansi'
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
