@@ -7,7 +7,6 @@ setopt globdots
 # Import some aliases
 source ~/.zsh/alias.sh
 
-source ~/.zsh/alias.sh
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --inline-info --ansi'
 
 source /usr/share/fzf/key-bindings.zsh
