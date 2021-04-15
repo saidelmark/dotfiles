@@ -61,6 +61,9 @@ call plug#begin()
   Plug 'tmux-plugins/vim-tmux'
   " Fixes FocusGained and FocusLost autocommand events while inside tmux
   Plug 'tmux-plugins/vim-tmux-focus-events'
+
+  " Nix language filetype
+  Plug 'LnL7/vim-nix'
 call plug#end()
 
 " ============
