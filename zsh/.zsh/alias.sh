@@ -25,3 +25,8 @@ fay() {
   # https://wiki.archlinux.org/index.php/Fzf#Arch_specific_fzf_uses
   yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S
 }
+
+fayR() {
+  # fuzzy search through arch repos and uninstall selected
+  pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
+}
