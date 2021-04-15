@@ -11,6 +11,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --inline-info --ansi'
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+eval "$(direnv hook zsh)"
 
 source ~/.nix-profile/share/zsh/plugins/nix/init.zsh
 fpath=(~/.nix-profile/share/zsh/site-functions $fpath)
