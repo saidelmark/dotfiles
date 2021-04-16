@@ -15,8 +15,7 @@ fi
 picom -b --config ~/.config/picom/picom.conf
 # (re)start notification daemon
 killall dunst; dunst &
-# set a desktop wallpaper
-feh --randomize --bg-scale ~/Pictures/Wallpapers/
+feh --bg-scale ~/Pictures/Wallpaper/wall.jpg
 
 skypeforlinux &
 telegram-desktop &
