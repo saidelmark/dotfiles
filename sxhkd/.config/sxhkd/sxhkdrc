@@ -8,7 +8,7 @@ super + space
 	# rofi -show drun -scroll-method 1 -show-icons
 
 super + d; {s,n,b,e,p}
-	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh,passmenu}
+	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh,passmenu-otp}
 
 Print
 	flameshot gui
