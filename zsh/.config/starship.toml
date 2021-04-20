@@ -1,0 +1,36 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+# truncation_length = 10
+disabled = true
+
+[git_status]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+# Exit code of previous command
+[status]
+disabled = false
+# Don't show symbols, just exit code
+symbol = ""
+
+[directory]
+fish_style_pwd_dir_length = 1
