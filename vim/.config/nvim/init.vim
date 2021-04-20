@@ -13,6 +13,8 @@ call plug#begin()
   Plug 'tpope/vim-rhubarb'
   " Git status markers
   Plug 'airblade/vim-gitgutter'
+  " Popup with commit message for current line
+  Plug 'rhysd/git-messenger.vim'
   " Try out an enhanced file manager
   Plug 'tpope/vim-vinegar'
   " adds commands for surrounding text objects
@@ -254,3 +256,13 @@ call plug#end()
   \ }
 
 let g:ale_disable_lsp = 1
+
+" Normal color in popup window with 'CursorLine'
+hi link gitmessengerPopupNormal CursorLine
+" Header such as 'Commit:', 'Author:' with 'Statement' highlight group
+hi link gitmessengerHeader Statement
+" Commit hash at 'Commit:' header with 'Special' highlight group
+hi link gitmessengerHash Special
+" History number at 'History:' header with 'Title' highlight group
+hi link gitmessengerHistory Title
+let g:git_messenger_always_into_popup = v:true
