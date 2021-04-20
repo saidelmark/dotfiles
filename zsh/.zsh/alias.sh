@@ -26,7 +26,7 @@ fay() {
   yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S
 }
 
-fayR() {
+fayr() {
   # fuzzy search through arch repos and uninstall selected
   pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
