@@ -1,2 +1,6 @@
 *.user-ca-bundle
 *.hidden-color-scheme
+
+vim/.vim/plugged
+vim/.vim/autoload/plug.vim
+

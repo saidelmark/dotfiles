@@ -1,4 +1,5 @@
 alias _='sudo'
+alias vim='nvim'
 
 alias la='exa -laF --icons --group-directories-first --time-style long-iso'
 alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore'
