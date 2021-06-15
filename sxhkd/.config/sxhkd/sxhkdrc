@@ -104,6 +104,10 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
+# move node to the next/previous desktop in the current monitor
+super + shift + bracket{left,right}
+	bspc node focused --to-desktop {prev,next}.local --follow
+
 XF86{Back,Forward}
 	bspc desktop -f {prev,next}.local
 
