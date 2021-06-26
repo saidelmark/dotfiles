@@ -12,6 +12,7 @@
         fzf
         htop
         jq
+        nix-tree
         mc
         pandoc
         shellcheck
