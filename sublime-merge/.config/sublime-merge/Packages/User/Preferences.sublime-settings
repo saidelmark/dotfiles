@@ -10,4 +10,5 @@
 	"render_commit_dialog_message_at_top": true,
 	"time_format": "24h",
 	"side_bar_layout": "columns",
+	"expand_merge_commits_by_default": false,
 }
