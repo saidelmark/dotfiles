@@ -10,6 +10,7 @@
         direnv
         exa
         fzf
+        gdu
         htop
         jq
         nix-tree
