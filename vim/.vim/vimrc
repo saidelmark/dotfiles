@@ -166,6 +166,7 @@ call plug#end()
 
   nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
+  nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
 
 " ===========
 " Auto commands
