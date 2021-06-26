@@ -21,12 +21,14 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   " Have more changes repeateable
   Plug 'tpope/vim-repeat'
+  " Change snace_case to MixedCase in one simple command
+  Plug 'tpope/vim-abolish'
   " adds pretty status line
   Plug 'vim-airline/vim-airline'
-  " adds new text object: arguement
-  Plug 'vim-scripts/argtextobj.vim'
   " Adds new text object: indentation
   Plug 'michaeljsmith/vim-indent-object'
+  " Add intentation-based movements
+  Plug 'jeetsukumaran/vim-indentwise'
   " Linting engine
   Plug 'dense-analysis/ale'
   " LSP support (check for conflicts with ALE
