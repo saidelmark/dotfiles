@@ -31,6 +31,7 @@
       paths = [
         dive
         k9s
+        minikube
         lazydocker
         terraform-ls
         argocd
