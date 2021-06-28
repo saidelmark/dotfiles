@@ -13,7 +13,9 @@ fi
 "$HOME"/.config/polybar/launch.sh
 
 picom -b --config ~/.config/picom/picom.conf
-# (re)start notification daemon
+
+# killall alttab; alttab -mk Super_L -kk grave -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64 &
+
 killall dunst; dunst &
 feh --bg-scale ~/Pictures/Wallpaper/wall.jpg
 

@@ -41,11 +41,11 @@ super + m
 	bspc desktop -l next
 
 # Increase/decrease gaps
-super + KP_{Add,Subtract}
+super + F{11,12}
 	bspc config window_gap $((`bspc config window_gap` {+,-} 5))
 
 #Set default gaps without restarting the WM
-super + KP_{0,Insert}
+super + F10
 	bspc config window_gap 10
 
 # send the newest marked node to the newest preselected node
@@ -104,12 +104,16 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
+# move node to the next/previous desktop in the current monitor
+super + shift + bracket{left,right}
+	bspc node focused --to-desktop {prev,next}.local --follow
+
 XF86{Back,Forward}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last.local
+# focus the last desktop
+super + Tab
+	bspc desktop -f last.local
 
 # # TODO: find if I need it
 # # focus the older or newer node in the focus history
@@ -178,9 +182,7 @@ super + {Left,Down,Up,Right}
 # audio
 #
 
-# Volume up/down with multimedia keys and with keypad +/-
-super + KP_{Add,Subtract}
-	volume.sh {up,down}
+# Volume up/down with multimedia keys
 XF86Audio{Raise,Lower}Volume
 	volume.sh {up,down}
 
@@ -192,7 +194,7 @@ XF86AudioMute
 XF86AudioMicMute
 	volume.sh mute-input
 
-super + KP_Multiply
+super + F5
 	volume.sh mute-input
 
 XF86AudioPlay

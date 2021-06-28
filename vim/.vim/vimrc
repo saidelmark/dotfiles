@@ -1,8 +1,4 @@
-" ============
-" PLUGINS CONFIGURATION
-" ============
-
-" list of plugins
+" {{{ Plugins
 call plug#begin()
   " Sane defaults, just to clean this file up a bit
   Plug 'tpope/vim-sensible'
@@ -21,12 +17,14 @@ call plug#begin()
   Plug 'tpope/vim-surround'
   " Have more changes repeateable
   Plug 'tpope/vim-repeat'
+  " Change snace_case to MixedCase in one simple command
+  Plug 'tpope/vim-abolish'
   " adds pretty status line
   Plug 'vim-airline/vim-airline'
-  " adds new text object: arguement
-  Plug 'vim-scripts/argtextobj.vim'
   " Adds new text object: indentation
   Plug 'michaeljsmith/vim-indent-object'
+  " Add intentation-based movements
+  Plug 'jeetsukumaran/vim-indentwise'
   " Linting engine
   Plug 'dense-analysis/ale'
   " LSP support (check for conflicts with ALE
@@ -61,32 +59,41 @@ call plug#begin()
   Plug 'tmux-plugins/vim-tmux'
   " Fixes FocusGained and FocusLost autocommand events while inside tmux
   Plug 'tmux-plugins/vim-tmux-focus-events'
-call plug#end()
 
-" ============
-" BASE CONFIGURATION
-" ============
+  " Nix language filetype
+  Plug 'LnL7/vim-nix'
+call plug#end() "}}}
 
-  " Use TrueColor option
-  " TODO: enable it only in terminals that support it, otherwise use t_Co=256
-  if exists('+termguicolors')
-    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
-    colorscheme sublimemonokai
-    let g:sublimemonokai_term_italic = 1
-    set t_ut=
+" {{{ Colors
+" Use TrueColor option
+" TODO: enable it only in terminals that support it, otherwise use t_Co=256
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+  colorscheme sublimemonokai
+  let g:sublimemonokai_term_italic = 1
+  set t_ut=
+endif " }}}
+
+" {{{ Folds
+if has('folding')
+  if has('windows')
+    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+    set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
   endif
-
-  if has('folding')
-    if has('windows')
-      set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-      set fillchars+=fold:·             " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
-    endif
-    set foldmethod=indent               " not as cool as syntax, but faster
-    set foldlevelstart=0                " start folded
-    set foldtext=saidelman#settings#foldtext()
-  endif
+  set foldmethod=indent               " not as cool as syntax, but faster
+  set foldlevelstart=0                " start folded
+  set foldtext=saidelman#settings#foldtext()
+  augroup vim_folding
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+  augroup END
+  augroup git_folding
+    autocmd!
+    autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
+  augroup END
+endif " }}}
 
   " How often vim refreshes the buffer
   set updatetime=100
@@ -141,36 +148,39 @@ call plug#end()
       \ so $MYVIMRC |
       \ if has('gui_running') |
         \ so $MYGVIMRC |
-      \ endif
+      \ endif |
+      \ set ft=vim
   augroup END
 
-" ===========
-" Key bindings
-" ===========
+" {{{ Key bindings
+nnoremap <Space> <Nop>
+let mapleader = " "
+" "=" is used for formatting. I should reconsider local leader key.
+" let maplocalleader = "="
 
-  let mapleader = "\\"
-  let maplocalleader = "="
+" I'm too lazy to hit shift all the time
+nnoremap : ;
+nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 
-  " I'm too lazy to hit shift all the time
-  nnoremap : ;
-  nnoremap ; :
-  vnoremap : ;
-  vnoremap ; :
+" Old habit from Far Manager editor
+nnoremap <F2> :w<CR>
 
-  nnoremap <F2> :w<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-  nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-
+" Open git status in a nerrow buffer in the right half of the window
+nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
+" }}}
 
 " ===========
 " Auto commands
 " ===========
 
-  " Some buffers have to be checked unconditionally
+  " Some buffers have to be spell checked unconditionally
   augroup spelling
     autocmd!
-    autocmd FileType markdown setlocal spell
-    autocmd FileType gitcommit setlocal spell
+    autocmd FileType markdown,gitcommit,text setlocal spell
   augroup END
 
   augroup markdown_defaults
@@ -196,67 +206,56 @@ call plug#end()
     autocmd FocusGained,BufEnter * :checktime
   augroup END
 
-" ===========
-" Language
-" ===========
+" {{{ Keyboard layouts
+" This section doesn't really work as described, should tweak it
 
-  " This section doesn't really work as described, should tweak it
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
 
-  set keymap=russian-jcukenwin
-  set iminsert=0
-  set imsearch=0
-  " TODO: this line doesn't work, find solution
-  " highlight lCursor guifg=NONE guibg=Cyan
+let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
+let g:XkbSwitchEnabled = 1
+let g:XkbSwitchIMappings = ['ru']
+let g:XkbSwitchNLayout = 'us'
 
-  let g:XkbSwitchLib = '/usr/lib/libxkbswitch.so'
-  let g:XkbSwitchEnabled = 1
-  let g:XkbSwitchIMappings = ['ru']
-  let g:XkbSwitchNLayout = 'us'
+let g:XkbSwitchKeymapNames = {'ru' : 'russian-jcukenwin'}
+let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
+let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
-  let g:XkbSwitchKeymapNames = {'ru' : 'russian-jcukenwin'}
-  let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
-  let g:XkbSwitchAssistSKeymap = 1    " for search lines
-
-  set spelllang=en_us,ru_yo
+set spelllang=en_us,ru_yo " }}}
 
   let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
 
-" ============
-" AIRLINE CONFIGURATION
-" ============
+" {{{ Airline
+" Only show tabline if there are tabs
+let g:airline#extensions#tabline#tab_min_count = 2
+" This enables airline style for tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+" Don't ever show buffer list as if they are tabs
+let g:airline#extensions#tabline#show_buffers = 0
+" enables better fonts, nicer symbols, etc
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" Don't show keymap segment, xkb-switch is enough
+let g:airline#extensions#keymap#enabled = 0
+" Git information takes too much space and gives too little
+let g:airline_section_b = ""
+let g:airline_skip_empty_sections = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+" let g:airline#parts#ffenc#skip_expected_string='[unix]' }}}
 
-  " Only show tabline if there are tabs
-  let g:airline#extensions#tabline#tab_min_count = 2
 
-  " This enables airline style for tabline
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#show_tabs = 1
-  " Don't ever show buffer list as if they are tabs
-  let g:airline#extensions#tabline#show_buffers = 0
-  " enables better fonts, nicer symbols, etc
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-  " Don't show keymap segment, xkb-switch is enough
-  let g:airline#extensions#keymap#enabled = 0
-
-  let g:airline_skip_empty_sections = 1
-  let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-  " let g:airline#parts#ffenc#skip_expected_string='[unix]'
-
-" ============
-" ALE
-" ============
-
-  let g:ale_fixers = {
-  \    'haskell': [
-  \     'brittany',
-  \     'hlint'
-  \   ],
-  \ }
-
+" {{{ ALE
 let g:ale_disable_lsp = 1
 
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\    'terraform': ['terraform'],
+\    'haskell': ['britanny', 'hlint'],
+\ }
+" }}}
+" {{{ Git messenger
 " Normal color in popup window with 'CursorLine'
 hi link gitmessengerPopupNormal CursorLine
 " Header such as 'Commit:', 'Author:' with 'Statement' highlight group
@@ -266,3 +265,4 @@ hi link gitmessengerHash Special
 " History number at 'History:' header with 'Title' highlight group
 hi link gitmessengerHistory Title
 let g:git_messenger_always_into_popup = v:true
+" }}}
