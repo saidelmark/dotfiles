@@ -1,8 +1,8 @@
 alias _='sudo'
 alias vim='nvim'
 
-alias la='exa -laF --icons --group-directories-first --time-style long-iso'
-alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore'
+alias la='exa -laF --icons --group-directories-first --time-style long-iso --grid'
+alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore --grid'
 
 cheat() {
     # https://github.com/chubin/cheat.sh
