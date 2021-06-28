@@ -227,29 +227,24 @@ set spelllang=en_us,ru_yo " }}}
 
   let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
 
-" ============
-" AIRLINE CONFIGURATION
-" ============
-
-  " Only show tabline if there are tabs
-  let g:airline#extensions#tabline#tab_min_count = 2
-
-  " This enables airline style for tabline
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#show_tabs = 1
-  " Don't ever show buffer list as if they are tabs
-  let g:airline#extensions#tabline#show_buffers = 0
-  " enables better fonts, nicer symbols, etc
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-  " Don't show keymap segment, xkb-switch is enough
-  let g:airline#extensions#keymap#enabled = 0
-
-  let g:airline_skip_empty_sections = 1
-  let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-  " let g:airline#parts#ffenc#skip_expected_string='[unix]'
-
+" {{{ Airline
+" Only show tabline if there are tabs
+let g:airline#extensions#tabline#tab_min_count = 2
+" This enables airline style for tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+" Don't ever show buffer list as if they are tabs
+let g:airline#extensions#tabline#show_buffers = 0
+" enables better fonts, nicer symbols, etc
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" Don't show keymap segment, xkb-switch is enough
+let g:airline#extensions#keymap#enabled = 0
+" Git information takes too much space and gives too little
+let g:airline_section_b = ""
+let g:airline_skip_empty_sections = 1
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+" let g:airline#parts#ffenc#skip_expected_string='[unix]' }}}
 
 
 " {{{ ALE
