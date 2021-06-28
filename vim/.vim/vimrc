@@ -153,8 +153,8 @@ call plug#end()
 " Key bindings
 " ===========
 
-  let mapleader = "\\"
-  let maplocalleader = "="
+  nnoremap <Space> <Nop>
+  let mapleader = " "
 
   " I'm too lazy to hit shift all the time
   nnoremap : ;
