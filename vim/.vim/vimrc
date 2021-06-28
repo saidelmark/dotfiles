@@ -254,19 +254,17 @@ call plug#end() "}}}
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
   " let g:airline#parts#ffenc#skip_expected_string='[unix]'
 
-" ============
-" ALE
-" ============
 
-  let g:ale_fixers = {
-  \    'haskell': [
-  \     'brittany',
-  \     'hlint'
-  \   ],
-  \ }
 
+" {{{ ALE
 let g:ale_disable_lsp = 1
 
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\    'terraform': ['terraform'],
+\    'haskell': ['britanny', 'hlint'],
+\ }
+" }}}
 " {{{ Git messenger
 " Normal color in popup window with 'CursorLine'
 hi link gitmessengerPopupNormal CursorLine
