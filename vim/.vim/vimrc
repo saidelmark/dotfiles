@@ -180,7 +180,7 @@ nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
   " Some buffers have to be spell checked unconditionally
   augroup spelling
     autocmd!
-    autocmd FileType markdown,gitcommit,text setlocal spell
+    autocmd FileType markdown,gitcommit,plaintext,text setlocal spell
   augroup END
 
   augroup markdown_defaults
