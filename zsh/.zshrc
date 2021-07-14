@@ -1,6 +1,12 @@
 # Dot't show ".." in directories' completion
 zstyle ':completion:*' special-dirs false
 zstyle ':completion:*:descriptions' format '[%d]'
+
+# Use ^x^x to open default editor with current command in the buffer
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^x' edit-command-line
+
 # Always complete hidden files
 setopt globdots
 source ~/.nix-profile/share/zsh/plugins/nix/init.zsh
