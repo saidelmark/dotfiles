@@ -18,6 +18,8 @@
         pandoc
         shellcheck
         shfmt
+        skim
+        tmux
         yq-go
         zsh-autosuggestions
         zsh-completions
@@ -30,7 +32,11 @@
     saidelman-devops = pkgs.buildEnv {
       name = "saidelman-devops";
       paths = [
+        awscli
+        eksctl
+        kubectl
         dive
+        docker-credential-helpers
         k9s
         minikube
         lazydocker
