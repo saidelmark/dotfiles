@@ -246,7 +246,9 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " let g:airline#parts#ffenc#skip_expected_string='[unix]' }}}
 
 
-" {{{ ALE
+" {{{ LSP, formatting, etc.
+" ctrl+space trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
 let g:ale_disable_lsp = 1
 
 let g:ale_fixers = {
