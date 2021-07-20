@@ -1,4 +1,16 @@
-{
+{ pkgs }:
+
+let
+  mypolybar = pkgs.polybar.override {
+    alsaSupport   = true;
+    githubSupport = false;
+    mpdSupport    = false;
+    pulseSupport  = true;
+    i3Support     = true;  # it's bspwm also
+    i3GapsSupport = false;
+  };
+
+in {
   packageOverrides = pkgs: with pkgs; {
     saidelman-common = pkgs.buildEnv {
       name = "saidelman-common";
@@ -15,6 +27,7 @@
         jq
         nix-tree
         mc
+        mypolybar
         pandoc
         shellcheck
         shfmt
