@@ -121,6 +121,8 @@ endif " }}}
   set shiftwidth=2
   set tabstop=8
 
+  set ignorecase smartcase
+
   " visible tabs and trailing spaces
   set list
 
