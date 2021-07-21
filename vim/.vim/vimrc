@@ -256,7 +256,7 @@ let g:ale_disable_lsp = 1
 let g:ale_fixers = {
 \    '*': ['remove_trailing_lines', 'trim_whitespace'],
 \    'terraform': ['terraform'],
-\    'haskell': ['britanny', 'hlint'],
+\    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
 " }}}
 " {{{ Git messenger
