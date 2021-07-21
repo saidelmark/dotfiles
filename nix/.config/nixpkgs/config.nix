@@ -37,9 +37,12 @@
         kubectl
         dive
         docker-credential-helpers
+        kubectl-doctor
         k9s
         minikube
+        kubernetes-helm
         lazydocker
+        terraform-landscape
         terraform-ls
         argocd
       ];
