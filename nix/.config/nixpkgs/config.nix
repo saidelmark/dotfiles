@@ -16,8 +16,10 @@
         nix-tree
         mc
         pandoc
+        ripgrep
         shellcheck
         shfmt
+        silver-searcher
         skim
         tmux
         yq-go
