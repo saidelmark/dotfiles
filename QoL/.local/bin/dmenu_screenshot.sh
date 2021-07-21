@@ -12,13 +12,11 @@ window=""
 # Variable passed to rofi
 options="$screen\n$area\n$window"
 
-filePattern='%Y-%m-%d_%H-%M-%S_$wx$h.png'
-destination="$HOME/Pictures/screenshots"
-postCommand='mv $f'
+filePattern="%Y-%m-%d_%H-%M-%S_\$wx\$h.png"
+destination="$HOME/Pictures/Screenshots"
+postCommand="mv \$f"
 
 timeout=0
-
-timeoutOptions=("3\n5\n10")
 
 choice="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
 
@@ -44,5 +42,5 @@ case "$choice" in
 esac
 
 # Put the image to clipboard so I don't have to do it manually
-fileName=$(ls -t "$destination" | head -n 1)
+fileName=$(find "$destination")
 xclip -selection clipboard -t image/png -i "$destination/$fileName"
