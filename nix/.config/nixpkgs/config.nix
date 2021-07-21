@@ -32,18 +32,23 @@
     saidelman-devops = pkgs.buildEnv {
       name = "saidelman-devops";
       paths = [
+        # aws
         awscli
         eksctl
+        # kubernetes
         kubectl
-        dive
-        docker-credential-helpers
         kubectl-doctor
         k9s
         minikube
         kubernetes-helm
+        # docker
+        dive
+        docker-credential-helpers
         lazydocker
+        # terraform
         terraform-landscape
         terraform-ls
+        # misc
         argocd
       ];
       extraOutputsToInstall = [ "man" "doc" ];
