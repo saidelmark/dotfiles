@@ -31,3 +31,30 @@ fayr() {
   # fuzzy search through arch repos and uninstall selected
   pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
+
+if [ -n "$(which docker)" ]; then
+# Delete images
+drmi() {
+  docker images \
+    | sed 1d \
+    | fzf -q "$1" -m \
+    | awk '{ print $3 }' \
+    | xargs -r docker rmi
+}
+# Clean up containers
+drm() {
+  docker ps -a \
+    | sed 1d \
+    | fzf -q "$1" -m \
+    | awk '{ print $1 }' \
+    | xargs -r docker rm
+}
+# Stop containers
+dst() {
+  docker ps --format="table {{.Names}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Labels}}" \
+    | sed 1d \
+    | fzf -q "$1" -m \
+    | awk '{ print $1 }' \
+    | xargs -r docker stop
+}
+fi
