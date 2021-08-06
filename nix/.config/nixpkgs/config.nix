@@ -18,7 +18,6 @@
         pandoc
         ripgrep
         shellcheck
-        shfmt
         silver-searcher
         skim
         tmux
