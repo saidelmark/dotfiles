@@ -1,4 +1,4 @@
-" {{{ Plugins
+" {{{1 Plugins
 call plug#begin()
   " Sane defaults, just to clean this file up a bit
   Plug 'tpope/vim-sensible'
@@ -62,9 +62,9 @@ call plug#begin()
 
   " Nix language filetype
   Plug 'LnL7/vim-nix'
-call plug#end() "}}}
+call plug#end()
 
-" {{{ Colors
+" {{{1 Colors
 " Use TrueColor option
 " TODO: enable it only in terminals that support it, otherwise use t_Co=256
 if exists('+termguicolors')
@@ -74,9 +74,9 @@ if exists('+termguicolors')
   colorscheme sublimemonokai
   let g:sublimemonokai_term_italic = 1
   set t_ut=
-endif " }}}
+endif
 
-" {{{ Folds
+" {{{1 Folds
 if has('folding')
   if has('windows')
     set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
@@ -248,7 +248,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " let g:airline#parts#ffenc#skip_expected_string='[unix]' }}}
 
 
-" {{{ LSP, formatting, etc.
+" {{{1 LSP, formatting, etc.
 " ctrl+space trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 let g:ale_disable_lsp = 1
@@ -258,8 +258,7 @@ let g:ale_fixers = {
 \    'terraform': ['terraform'],
 \    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
-" }}}
-" {{{ Git messenger
+" {{{1 Git messenger
 " Normal color in popup window with 'CursorLine'
 hi link gitmessengerPopupNormal CursorLine
 " Header such as 'Commit:', 'Author:' with 'Statement' highlight group
@@ -269,4 +268,3 @@ hi link gitmessengerHash Special
 " History number at 'History:' header with 'Title' highlight group
 hi link gitmessengerHistory Title
 let g:git_messenger_always_into_popup = v:true
-" }}}
