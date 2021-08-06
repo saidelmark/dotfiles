@@ -19,6 +19,8 @@ call plug#begin()
   Plug 'tpope/vim-repeat'
   " Change snace_case to MixedCase in one simple command
   Plug 'tpope/vim-abolish'
+  " Interactive visual representation of vim's undo tree
+  Plug 'mbbill/undotree'
   " adds pretty status line
   Plug 'vim-airline/vim-airline'
   " Adds new text object: indentation
@@ -268,3 +270,9 @@ hi link gitmessengerHash Special
 " History number at 'History:' header with 'Title' highlight group
 hi link gitmessengerHistory Title
 let g:git_messenger_always_into_popup = v:true
+
+" {{{1 UndoTree
+nnoremap <silent> <F7> :UndotreeToggle<CR>
+let g:undotree_WindowLayout = 2 " Tree on the left, diff below
+let g:undotree_HighlightChangedText = 0
+let g:undotree_SetFocusWhenToggle = 1
