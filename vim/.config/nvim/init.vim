@@ -64,6 +64,8 @@ call plug#begin()
 
   " Nix language filetype
   Plug 'LnL7/vim-nix'
+  " Popup window with the content of all registers
+  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 call plug#end()
 
 " {{{1 Colors
@@ -278,3 +280,7 @@ nnoremap <silent> <F7> :UndotreeToggle<CR>
 let g:undotree_WindowLayout = 2 " Tree on the left, diff below
 let g:undotree_HighlightChangedText = 0
 let g:undotree_SetFocusWhenToggle = 1
+
+" {{{1 Registers
+hi link RegistersWindow Comment
+let g:registers_window_border = "rounded"
