@@ -261,14 +261,16 @@ let g:ale_fixers = {
 \    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
 " {{{1 Git messenger
-" Normal color in popup window with 'CursorLine'
-hi link gitmessengerPopupNormal CursorLine
-" Header such as 'Commit:', 'Author:' with 'Statement' highlight group
+" {{{ Colors
+hi link gitmessengerPopupNormal Folded
 hi link gitmessengerHeader Statement
-" Commit hash at 'Commit:' header with 'Special' highlight group
 hi link gitmessengerHash Special
-" History number at 'History:' header with 'Title' highlight group
 hi link gitmessengerHistory Title
+" }}}
+let g:git_messenger_max_popup_height = 20
+let g:git_messenger_max_popup_width = 80
+let g:git_messenger_floating_win_opts = { 'border': 'rounded' }
+let g:git_messenger_popup_content_margins = v:false
 let g:git_messenger_always_into_popup = v:true
 
 " {{{1 UndoTree
