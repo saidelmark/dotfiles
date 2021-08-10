@@ -70,13 +70,15 @@ call plug#end()
 " Use TrueColor option
 " TODO: enable it only in terminals that support it, otherwise use t_Co=256
 if exists('+termguicolors')
-  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
   colorscheme sublimemonokai
   let g:sublimemonokai_term_italic = 1
+  let g:sublimemonokai_gui_italic = 1
   set t_ut=
 endif
+
+hi ErrorMsg gui=italic,standout
+hi link NormalFloat default
 
 " {{{1 Folds
 if has('folding')
@@ -103,10 +105,6 @@ endif " }}}
   " This will show lines numbers.
   " 'relativenumber' option shows offset from current line to every other one
   set number relativenumber
-  " Colors of line numbers
-  highlight LineNrAbove ctermfg=grey
-  highlight LineNrBelow ctermfg=grey
-  highlight LineNr ctermfg=brown
   set cursorline
 
   set scrolloff=5
@@ -262,7 +260,6 @@ let g:ale_fixers = {
 \ }
 " {{{1 Git messenger
 " {{{ Colors
-hi link gitmessengerPopupNormal Folded
 hi link gitmessengerHeader Statement
 hi link gitmessengerHash Special
 hi link gitmessengerHistory Title
@@ -280,5 +277,4 @@ let g:undotree_HighlightChangedText = 0
 let g:undotree_SetFocusWhenToggle = 1
 
 " {{{1 Registers
-hi link RegistersWindow Comment
 let g:registers_window_border = "rounded"
