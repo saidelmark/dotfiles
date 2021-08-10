@@ -110,10 +110,6 @@ endif " }}}
   set scrolloff=5
 
   " Enable mouse scrolling (not only, but it's the main feature for me).
-  " ttymouse is alacritty-specific, see https://github.com/alacritty/alacritty/issues/803 for details
-  if !has('nvim')
-    set ttymouse=sgr
-  endif
   set mouse=a
   " This option changes default `tab` behavior
   " tabs are replaces with spaces and are 2 symbols wide
