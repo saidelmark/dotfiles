@@ -179,28 +179,20 @@ nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
 " Auto commands
 " ===========
 
-  " Some buffers have to be spell checked unconditionally
-  augroup spelling
+  augroup prose
     autocmd!
-    autocmd FileType markdown,gitcommit,plaintext,text setlocal spell
+    autocmd FileType markdown,gitcommit,plaintext,text
+      \ setlocal spell linebreak
   augroup END
 
-  augroup markdown_defaults
+  augroup sublime_syntax
     autocmd!
-    " In markdown trailing spaces may be useful
-    autocmd FileType markdown setlocal nolist
+    autocmd BufRead,BufNewFile *.sublime-settings set filetype=json
   augroup END
 
-  augroup python_defaults
+  augroup go_syntax
     autocmd!
-    au BufRead,BufNewFile *.py
-      \ setlocal tabstop=4 |
-      \ setlocal softtabstop=4 |
-      \ setlocal shiftwidth=4 |
-      \ setlocal textwidth=79 |
-      \ setlocal expandtab |
-      \ setlocal autoindent |
-      \ setlocal fileformat=unix
+    autocmd FileType go set foldmethod=syntax
   augroup END
 
   augroup refresh_buffers
