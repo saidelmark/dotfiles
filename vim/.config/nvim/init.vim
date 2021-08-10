@@ -1,71 +1,71 @@
 " {{{1 Plugins
-call plug#begin()
-  " Sane defaults, just to clean this file up a bit
-  Plug 'tpope/vim-sensible'
-  " Shortcuts for some commands, usually going in pairs (like next/prev)
-  Plug 'tpope/vim-unimpaired'
-  " Git wrapper and helper
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rhubarb'
-  " Git status markers
-  Plug 'airblade/vim-gitgutter'
-  " Popup with commit message for current line
-  Plug 'rhysd/git-messenger.vim'
-  " Try out an enhanced file manager
-  Plug 'tpope/vim-vinegar'
-  " adds commands for surrounding text objects
-  Plug 'tpope/vim-surround'
-  " Have more changes repeateable
-  Plug 'tpope/vim-repeat'
-  " Change snace_case to MixedCase in one simple command
-  Plug 'tpope/vim-abolish'
-  " Interactive visual representation of vim's undo tree
-  Plug 'mbbill/undotree'
-  " adds pretty status line
-  Plug 'vim-airline/vim-airline'
-  " Adds new text object: indentation
-  Plug 'michaeljsmith/vim-indent-object'
-  " Add intentation-based movements
-  Plug 'jeetsukumaran/vim-indentwise'
-  " Linting engine
-  Plug 'dense-analysis/ale'
-  " LSP support (check for conflicts with ALE
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Personal wiki
-  Plug 'vimwiki/vimwiki'
-  " Toggles comment on any given text object
-  Plug 'tpope/vim-commentary'
-  " simple x hot key daemon syntax
-  Plug 'kovetskiy/sxhkd-vim'
-  " Haskell syntax highlighting
-  Plug 'neovimhaskell/haskell-vim'
-  " Automatically switch layout in insert mode
-  Plug 'lyokha/vim-xkbswitch'
-  " I like sublime's default colors
-  Plug 'ErichDonGubler/vim-sublime-monokai'
-  " Highly experimental, Borland-like menus and windows
-  " Plug 'skywind3000/vim-quickui'
-  Plug 'chr4/nginx.vim'
-  Plug 'towolf/vim-helm'
-  Plug 'hashivim/vim-terraform'
-  Plug 'cespare/vim-toml'
+lua <<EOF
+require "paq" {
+  "savq/paq-nvim";
+  -- Sane defaults, just to clean this file up a bit
+  "tpope/vim-sensible";
+  -- Shortcuts for some commands, usually going in pairs (like next/prev)
+  "tpope/vim-unimpaired";
+  -- Git wrapper and helper
+  "tpope/vim-fugitive";
+  "tpope/vim-rhubarb";
+  -- Git status markers
+  "airblade/vim-gitgutter";
+  -- Popup with commit message for current line
+  "rhysd/git-messenger.vim";
+  -- Try out an enhanced file manager
+  "tpope/vim-vinegar";
+  -- adds commands for surrounding text objects
+  "tpope/vim-surround";
+  -- Have more changes repeateable
+  "tpope/vim-repeat";
+  -- Change snace_case to MixedCase in one simple command
+  "tpope/vim-abolish";
+  -- Interactive visual representation of vim's undo tree
+  "mbbill/undotree";
+  -- adds pretty status line
+  "vim-airline/vim-airline";
+  -- Adds new text object: indentation
+  "michaeljsmith/vim-indent-object";
+  -- Add intentation-based movements
+  "jeetsukumaran/vim-indentwise";
+  -- Linting engine
+  "dense-analysis/ale";
+  -- LSP support (check for conflicts with ALE
+  { "neoclide/coc.nvim", branch="release" };
+  -- Personal wiki
+  "vimwiki/vimwiki";
+  -- Toggles comment on any given text object
+  "tpope/vim-commentary";
+  -- simple x hot key daemon syntax
+  "kovetskiy/sxhkd-vim";
+  -- Haskell syntax highlighting
+  "neovimhaskell/haskell-vim";
+  -- Automatically switch layout in insert mode
+  "lyokha/vim-xkbswitch";
+  -- I like sublime's default colors
+  "ErichDonGubler/vim-sublime-monokai";
+  "chr4/nginx.vim";
+  "towolf/vim-helm";
+  "hashivim/vim-terraform";
+  "cespare/vim-toml";
 
-  " Fuzzy finding files, buffers, some other nice things
-  Plug 'junegunn/fzf'
-  Plug 'junegunn/fzf.vim'
+  -- Fuzzy finding files, buffers, some other nice things
+  "junegunn/fzf";
+  "junegunn/fzf.vim";
 
-  " Tmux-specific plugins
-  " Allows syntax for tmux config and live config application
-  Plug 'tmux-plugins/vim-tmux'
-  " Fixes FocusGained and FocusLost autocommand events while inside tmux
-  Plug 'tmux-plugins/vim-tmux-focus-events'
+  -- Tmux-specific plugins
+  -- Allows syntax for tmux config and live config application
+  "tmux-plugins/vim-tmux";
+  -- Fixes FocusGained and FocusLost autocommand events while inside tmux
+  "tmux-plugins/vim-tmux-focus-events";
 
-  " Nix language filetype
-  Plug 'LnL7/vim-nix'
-  " Popup window with the content of all registers
-  Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
-call plug#end()
-
+  -- Nix language filetype
+  "LnL7/vim-nix";
+  -- Popup window with the content of all registers
+  { "tversteeg/registers.nvim", branch="main" };
+}
+EOF
 " {{{1 Colors
 " Use TrueColor option
 " TODO: enable it only in terminals that support it, otherwise use t_Co=256
