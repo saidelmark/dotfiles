@@ -153,8 +153,7 @@ endif " }}}
 " {{{ Key bindings
 nnoremap <Space> <Nop>
 let mapleader = " "
-" "=" is used for formatting. I should reconsider local leader key.
-" let maplocalleader = "="
+let maplocalleader = "\\"
 
 " I'm too lazy to hit shift all the time
 nnoremap : ;
