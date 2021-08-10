@@ -10,8 +10,8 @@
         direnv
         exa
         fzf
-        gdu
         htop
+        glow
         jq
         nix-tree
         mc

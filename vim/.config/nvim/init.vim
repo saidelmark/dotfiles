@@ -45,6 +45,7 @@ require "paq" {
   "lyokha/vim-xkbswitch";
   -- I like sublime's default colors
   "ErichDonGubler/vim-sublime-monokai";
+  { "npxbr/glow.nvim", branch="main" };
   "chr4/nginx.vim";
   "towolf/vim-helm";
   "hashivim/vim-terraform";
@@ -178,6 +179,11 @@ nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
     autocmd!
     autocmd FileType markdown,gitcommit,plaintext,text
       \ setlocal spell linebreak
+  augroup END
+
+  augroup glow
+    autocmd!
+    autocmd FileType markdown nnoremap <buffer> <silent> <leader>p <Cmd>Glow<CR>
   augroup END
 
   augroup sublime_syntax
