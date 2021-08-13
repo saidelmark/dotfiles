@@ -255,6 +255,19 @@ let g:ale_fixers = {
 \    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
 " {{{1 Git messenger
+" {{{1 Git
+augroup git
+  autocmd!
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>p 0ciwpick<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>r 0ciwreword<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>d 0ciwdrop<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>e 0ciwedit<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>s 0ciwsquash<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>f 0ciwfixup<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>x oexec <c-g>u
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>X Oexec <c-g>u
+augroup END
+" {{{2 Git messenger
 " {{{ Colors
 hi link gitmessengerHeader Statement
 hi link gitmessengerHash Special
