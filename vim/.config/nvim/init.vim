@@ -68,6 +68,12 @@ require "paq" {
 }
 EOF
 " {{{1 Colors
+augroup highlighting
+  autocmd!
+  autocmd ColorScheme * hi! ErrorMsg gui=italic,standout
+  autocmd ColorScheme * hi! link NormalFloat Normal
+  autocmd ColorScheme * hi! link FloatBorder Normal
+augroup END
 " Use TrueColor option
 " TODO: enable it only in terminals that support it, otherwise use t_Co=256
 if exists('+termguicolors')
@@ -77,9 +83,6 @@ if exists('+termguicolors')
   let g:sublimemonokai_gui_italic = 1
   set t_ut=
 endif
-
-hi ErrorMsg gui=italic,standout
-hi link NormalFloat default
 
 " {{{1 Folds
 if has('folding')
@@ -144,9 +147,9 @@ endif " }}}
   augroup myvimrc
     autocmd!
     autocmd BufWritePost init.vim,.vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
-      \ so $MYVIMRC |
+      \ source $MYVIMRC |
       \ if has('gui_running') |
-        \ so $MYGVIMRC |
+        \ source $MYGVIMRC |
       \ endif |
       \ set ft=vim
   augroup END
