@@ -85,23 +85,20 @@ if exists('+termguicolors')
 endif
 
 " {{{1 Folds
-if has('folding')
-  if has('windows')
-    set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-    set fillchars+=fold:\             " Don't want distracting symbols, so just space
-  endif
-  set foldmethod=indent               " not as cool as syntax, but faster
-  set foldlevelstart=0                " start folded
-  set foldtext=saidelman#settings#foldtext()
-  augroup vim_folding
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-  augroup END
-  augroup git_folding
-    autocmd!
-    autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
-  augroup END
-endif " }}}
+set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+set fillchars+=fold:\             " Don't want distracting symbols, so just space
+set foldmethod=indent               " not as cool as syntax, but faster
+set foldlevelstart=0                " start folded
+set foldtext=saidelman#settings#foldtext()
+augroup vim_folding
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+augroup git_folding
+  autocmd!
+  autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
+augroup END
+" }}}
 
   " How often vim refreshes the buffer
   set updatetime=100
