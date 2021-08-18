@@ -143,12 +143,9 @@ augroup END
   " autosources vimrc after every :w
   augroup myvimrc
     autocmd!
-    autocmd BufWritePost init.vim,.vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc
-      \ source $MYVIMRC |
-      \ if has('gui_running') |
-        \ source $MYGVIMRC |
-      \ endif |
-      \ set ft=vim
+    autocmd BufWritePost init.vim
+        \ nested source $MYVIMRC |
+        \ set ft=vim
   augroup END
 
 " {{{ Key bindings
