@@ -103,6 +103,8 @@ augroup END
   " How often vim refreshes the buffer
   set updatetime=100
 
+  " Ignore case when sort files in netrw
+  let g:netrw_sort_options="i"
   " This will show lines numbers.
   " 'relativenumber' option shows offset from current line to every other one
   set number relativenumber
