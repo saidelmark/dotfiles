@@ -103,6 +103,7 @@ augroup END
   " How often vim refreshes the buffer
   set updatetime=100
 
+  set hidden
   " Ignore case when sort files in netrw
   let g:netrw_sort_options="i"
   " This will show lines numbers.
