@@ -65,6 +65,7 @@ require "paq" {
   "LnL7/vim-nix";
   -- Popup window with the content of all registers
   { "tversteeg/registers.nvim", branch="main" };
+  { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
 }
 EOF
 " {{{1 Colors
@@ -97,6 +98,12 @@ augroup END
 augroup git_folding
   autocmd!
   autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
+augroup END
+augroup treesitter_folding
+  autocmd!
+  autocmd FileType go,terraform,lua,nix
+    \ set foldmethod=expr |
+    \ set foldexpr=nvim_treesitter#foldexpr()
 augroup END
 " }}}
 
@@ -284,3 +291,6 @@ let g:undotree_SetFocusWhenToggle = 1
 
 " {{{1 Registers
 let g:registers_window_border = "rounded"
+lua <<EOF
+require('treesitter/config')
+EOF
