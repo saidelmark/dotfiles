@@ -25,6 +25,7 @@ require "paq" {
   "mbbill/undotree";
   -- adds pretty status line
   "vim-airline/vim-airline";
+  "vim-airline/vim-airline-themes";
   -- Adds new text object: indentation
   "michaeljsmith/vim-indent-object";
   -- Add intentation-based movements
