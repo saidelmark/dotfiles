@@ -4,6 +4,8 @@ require'nvim-treesitter.configs'.setup {
     "go",
     "gomod",
     "hcl",
+    "html",
+    "json",
     "lua",
     "nix",
     "python",
