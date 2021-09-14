@@ -31,8 +31,6 @@ require "paq" {
   "jeetsukumaran/vim-indentwise";
   -- Linting engine
   "dense-analysis/ale";
-  -- LSP support (check for conflicts with ALE
-  { "neoclide/coc.nvim", branch="release" };
   -- Personal wiki
   "vimwiki/vimwiki";
   -- Toggles comment on any given text object
@@ -65,6 +63,8 @@ require "paq" {
   "LnL7/vim-nix";
   -- Popup window with the content of all registers
   { "tversteeg/registers.nvim", branch="main" };
+  "neovim/nvim-lspconfig";
+  "glepnir/lspsaga.nvim";
   { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
 }
 EOF
@@ -249,8 +249,9 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 
 " {{{1 LSP, formatting, etc.
-" ctrl+space trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
+lua << EOF
+require('lsp/lspconfig')
+EOF
 let g:ale_disable_lsp = 1
 
 let g:ale_fixers = {
@@ -258,7 +259,6 @@ let g:ale_fixers = {
 \    'terraform': ['terraform'],
 \    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
-" {{{1 Git messenger
 " {{{1 Git
 augroup git
   autocmd!
