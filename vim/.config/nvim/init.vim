@@ -99,7 +99,7 @@ augroup git_folding
   autocmd!
   autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
 augroup END
-augroup treesitter_folding
+augroup TSfolding
   autocmd!
   autocmd FileType go,terraform,lua,nix
     \ set foldmethod=expr |
