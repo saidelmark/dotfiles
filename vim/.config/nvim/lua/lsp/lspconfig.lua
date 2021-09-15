@@ -77,6 +77,41 @@ if vim.fn.executable("haskell-language-server-wrapper") == 1 then
   }
 end
 
+if vim.fn.executable("terraform-ls") == 1 then
+  nvim_lsp.terraformls.setup{
+    on_attach = on_attach,
+  }
+end
+
+if vim.fn.executable("rnix-lsp") == 1 then
+  nvim_lsp.rnix.setup{
+    on_attach = on_attach,
+  }
+end
+
+if vim.fn.executable("vim-language-server") == 1 then
+  nvim_lsp.vimls.setup{
+    on_attach = on_attach,
+    init_options = {
+      isNeovim = true,
+    },
+  }
+end
+
+if vim.fn.executable("yaml-language-server") == 1 then
+  nvim_lsp.yamlls.setup{
+    on_attach = on_attach,
+    settings = {
+      yaml = {
+        schemas = {
+          -- looks like kubernetes schemas are not working
+          kubernetes ={  "/*.yaml" },
+        },
+      },
+    },
+  }
+end
+
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
   vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,

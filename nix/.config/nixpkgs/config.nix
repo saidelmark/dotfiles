@@ -14,9 +14,11 @@
         glow
         jq
         nix-tree
+        nodePackages.vim-language-server
         mc
         pandoc
         ripgrep
+        rnix-lsp
         shellcheck
         silver-searcher
         skim
@@ -51,6 +53,7 @@
         terraform-ls
         # misc
         argocd
+        yaml-language-server
       ];
       extraOutputsToInstall = [ "man" "doc" ];
     };
