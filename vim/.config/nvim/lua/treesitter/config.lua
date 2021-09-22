@@ -9,6 +9,7 @@ require'nvim-treesitter.configs'.setup {
     "lua",
     "nix",
     "python",
+    "yaml",
   },
   highlight = {
     enable = false,
