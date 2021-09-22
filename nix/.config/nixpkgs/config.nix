@@ -14,6 +14,7 @@
         glow
         jq
         nix-tree
+        nodePackages.bash-language-server
         nodePackages.vim-language-server
         mc
         pandoc

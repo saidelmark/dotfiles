@@ -89,6 +89,12 @@ if vim.fn.executable("rnix-lsp") == 1 then
   }
 end
 
+if vim.fn.executable("bash-language-server") == 1 then
+  nvim_lsp.bashls.setup{
+    on_attach = on_attach,
+  }
+end
+
 if vim.fn.executable("vim-language-server") == 1 then
   nvim_lsp.vimls.setup{
     on_attach = on_attach,
