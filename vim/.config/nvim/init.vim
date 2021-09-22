@@ -252,6 +252,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " {{{1 LSP, formatting, etc.
 lua << EOF
 require('lsp/lspconfig')
+require('treesitter/config')
 EOF
 let g:ale_disable_lsp = 1
 
@@ -292,6 +293,4 @@ let g:undotree_SetFocusWhenToggle = 1
 
 " {{{1 Registers
 let g:registers_window_border = "rounded"
-lua <<EOF
-require('treesitter/config')
-EOF
+" }}}
