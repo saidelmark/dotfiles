@@ -37,7 +37,8 @@
       name = "saidelman-devops";
       paths = [
         # aws
-        awscli
+        awscli2
+        aws-iam-authenticator
         eksctl
         # kubernetes
         kubectl
@@ -45,6 +46,7 @@
         k9s
         minikube
         kubernetes-helm
+        helmfile
         # docker
         dive
         docker-credential-helpers
@@ -60,4 +62,3 @@
     };
   };
 }
-
