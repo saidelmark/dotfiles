@@ -32,6 +32,18 @@ fayr() {
   pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
 
+if [ -n "$TMUX" ]; then
+clean-tmux() {
+  for window in $(tmux lsw -F "#{window_id}"); do
+    for pane in $(tmux lsp -t "$window" -F "#{pane_id}"); do
+      tmux if-shell -t "$pane" -F "#{==:#{pane_mode},copy-mode}" "send-keys -X -t $pane cancel"
+      tmux send-keys -t "$pane" "c-l"
+      tmux clear-history -t "$pane"
+    done
+  done
+}
+fi
+
 if [ -n "$(which docker)" ]; then
 # Delete images
 drmi() {
