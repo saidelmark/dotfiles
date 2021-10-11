@@ -69,4 +69,8 @@ dst() {
     | awk '{ print $1 }' \
     | xargs -r docker stop
 }
+# Stop all containers
+dsta() {
+  docker ps --format="{{.Names}}" | xargs -r docker stop
+}
 fi
