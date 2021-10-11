@@ -18,8 +18,11 @@ source ~/.zsh/alias.sh
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --inline-info --ansi'
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+# https://gist.github.com/peti/2c818d6cb49b0b0f2fd7c300f8386bc3
+# https://github.com/NixOS/nixpkgs/issues/38991
+export LOCALE_ARCHIVE_2_27=$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive
+source $(fzf-share)/key-bindings.zsh
+source $(fzf-share)/completion.zsh
 
 eval "$(direnv hook zsh)"
 
