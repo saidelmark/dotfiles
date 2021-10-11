@@ -48,7 +48,7 @@ require "paq" {
   "chr4/nginx.vim";
   "towolf/vim-helm";
   "hashivim/vim-terraform";
-  "cespare/vim-toml";
+  { "cespare/vim-toml", branch="main" };
 
   -- Fuzzy finding files, buffers, some other nice things
   "junegunn/fzf";
