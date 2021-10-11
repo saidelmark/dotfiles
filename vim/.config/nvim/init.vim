@@ -85,7 +85,6 @@ if exists('+termguicolors')
   colorscheme sublimemonokai
   let g:sublimemonokai_term_italic = 1
   let g:sublimemonokai_gui_italic = 1
-  set t_ut=
 endif
 
 " {{{1 Folds
