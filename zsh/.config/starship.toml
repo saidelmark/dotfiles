@@ -18,10 +18,11 @@ disabled = true
 
 [git_branch]
 # truncation_length = 10
-disabled = true
+disabled = false
 
 [git_status]
-disabled = true
+disabled = false
+format = '([\[$ahead_behind\]]($style))'
 
 [hg_branch]
 disabled = true
@@ -34,3 +35,6 @@ symbol = ""
 
 [directory]
 fish_style_pwd_dir_length = 1
+
+[python]
+disabled = true
