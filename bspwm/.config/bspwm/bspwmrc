@@ -23,9 +23,8 @@ bspc config pointer_follows_monitor true
 bspc rule -a Gimp desktop='^6' state=floating follow=on
 bspc rule -a Peek state=floating
 bspc rule -a Screenkey manage=off
-bspc rule -a TelegramDesktop desktop='^9'
-bspc rule -a Skype desktop='^9'
-bspc rule -a Code desktop='^1'
+bspc rule -a TelegramDesktop state=floating # desktop=chat
+bspc rule -a Skype state=floating # desktop=chat
 
 wmname compiz
 sh ~/.config/bspwm/autostart
