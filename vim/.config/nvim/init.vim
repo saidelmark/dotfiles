@@ -246,6 +246,8 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#keymap#enabled = 0
 " Git information takes too much space and gives too little
 let g:airline_section_b = ""
+let g:airline_detect_spell = 0
+let g:airline_detect_spelllang = 0
 let g:airline_skip_empty_sections = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " let g:airline#parts#ffenc#skip_expected_string='[unix]' }}}
