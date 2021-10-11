@@ -30,6 +30,8 @@ require "paq" {
   "michaeljsmith/vim-indent-object";
   -- Add intentation-based movements
   "jeetsukumaran/vim-indentwise";
+  -- Create tables easily
+  "dhruvasagar/vim-table-mode";
   -- Linting engine
   "dense-analysis/ale";
   -- Personal wiki
