@@ -3,7 +3,7 @@
     saidelman-common = pkgs.buildEnv {
       name = "saidelman-common";
       paths = [
-        alttab
+        # alttab
         bat
         bottom
         delta
