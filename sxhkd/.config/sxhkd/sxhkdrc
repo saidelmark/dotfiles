@@ -162,7 +162,7 @@ super + F5
 XF86AudioPlay
 	mocp -G
 
-# {{{1 Open specific apps
+# {{{1 Manage apps
 # terminal emulator
 super + Return
 	alacritty -e tmux
@@ -180,5 +180,15 @@ Print
 super + d; shift + s
 	scrotmenu --timeout
 
-super + o; {_,shift} +  n
+super + o; {_,shift} + n
 	{networkmenu,nmvpnmenu}
+
+# {{{2 Notifications
+super + F1
+	dunstctl close
+
+super + shift + F1
+	dunstctl close-all
+
+super + F2
+	dunstctl history-pop
