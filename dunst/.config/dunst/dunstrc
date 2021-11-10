@@ -23,7 +23,7 @@
     width = (0, 600)
     height = (0, 300)
     origin = top-right
-    offset = 30x20
+    offset = 5x35
     notification_limit = 5
 
     # Show how many messages are currently hidden (because of geometry).
@@ -268,7 +268,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#999999"
     foreground = "#222222"
-    timeout = 10
+    timeout = 3
     transparency = 50
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -276,7 +276,7 @@
 [urgency_normal]
     background = "#285577"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
