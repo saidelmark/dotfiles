@@ -2,7 +2,6 @@
 
 # Arbitrary but unique message id
 msgId="991049"
-time="1000"
 
 get_volume() {
   pulseaudio-ctl full-status | awk '{print $1}'
@@ -43,7 +42,7 @@ notify() {
   fi
 
   # empty message so as to show only icons
-  dunstify -a "changeVolume" -u low -t "$time" -i "$icon" -r "$msgId" -h "int:value:$volume" ""
+  dunstify -a "changeVolume" -u low -i "$icon" -r "$msgId" -h "int:value:$volume" ""
 }
 
 case "$1" in
