@@ -43,7 +43,7 @@ notify() {
   fi
 
   # empty message so as to show only icons
-  dunstify -a "changeVolume" -u low -t "$time" -i "$icon" -r "$msgId" ""
+  dunstify -a "changeVolume" -u low -t "$time" -i "$icon" -r "$msgId" -h "int:value:$volume" ""
 }
 
 case "$1" in

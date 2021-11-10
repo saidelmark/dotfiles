@@ -1,5 +1,6 @@
 # vim: ft=cfg
 [global]
+    highlight = "#ffffff"
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
@@ -28,9 +29,26 @@
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
 
+    # Turn on the progess bar. It appears when a progress hint is passed with
+    # for example dunstify -h int:value:12
+    progress_bar = true
+
+    # Set the progress bar height. This includes the frame, so make sure
+    # it's at least twice as big as the frame width.
+    progress_bar_height = 15
+
+    # Set the frame width of the progress bar
+    progress_bar_frame_width = 2
+
+    # Set the minimum width for the progress bar
+    progress_bar_min_width = 150
+
+    # Set the maximum width for the progress bar
+    progress_bar_max_width = 300
+
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
