@@ -67,7 +67,7 @@ require "paq" {
   -- Popup window with the content of all registers
   { "tversteeg/registers.nvim", branch="main" };
   "neovim/nvim-lspconfig";
-  "glepnir/lspsaga.nvim";
+  {"tami5/lspsaga.nvim", branch="main"};
   { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
 }
 EOF
