@@ -172,9 +172,11 @@ vnoremap : ;
 vnoremap ; :
 
 " Old habit from Far Manager editor
-nnoremap <F2> :w<CR>
+nnoremap <silent> <F2> :w<CR>
+inoremap <silent> <F2> <ESC><C-G>:w<CR>a
 
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <silent> <leader>es :split $MYVIMRC<cr>
 
 " Open git status in a nerrow buffer in the right half of the window
 nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
