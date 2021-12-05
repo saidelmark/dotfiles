@@ -291,7 +291,7 @@ let g:git_messenger_popup_content_margins = v:false
 let g:git_messenger_always_into_popup = v:true
 
 " {{{1 UndoTree
-nnoremap <silent> <F7> :UndotreeToggle<CR>
+nnoremap <silent> <F12> :UndotreeToggle<CR>
 let g:undotree_WindowLayout = 2 " Tree on the left, diff below
 let g:undotree_HighlightChangedText = 0
 let g:undotree_SetFocusWhenToggle = 1
@@ -299,3 +299,12 @@ let g:undotree_SetFocusWhenToggle = 1
 " {{{1 Registers
 let g:registers_window_border = "rounded"
 " }}}
+" {{{1 Fzf
+nnoremap <silent> <F7> :Commands<CR>
+
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p70%,50%' }
+else
+  let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5 } }
+endif
+"}}}
