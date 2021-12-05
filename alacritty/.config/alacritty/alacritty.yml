@@ -232,8 +232,8 @@ schemes:
       white:   '0xe5e5e5'
 
 
-colors: *pencil
-# colors: *ayu_dark
+# colors: *pencil
+colors: *blood_moon
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
