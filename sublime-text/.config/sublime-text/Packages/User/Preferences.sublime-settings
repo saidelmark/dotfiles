@@ -1,25 +1,12 @@
 {
 	"added_words":
 	[
-		"app",
-		"artifactory",
-		"http",
-		"https",
-		"json",
-		"kubectl",
-		"metadata",
-		"namespace",
-		"nginx",
-		"sudo",
-		"todo"
 	],
 	"font_face": "JetBrains Mono",
 	"font_size": 14,
 	"ignored_packages":
 	[
-		"Anaconda",
 		"Markdown",
-		"TodoReview",
 		"Vintage"
 	],
 	"remember_full_screen": true,
