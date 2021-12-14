@@ -69,6 +69,7 @@ require "paq" {
   "neovim/nvim-lspconfig";
   {"tami5/lspsaga.nvim", branch="main"};
   { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
+  "luochen1990/rainbow";
 }
 EOF
 " {{{1 Colors
@@ -308,3 +309,5 @@ else
   let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.5 } }
 endif
 "}}}
+
+let g:rainbow_active = 1
