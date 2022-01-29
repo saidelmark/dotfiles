@@ -255,6 +255,7 @@ set spelllang=en_us,ru_yo " }}}
   let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
 
 " {{{ Airline
+let g:airline_theme = 'molokai'
 " Only show tabline if there are tabs
 let g:airline#extensions#tabline#tab_min_count = 2
 " This enables airline style for tabline
