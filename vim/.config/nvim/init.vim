@@ -9,6 +9,7 @@ require "paq" {
   -- Git wrapper and helper
   "tpope/vim-fugitive";
   "tpope/vim-rhubarb";
+  "shumphrey/fugitive-gitlab.vim";
   -- Git status markers
   "airblade/vim-gitgutter";
   -- Popup with commit message for current line
