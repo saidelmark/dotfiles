@@ -4,7 +4,6 @@
 sh ~/.config/bspwm/monitor-config.sh
 
 xsetroot -cursor_name left_ptr
-setxkbmap -option grp:caps_toggle -option grp_led:caps us,ru &
 
 bspc config border_width         1
 
