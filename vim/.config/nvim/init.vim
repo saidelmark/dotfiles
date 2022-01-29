@@ -71,22 +71,42 @@ require "paq" {
   {"tami5/lspsaga.nvim", branch="main"};
   { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
   "luochen1990/rainbow";
+  "NLKNguyen/papercolor-theme",
 }
 EOF
 " {{{1 Colors
 augroup highlighting
   autocmd!
-  autocmd ColorScheme * hi! ErrorMsg gui=italic,standout
+  autocmd ColorScheme * hi! ErrorMsg gui=italic
   autocmd ColorScheme * hi! link NormalFloat Normal
   autocmd ColorScheme * hi! link FloatBorder Normal
+  autocmd ColorScheme * hi! Visual ctermfg=NONE guifg=NONE
+  autocmd ColorScheme * hi! link SignColumn LineNr
+  autocmd ColorScheme * hi! SignColumn guibg=NONE ctermbg=NONE
+  autocmd ColorScheme PaperColor hi! Visual guibg=black
+  autocmd ColorScheme PaperColor hi! CursorLine guibg=NONE gui=underline
 augroup END
 " Use TrueColor option
 " TODO: enable it only in terminals that support it, otherwise use t_Co=256
 if exists('+termguicolors')
   set termguicolors
-  colorscheme sublimemonokai
-  let g:sublimemonokai_term_italic = 1
-  let g:sublimemonokai_gui_italic = 1
+  " colorscheme sublimemonokai
+  " let g:sublimemonokai_term_italic = 1
+  " let g:sublimemonokai_gui_italic = 1
+  let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'transparent_background': 1,
+  \       'allow_bold': 1,
+  \       'allow_italics': 1,
+  \       'override': {
+  \         'folded_bg': [ '#272822', '' ],
+  \         'folded_fg': [ '#dfdfdf', '' ]
+  \       }
+  \     }
+  \   }
+  \ }
+  colorscheme PaperColor
 endif
 
 " {{{1 Folds
