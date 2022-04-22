@@ -1,0 +1,5 @@
+[Unit]
+Description=check-battery
+
+[Service]
+ExecStart=/home/mark/.local/bin/battery-notify.sh
