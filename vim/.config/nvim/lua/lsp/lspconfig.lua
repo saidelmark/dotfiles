@@ -124,6 +124,36 @@ if vim.fn.executable("pylsp") == 1 then
   }
 end
 
+if vim.fn.executable("rust-analyzer") == 1 then
+  local rust_opts = {
+    tools = {
+      autoSetHints = true,
+      -- hover_with_actions = true,
+      inlay_hints = {
+        show_parameter_hints = false,
+        parameter_hints_prefix = "",
+        other_hints_prefix = "",
+      },
+    },
+    server = {
+      on_attach = on_attach,
+      ["rust-analyzer"] = {
+        assist = {
+          importGranularity = "module",
+          importPrefix = "self",
+        },
+        cargo = {
+          loadOutDirsFromCheck = true
+        },
+        procMacro = {
+          enable = true
+        },
+      }
+    },
+  }
+  require('rust-tools').setup(rust_opts)
+end
+
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
   vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,

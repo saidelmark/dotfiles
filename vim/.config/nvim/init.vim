@@ -71,7 +71,8 @@ require "paq" {
   {"tami5/lspsaga.nvim", branch="main"};
   { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
   "luochen1990/rainbow";
-  "NLKNguyen/papercolor-theme",
+  "NLKNguyen/papercolor-theme";
+  "simrat39/rust-tools.nvim";
 }
 EOF
 " {{{1 Colors
