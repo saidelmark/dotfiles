@@ -299,12 +299,12 @@ let g:ale_fixers = {
 " {{{1 Git
 augroup git
   autocmd!
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>p 0ciwpick<esc>
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>r 0ciwreword<esc>
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>d 0ciwdrop<esc>
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>e 0ciwedit<esc>
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>s 0ciwsquash<esc>
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>f 0ciwfixup<esc>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>p 0ciwpick<esc>0
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>r 0ciwreword<esc>0
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>d 0ciwdrop<esc>0
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>e 0ciwedit<esc>0
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>s 0ciwsquash<esc>0
+  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>f 0ciwfixup<esc>0
   autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>x oexec <c-g>u
   autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>X Oexec <c-g>u
 augroup END
