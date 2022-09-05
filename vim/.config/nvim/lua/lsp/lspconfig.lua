@@ -118,10 +118,16 @@ if vim.fn.executable("yaml-language-server") == 1 then
   }
 end
 
+if vim.fn.executable("pylsp") == 1 then
+  nvim_lsp.pylsp.setup{
+    on_attach = on_attach,
+  }
+end
+
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
   vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
+    virtual_text = true,
     signs = false,
-    underline = true,
+    underline = false,
     update_in_insert = true,
 })
