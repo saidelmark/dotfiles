@@ -1,6 +1,6 @@
 #! /bin/sh
 
-akvelon_hp() {
+akvelon_dell() {
   if xrandr --listactivemonitors | grep -q 'HDMI1'; then
     # TODO: move this to xorg config
     xrandr --output HDMI1 --right-of eDP1 --primary
@@ -23,7 +23,7 @@ default() {
 }
 
 case "$(hostname)" in
-  "n71")       akvelon_hp ;;
+  "n217")      akvelon_dell ;;
   "saidelman") desktop ;;
   *)           default ;;
 esac
