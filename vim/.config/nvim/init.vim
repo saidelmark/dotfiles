@@ -73,6 +73,14 @@ require "paq" {
   "luochen1990/rainbow";
   "NLKNguyen/papercolor-theme";
   "simrat39/rust-tools.nvim";
+  "hrsh7th/nvim-cmp";
+  "hrsh7th/cmp-nvim-lsp";
+  "hrsh7th/cmp-buffer";
+  "hrsh7th/cmp-omni";
+  "hrsh7th/cmp-path";
+  "hrsh7th/cmp-vsnip";
+  "hrsh7th/vim-vsnip";
+  "hrsh7th/cmp-nvim-lsp-signature-help";
 }
 EOF
 " {{{1 Colors
@@ -281,6 +289,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " {{{1 LSP, formatting, etc.
 lua << EOF
 require('lsp/lspconfig')
+require('cmp/cmp')
 require('treesitter/config')
 EOF
 let g:ale_disable_lsp = 1
