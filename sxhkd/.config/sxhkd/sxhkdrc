@@ -162,6 +162,16 @@ super + F5
 XF86AudioPlay
 	mocp -G
 
+# {{{1 Brightness
+# It doesn't fit other categories
+
+# TODO: write a script that manages backlight
+# similar to the one with volume
+XF86MonBrightnessUp
+  xbacklight -inc 5
+
+XF86MonBrightnessDown
+  xbacklight -dec 5
 # {{{1 Manage apps
 # terminal emulator
 super + Return
