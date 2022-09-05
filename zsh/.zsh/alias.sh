@@ -4,6 +4,9 @@ alias vim='nvim'
 alias la='exa -laF --icons --group-directories-first --time-style long-iso --colour-scale'
 alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore --colour-scale'
 
+alias -g B='| bat'
+alias -g By='| bat --language=yaml'
+alias -g D='| delta'
 cheat() {
     # https://github.com/chubin/cheat.sh
     # `cheat tool` or `cheat language/term+with+pluses[/1..]` (append number for next result)
