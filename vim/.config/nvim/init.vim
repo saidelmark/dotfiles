@@ -99,9 +99,6 @@ augroup END
 " TODO: enable it only in terminals that support it, otherwise use t_Co=256
 if exists('+termguicolors')
   set termguicolors
-  " colorscheme sublimemonokai
-  " let g:sublimemonokai_term_italic = 1
-  " let g:sublimemonokai_gui_italic = 1
   let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default.dark': {
@@ -209,7 +206,7 @@ inoremap <silent> <F2> <ESC><C-G>:w<CR>a
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <silent> <leader>es :split $MYVIMRC<cr>
 
-" Open git status in a nerrow buffer in the right half of the window
+" Open git status in a narrow buffer in the right half of the window
 nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
 " }}}
 
