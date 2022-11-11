@@ -17,6 +17,7 @@ require'nvim-treesitter.configs'.setup {
     "yaml",
   },
   highlight = {
-    enable = false,
+    enable = true,
+    disable = {"c","rust"},
   },
 }

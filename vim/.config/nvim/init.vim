@@ -143,7 +143,7 @@ augroup git_folding
 augroup END
 augroup TSfolding
   autocmd!
-  autocmd FileType c,go,lua,nix,rust,terraform,yaml
+  autocmd FileType c,go,lua,nix,terraform,yaml
     \ setlocal foldmethod=expr |
     \ setlocal foldexpr=nvim_treesitter#foldexpr()
 augroup END
