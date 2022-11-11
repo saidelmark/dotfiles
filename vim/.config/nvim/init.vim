@@ -11,7 +11,7 @@ require "paq" {
   "tpope/vim-rhubarb";
   "shumphrey/fugitive-gitlab.vim";
   -- Git status markers
-  "airblade/vim-gitgutter";
+  "lewis6991/gitsigns.nvim";
   -- Popup with commit message for current line
   "rhysd/git-messenger.vim";
   -- Try out an enhanced file manager
@@ -297,6 +297,9 @@ let g:ale_fixers = {
 \    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
 " {{{1 Git
+lua << EOF
+  require('gitsigns/gitsigns')
+EOF
 augroup git
   autocmd!
   autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>p 0ciwpick<esc>0
