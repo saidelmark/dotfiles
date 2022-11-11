@@ -330,8 +330,14 @@ let g:undotree_HighlightChangedText = 0
 let g:undotree_SetFocusWhenToggle = 1
 
 " {{{1 Registers
-let g:registers_window_border = "rounded"
-" }}}
+lua << EOF
+  local registers = require('registers')
+  registers.setup{
+    window = {
+      border = "rounded",
+    },
+  }
+EOF
 " {{{1 Fzf
 nnoremap <silent> <F7> :Commands<CR>
 
