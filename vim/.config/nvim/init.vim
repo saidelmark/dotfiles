@@ -81,6 +81,9 @@ require "paq" {
   "hrsh7th/cmp-vsnip";
   "hrsh7th/vim-vsnip";
   "hrsh7th/cmp-nvim-lsp-signature-help";
+
+  "kevinhwang91/promise-async";
+  "kevinhwang91/nvim-ufo";
 }
 EOF
 " {{{1 Colors
@@ -116,11 +119,20 @@ if exists('+termguicolors')
 endif
 
 " {{{1 Folds
-set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
-set fillchars+=fold:\             " Don't want distracting symbols, so just space
-set foldmethod=indent               " not as cool as syntax, but faster
-set foldlevelstart=0                " start folded
-set foldtext=saidelman#settings#foldtext()
+lua << EOF
+require('ufo').setup({
+    provider_selector = function(bufnr, filetype, buftype)
+        return {'treesitter', 'indent'}
+    end
+})
+
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 3 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 3
+vim.o.foldenable = true
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+EOF
 augroup vim_folding
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker

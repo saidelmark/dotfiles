@@ -42,6 +42,12 @@ local on_attach = function (client, bufnr)
   vim.wo.signcolumn = 'yes'
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 if vim.fn.executable("lua-language-server") == 1 then
   local runtime_path = vim.split(package.path, ';')
   table.insert(runtime_path, "lua/?.lua")
@@ -68,30 +74,35 @@ if vim.fn.executable("lua-language-server") == 1 then
         enable = false,
       },
     },
+    capabilities = capabilities,
   }
 end
 
 if vim.fn.executable("haskell-language-server-wrapper") == 1 then
   nvim_lsp.hls.setup{
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
 if vim.fn.executable("terraform-ls") == 1 then
   nvim_lsp.terraformls.setup{
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
 if vim.fn.executable("rnix-lsp") == 1 then
   nvim_lsp.rnix.setup{
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
 if vim.fn.executable("bash-language-server") == 1 then
   nvim_lsp.bashls.setup{
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
@@ -101,6 +112,7 @@ if vim.fn.executable("vim-language-server") == 1 then
     init_options = {
       isNeovim = true,
     },
+    capabilities = capabilities,
   }
 end
 
@@ -115,12 +127,14 @@ if vim.fn.executable("yaml-language-server") == 1 then
         },
       },
     },
+    capabilities = capabilities,
   }
 end
 
 if vim.fn.executable("pylsp") == 1 then
   nvim_lsp.pylsp.setup{
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
 
@@ -137,6 +151,7 @@ if vim.fn.executable("rust-analyzer") == 1 then
     },
     server = {
       on_attach = on_attach,
+      capabilities = capabilities,
       ["rust-analyzer"] = {
         assist = {
           importGranularity = "module",
