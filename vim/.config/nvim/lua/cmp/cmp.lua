@@ -3,8 +3,12 @@ cmp.setup({
   -- Enable LSP snippets
   snippet = {
     expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+      vim.fn["vsnip#anonymous"](args.body)
     end,
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered(),
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -20,15 +24,19 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     }),
+    ['<C-y>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
   },
 
   -- Installed sources
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'omni' },
-    { name = 'path' },
-    { name = 'vsnip' },
-    { name = 'nvim_lsp_signature_help' },
-  },
+  sources = cmp.config.sources(
+    { { name = 'nvim_lsp' } },
+    { { name = 'vsnip' } },
+    { { name = 'omni' } },
+    { { name = 'path' } },
+    { { name = 'nvim_lsp_signature_help' } },
+    { { name = 'buffer' } }
+  ),
 })
