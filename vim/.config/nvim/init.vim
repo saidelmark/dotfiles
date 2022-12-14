@@ -84,6 +84,7 @@ require "paq" {
 
   "kevinhwang91/promise-async";
   "kevinhwang91/nvim-ufo";
+  "NvChad/nvim-colorizer.lua";
 }
 EOF
 " {{{1 Colors
@@ -115,6 +116,7 @@ if exists('+termguicolors')
   \   }
   \ }
   colorscheme PaperColor
+  lua require 'colorizer'.setup({user_default_options = {mode = "virtualtext",}})
 endif
 
 " {{{1 Folds
