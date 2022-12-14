@@ -45,8 +45,6 @@ require "paq" {
   "neovimhaskell/haskell-vim";
   -- Automatically switch layout in insert mode
   "lyokha/vim-xkbswitch";
-  -- I like sublime's default colors
-  "ErichDonGubler/vim-sublime-monokai";
   { "npxbr/glow.nvim", branch="main" };
   "chr4/nginx.vim";
   "towolf/vim-helm";
