@@ -85,6 +85,8 @@ require "paq" {
   "kevinhwang91/promise-async";
   "kevinhwang91/nvim-ufo";
   "NvChad/nvim-colorizer.lua";
+
+  "chentoast/marks.nvim";
 }
 EOF
 " {{{1 Colors
@@ -398,6 +400,15 @@ EOF
 nnoremap <silent> <C-M-P> :FzfLua commands<CR>
 nnoremap <silent> <C-P> :FzfLua files<CR>
 
+" {{{1 Marks
+lua <<EOF
+require'marks'.setup {
+  mappings = {
+    next = "]m",
+    prev = "[m"
+  }
+}
+EOF
 "}}}
 
 let g:rainbow_active = 1
