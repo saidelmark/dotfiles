@@ -108,7 +108,6 @@ if exists('+termguicolors')
   \       'allow_italics': 1,
   \       'override': {
   \         'folded_bg': [ '#272822', '' ],
-  \         'folded_fg': [ '#dfdfdf', '' ]
   \       }
   \     }
   \   }
@@ -125,11 +124,13 @@ require('ufo').setup({
 })
 
 vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 3 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 3
+vim.o.foldlevel = 9 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 9
 vim.o.foldenable = true
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
+vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
 EOF
 augroup vim_folding
   autocmd!
