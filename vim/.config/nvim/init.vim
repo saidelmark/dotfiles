@@ -80,6 +80,8 @@ require "paq" {
   "hrsh7th/vim-vsnip";
   "hrsh7th/cmp-nvim-lsp-signature-help";
 
+  "timmyjose-projects/lox.vim";
+
   "kevinhwang91/promise-async";
   "kevinhwang91/nvim-ufo";
 }
