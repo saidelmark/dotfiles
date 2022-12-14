@@ -24,7 +24,7 @@ local on_attach = function (client, bufnr)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   -- TODO: add mapping for range_formatting()
-  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
 
   buf_set_keymap('n', '<Leader>gh', ":Lspsaga lsp_finder<CR>", opts)
   buf_set_keymap('n', '<Leader><c-]>', ":Lspsaga preview_definition<CR>", opts)
