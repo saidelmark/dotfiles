@@ -10,7 +10,7 @@ bindkey '^x^x' edit-command-line
 # Always complete hidden files
 setopt globdots
 source ~/.nix-profile/share/zsh/plugins/nix/init.zsh
-fpath=(~/.nix-profile/share/zsh/site-functions $fpath)
+fpath=(~/.nix-profile/share/zsh/site-functions .completions $fpath)
 autoload -U compinit && compinit
 
 # Import some aliases
