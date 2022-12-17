@@ -23,7 +23,8 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --inline-info --ansi'
 export LOCALE_ARCHIVE_2_27=$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive
 source $(fzf-share)/key-bindings.zsh
 source $(fzf-share)/completion.zsh
-source /usr/share/zsh/plugins/forgit-git/forgit.plugin.zsh
+export FORGIT_COPY_CMD='xclip -selection clipboard'
+source ~/.nix-profile/share/zsh/zsh-forgit/forgit.plugin.zsh
 
 eval "$(direnv hook zsh)"
 

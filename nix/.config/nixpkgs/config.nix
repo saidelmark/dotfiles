@@ -27,6 +27,7 @@
         yq-go
         zsh-autosuggestions
         zsh-completions
+        zsh-forgit
         zsh-fzf-tab
         zsh-syntax-highlighting
         nix-zsh-completions
