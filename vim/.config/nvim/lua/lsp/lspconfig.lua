@@ -37,7 +37,7 @@ local on_attach = function (client, bufnr)
   buf_set_keymap('n', '<leader>ca', ':Lspsaga code_action<CR>', opts)
   buf_set_keymap('n', '<c-f>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
   buf_set_keymap('n', '<c-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
-  buf_set_keymap('n', '<leader>rn', ':Lspsaga rename<CR>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
   vim.wo.signcolumn = 'yes'
 end
