@@ -1,6 +1,6 @@
 require('gitsigns').setup {
   signcolumn = true,
-  numhl = true,
+  numhl = false,
   preview_config = {
     border = 'double',
   },
