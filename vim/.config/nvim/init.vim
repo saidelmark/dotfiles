@@ -1,94 +1,105 @@
 " {{{1 Plugins
 lua <<EOF
-require "paq" {
-  "savq/paq-nvim";
-  -- Sane defaults, just to clean this file up a bit
-  "tpope/vim-sensible";
-  -- Shortcuts for some commands, usually going in pairs (like next/prev)
-  "tpope/vim-unimpaired";
-  -- Git wrapper and helper
-  "tpope/vim-fugitive";
-  "tpope/vim-rhubarb";
-  "shumphrey/fugitive-gitlab.vim";
-  -- Git status markers
-  "lewis6991/gitsigns.nvim";
-  -- Popup with commit message for current line
-  "rhysd/git-messenger.vim";
-  -- Try out an enhanced file manager
-  "tpope/vim-vinegar";
-  -- adds commands for surrounding text objects
-  "tpope/vim-surround";
-  -- Have more changes repeateable
-  "tpope/vim-repeat";
-  -- Change snace_case to MixedCase in one simple command
-  "tpope/vim-abolish";
-  -- Interactive visual representation of vim's undo tree
-  "mbbill/undotree";
-  -- adds pretty status line
-  "vim-airline/vim-airline";
-  "vim-airline/vim-airline-themes";
-  -- Adds new text object: indentation
-  "michaeljsmith/vim-indent-object";
-  -- Add intentation-based movements
-  "jeetsukumaran/vim-indentwise";
-  -- Create tables easily
-  "dhruvasagar/vim-table-mode";
-  -- Linting engine
-  "dense-analysis/ale";
-  -- Personal wiki
-  "vimwiki/vimwiki";
-  -- Toggles comment on any given text object
-  "tpope/vim-commentary";
-  -- simple x hot key daemon syntax
-  "kovetskiy/sxhkd-vim";
-  -- Haskell syntax highlighting
-  "neovimhaskell/haskell-vim";
-  -- Automatically switch layout in insert mode
-  "lyokha/vim-xkbswitch";
-  { "npxbr/glow.nvim", branch="main" };
-  "chr4/nginx.vim";
-  "towolf/vim-helm";
-  "hashivim/vim-terraform";
-  { "cespare/vim-toml", branch="main" };
+-- bootstrapping
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
-  -- Fuzzy finding files, buffers, some other nice things
-  "ibhagwan/fzf-lua";
-  "nvim-tree/nvim-web-devicons";
+local packer_bootstrap = ensure_packer()
 
-  -- Tmux-specific plugins
-  -- Allows syntax for tmux config and live config application
-  "tmux-plugins/vim-tmux";
-  -- Fixes FocusGained and FocusLost autocommand events while inside tmux
-  "tmux-plugins/vim-tmux-focus-events";
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  -- general quality of life
+  use 'tpope/vim-sensible'
+  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-vinegar'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-abolish'
+  use 'mbbill/undotree'
+  use 'michaeljsmith/vim-indent-object'
+  use 'jeetsukumaran/vim-indentwise'
+  use { "tversteeg/registers.nvim", branch = "main" }
+  use {
+    "kevinhwang91/nvim-ufo",
+    requires = { "kevinhwang91/promise-async" }
+  }
+  use {
+    "ibhagwan/fzf-lua",
+    requires = { "nvim-tree/nvim-web-devicons" }
+  }
+  use "dhruvasagar/vim-table-mode"
+  use "tmux-plugins/vim-tmux-focus-events"
+  use "chentoast/marks.nvim"
+  use "lyokha/vim-xkbswitch"
 
-  -- Nix language filetype
-  "LnL7/vim-nix";
-  -- Popup window with the content of all registers
-  { "tversteeg/registers.nvim", branch="main" };
-  "neovim/nvim-lspconfig";
-  {"tami5/lspsaga.nvim", branch="main"};
-  { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" };
-  "luochen1990/rainbow";
-  "NLKNguyen/papercolor-theme";
-  "simrat39/rust-tools.nvim";
+  use { "npxbr/glow.nvim", branch="main" }
 
-  "hrsh7th/nvim-cmp";
-  "hrsh7th/cmp-nvim-lsp";
-  "hrsh7th/cmp-buffer";
-  "hrsh7th/cmp-path";
-  "hrsh7th/cmp-vsnip";
-  "hrsh7th/vim-vsnip";
-  "hrsh7th/cmp-nvim-lsp-signature-help";
-  "hrsh7th/cmp-cmdline";
+  -- visual
+  use {
+    "vim-airline/vim-airline",
+    requires = {"vim-airline/vim-airline-themes"}
+  }
+  use 'NvChad/nvim-colorizer.lua'
+  use "luochen1990/rainbow"
+  use "NLKNguyen/papercolor-theme"
 
-  "timmyjose-projects/lox.vim";
+  -- git stuff
+  use {
+    'tpope/vim-fugitive',
+    requires = {
+      'tpope/vim-rhubarb',
+      'shumphrey/fugitive-gitlab.vim',
+    },
+  }
+  use 'lewis6991/gitsigns.nvim'
+  use 'rhysd/git-messenger.vim'
 
-  "kevinhwang91/promise-async";
-  "kevinhwang91/nvim-ufo";
-  "NvChad/nvim-colorizer.lua";
+  -- syntax for all languages I use
+  use 'kovetskiy/sxhkd-vim'
+  use 'neovimhaskell/haskell-vim'
+  use 'chr4/nginx.vim'
+  use 'towolf/vim-helm'
+  use 'hashivim/vim-terraform'
+  use 'tmux-plugins/vim-tmux'
+  use 'LnL7/vim-nix'
+  use 'timmyjose-projects/lox.vim'
+  use { 'cespare/vim-toml', branch = 'main' }
 
-  "chentoast/marks.nvim";
-}
+  -- completion
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-cmdline'
+    }
+  }
+
+  -- lsp and treesitter related
+  use 'neovim/nvim-lspconfig'
+  use 'simrat39/rust-tools.nvim'
+  use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdateSync' }
+  use {'tami5/lspsaga.nvim', branch='main'}
+  use 'dense-analysis/ale'
+
+  -- dev tools
+  use 'tpope/vim-commentary'
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
 EOF
 " {{{1 Colors
 augroup highlighting
@@ -276,7 +287,6 @@ let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
 set spelllang=en_us,ru_yo " }}}
 
-  let g:vimwiki_list = [{'path': '~/Documents/vimwiki/'}]
 
 " {{{ Airline
 let g:airline_theme = 'molokai'
