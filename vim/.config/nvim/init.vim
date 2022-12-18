@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
   use 'michaeljsmith/vim-indent-object'
   use 'jeetsukumaran/vim-indentwise'
-  use { "tversteeg/registers.nvim", branch = "main" }
+  use "tversteeg/registers.nvim"
   use {
     "kevinhwang91/nvim-ufo",
     requires = { "kevinhwang91/promise-async" }
@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
   use "chentoast/marks.nvim"
   use "lyokha/vim-xkbswitch"
 
-  use { "npxbr/glow.nvim", branch="main" }
+  use "npxbr/glow.nvim"
 
   -- visual
   use {
@@ -71,7 +71,7 @@ return require('packer').startup(function(use)
   use 'tmux-plugins/vim-tmux'
   use 'LnL7/vim-nix'
   use 'timmyjose-projects/lox.vim'
-  use { 'cespare/vim-toml', branch = 'main' }
+  use 'cespare/vim-toml'
 
   -- completion
   use {
@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'simrat39/rust-tools.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdateSync' }
-  use {'tami5/lspsaga.nvim', branch='main'}
+  use 'tami5/lspsaga.nvim'
   use 'dense-analysis/ale'
 
   -- dev tools
