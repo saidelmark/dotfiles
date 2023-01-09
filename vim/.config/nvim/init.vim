@@ -20,7 +20,17 @@ return require('packer').startup(function(use)
   -- general quality of life
   use 'tpope/vim-sensible'
   use 'tpope/vim-unimpaired'
-  use 'tpope/vim-vinegar'
+  use {
+    'stevearc/oil.nvim',
+    config = function() 
+      vim.keymap.set("n", "-", require("oil").open_float, { desc = "Open parent directory" })
+      require('oil').setup({
+        view_options = {
+          -- Show files and directories that start with "."
+          show_hidden = true,
+        },
+    }) end
+  }
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish'
