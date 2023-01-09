@@ -59,7 +59,10 @@ return require('packer').startup(function(use)
       'shumphrey/fugitive-gitlab.vim',
     },
   }
-  use 'lewis6991/gitsigns.nvim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function() require('gitsigns/gitsigns') end
+  }
   use 'rhysd/git-messenger.vim'
 
   -- syntax for all languages I use
@@ -76,6 +79,7 @@ return require('packer').startup(function(use)
   -- completion
   use {
     'hrsh7th/nvim-cmp',
+    config = function() require('cmp/cmp') end,
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
@@ -88,11 +92,18 @@ return require('packer').startup(function(use)
   }
 
   -- lsp and treesitter related
-  use 'neovim/nvim-lspconfig'
+  use {
+    'tami5/lspsaga.nvim',
+    requires = { 'neovim/nvim-lspconfig' },
+    config = function() require('lsp/lspconfig') end,
+  }
   use 'simrat39/rust-tools.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdateSync' }
-  use 'tami5/lspsaga.nvim'
   use 'dense-analysis/ale'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run=':TSUpdateSync',
+    config = function() require('treesitter/config') end,
+  }
 
   -- dev tools
   use 'tpope/vim-commentary'
@@ -313,11 +324,6 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 
 " {{{1 LSP, formatting, etc.
-lua << EOF
-require('lsp/lspconfig')
-require('cmp/cmp')
-require('treesitter/config')
-EOF
 let g:ale_disable_lsp = 1
 
 let g:ale_fixers = {
@@ -326,9 +332,6 @@ let g:ale_fixers = {
 \    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
 \ }
 " {{{1 Git
-lua << EOF
-  require('gitsigns/gitsigns')
-EOF
 augroup git
   autocmd!
   autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>p 0ciwpick<esc>0
