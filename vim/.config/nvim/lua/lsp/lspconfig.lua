@@ -179,3 +179,5 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
     underline = false,
     update_in_insert = true,
 })
+
+require"fidget".setup{}

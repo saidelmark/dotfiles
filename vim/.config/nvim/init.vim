@@ -118,6 +118,7 @@ return require('packer').startup(function(use)
     requires = { 'neovim/nvim-lspconfig' },
     config = function() require('lsp/lspconfig') end,
   }
+  use 'j-hui/fidget.nvim'
   use 'simrat39/rust-tools.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
