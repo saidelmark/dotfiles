@@ -98,7 +98,6 @@ return require('packer').startup(function(use)
     config = function() require('lsp/lspconfig') end,
   }
   use 'simrat39/rust-tools.nvim'
-  use 'dense-analysis/ale'
   use {
     'nvim-treesitter/nvim-treesitter',
     run=':TSUpdateSync',
@@ -324,13 +323,6 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 
 " {{{1 LSP, formatting, etc.
-let g:ale_disable_lsp = 1
-
-let g:ale_fixers = {
-\    '*': ['remove_trailing_lines', 'trim_whitespace'],
-\    'terraform': ['terraform'],
-\    'haskell': ['britanny', 'hlint', 'hindent', 'stylish-haskell'],
-\ }
 " {{{1 Git
 augroup git
   autocmd!
