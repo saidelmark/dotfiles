@@ -404,9 +404,6 @@ require("fzf-lua").setup ({
       ["alt-k"] = "preview-up",
     },
   },
-  winopts = {
-    split = "belowright new"
-  }
 })
 EOF
 nnoremap <silent> <C-M-P> :FzfLua commands<CR>
