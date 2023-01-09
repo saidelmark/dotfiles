@@ -16,6 +16,7 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'tanvirtin/monokai.nvim'
   -- general quality of life
   use 'tpope/vim-sensible'
   use 'tpope/vim-unimpaired'
@@ -49,7 +50,6 @@ return require('packer').startup(function(use)
   }
   use 'NvChad/nvim-colorizer.lua'
   use "luochen1990/rainbow"
-  use "NLKNguyen/papercolor-theme"
 
   -- git stuff
   use {
@@ -112,36 +112,62 @@ return require('packer').startup(function(use)
 end)
 EOF
 " {{{1 Colors
+
+set background=dark
 augroup highlighting
   autocmd!
-  autocmd ColorScheme * hi! ErrorMsg gui=italic
   autocmd ColorScheme * hi! link NormalFloat Normal
   autocmd ColorScheme * hi! link FloatBorder Normal
-  autocmd ColorScheme * hi! Visual ctermfg=NONE guifg=NONE
   autocmd ColorScheme * hi! link SignColumn LineNr
-  autocmd ColorScheme * hi! SignColumn guibg=NONE ctermbg=NONE
-  autocmd ColorScheme PaperColor hi! Visual guibg=black
-  autocmd ColorScheme PaperColor hi! CursorLine guibg=NONE gui=underline
 augroup END
-" Use TrueColor option
-" TODO: enable it only in terminals that support it, otherwise use t_Co=256
-if exists('+termguicolors')
-  set termguicolors
-  let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.dark': {
-  \       'transparent_background': 1,
-  \       'allow_bold': 1,
-  \       'allow_italics': 1,
-  \       'override': {
-  \         'folded_bg': [ '#272822', '' ],
-  \       }
-  \     }
-  \   }
-  \ }
-  colorscheme PaperColor
-  lua require 'colorizer'.setup({user_default_options = {mode = "virtualtext",}})
-endif
+
+lua << END
+local monokai = require('monokai')
+local palette = monokai.classic
+local bg = '#181810'
+monokai.setup {
+    palette = {
+        diff_text = '#133337',
+    },
+    custom_hlgroups = {
+        CursorLine = {
+          style = 'underline'
+        },
+        ErrorMsg = {
+          fg = palette.red,
+          style = 'italic'
+        },
+        GitSignsAdd = {
+            fg = palette.green,
+            bg = bg
+        },
+        GitSignsDelete = {
+            fg = palette.pink,
+            bg = bg
+        },
+        GitSignsChange = {
+            fg = palette.orange,
+            bg = bg
+        },
+        LineNr = {
+          bg = bg
+        },
+        Normal = {
+          bg = bg
+        },
+        SignColumn = {
+          bg = bg
+        },
+        TSInclude = {
+            fg = palette.aqua,
+        },
+        Visual = {
+          bg = palette.black,
+        },
+    }
+}
+require 'colorizer'.setup({user_default_options = {mode = "virtualtext",}})
+END
 
 " {{{1 Folds
 lua << EOF
