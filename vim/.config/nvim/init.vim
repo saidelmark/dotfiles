@@ -21,6 +21,16 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sensible'
   use 'tpope/vim-unimpaired'
   use {
+    'm4xshen/autoclose.nvim',
+    config = function()
+      require("autoclose").setup({
+        options = {
+          disabled_filetypes = { "text", "gitcommit" },
+        },
+      })
+    end
+  }
+  use {
     'stevearc/oil.nvim',
     config = function() 
       vim.keymap.set("n", "-", require("oil").open_float, { desc = "Open parent directory" })
