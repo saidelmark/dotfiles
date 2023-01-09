@@ -65,6 +65,7 @@ return require('packer').startup(function(use)
   use {
     'tpope/vim-fugitive',
     requires = {
+      'junegunn/gv.vim',
       'tpope/vim-rhubarb',
       'shumphrey/fugitive-gitlab.vim',
     },
