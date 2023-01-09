@@ -44,8 +44,8 @@ return require('packer').startup(function(use)
 
   -- visual
   use {
-    "vim-airline/vim-airline",
-    requires = {"vim-airline/vim-airline-themes"}
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use 'NvChad/nvim-colorizer.lua'
   use "luochen1990/rainbow"
@@ -298,28 +298,23 @@ let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
 set spelllang=en_us,ru_yo " }}}
 
+" {{{ Status line
+lua << END
+require('lualine').setup({
+  options = {
+    section_separators = '', component_separators = ''
+  },
+  sections = {
+    lualine_x = {'filetype'},
+    lualine_z = {'location', 'searchcount'},
+  },
+  inactive_sections = {
+    lualine_b = {'diff', 'diagnostics'},
+  },
+})
+END
+" }}}
 
-" {{{ Airline
-let g:airline_theme = 'molokai'
-" Only show tabline if there are tabs
-let g:airline#extensions#tabline#tab_min_count = 2
-" This enables airline style for tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tabs = 1
-" Don't ever show buffer list as if they are tabs
-let g:airline#extensions#tabline#show_buffers = 0
-" enables better fonts, nicer symbols, etc
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" Don't show keymap segment, xkb-switch is enough
-let g:airline#extensions#keymap#enabled = 0
-" Git information takes too much space and gives too little
-let g:airline_section_b = ""
-let g:airline_detect_spell = 0
-let g:airline_detect_spelllang = 0
-let g:airline_skip_empty_sections = 1
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-" let g:airline#parts#ffenc#skip_expected_string='[unix]' }}}
 
 
 " {{{1 LSP, formatting, etc.
