@@ -49,32 +49,25 @@ capabilities.textDocument.foldingRange = {
 }
 
 if vim.fn.executable("lua-language-server") == 1 then
-  local runtime_path = vim.split(package.path, ';')
-  table.insert(runtime_path, "lua/?.lua")
-  table.insert(runtime_path, "lua/?/init.lua")
-  nvim_lsp.sumneko_lua.setup{
+  nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
-    cmd = { "/usr/bin/lua-language-server" },
-    Lua = {
-      diagnostics = {
-        enable = true,
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      filetypes = {'lua'},
-      runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+        },
+        diagnostics = {
+          globals = {'vim'},
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        telemetry = {
+          enable = false,
+        },
       },
     },
-    capabilities = capabilities,
   }
 end
 
