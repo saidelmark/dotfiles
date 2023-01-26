@@ -140,10 +140,6 @@ if vim.fn.executable("rust-analyzer") == 1 then
   local rust_opts = {
     tools = {
       autoSetHints = true,
-      -- hover_with_actions = true,
-      inlay_hints = {
-        show_parameter_hints = true,
-      },
     },
     server = {
       on_attach = on_attach_rust,

@@ -149,7 +149,6 @@ let g:XkbSwitchNLayout = 'us'
 
 let g:XkbSwitchKeymapNames = {'ru' : 'russian-jcukenwin'}
 let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
-let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
 set spelllang=en_us,ru_yo " }}}
 
