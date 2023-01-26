@@ -50,9 +50,7 @@ return require('packer').startup(function(use)
       'shumphrey/fugitive-gitlab.vim',
     },
   }
-  use {
-    'lewis6991/gitsigns.nvim',
-  }
+  use 'lewis6991/gitsigns.nvim'
   use 'rhysd/git-messenger.vim'
 
   -- syntax for all languages I use

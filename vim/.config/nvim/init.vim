@@ -74,7 +74,7 @@ augroup END
   " Better display for messages
   set cmdheight=2
 
-  " Provides tab-completion for all file-related tasks
+  " Provides completion for all file-related tasks
   set path+=**
 
   " This makes open new splits below and to the right
@@ -156,6 +156,6 @@ set spelllang=en_us,ru_yo " }}}
 
 
 
-"}}}
+" }}}
 
 let g:rainbow_active = 1
