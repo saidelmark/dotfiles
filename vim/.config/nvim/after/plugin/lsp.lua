@@ -3,7 +3,7 @@ local nvim_lsp = require('lspconfig')
 require 'lspsaga'.init_lsp_saga{
   code_action_prompt = {
     enable = true,
-    sign = true,
+    sign = false,
     virtual_text = false,
   },
   border_style = "round",
@@ -167,8 +167,8 @@ end
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
   vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = false,
+    virtual_text = false,
+    signs = true,
     underline = false,
     update_in_insert = true,
 })
