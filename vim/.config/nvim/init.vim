@@ -2,63 +2,6 @@
 lua <<EOF
 require 'saidelman/plugins'
 EOF
-" {{{1 Colors
-
-set background=dark
-augroup highlighting
-  autocmd!
-  autocmd ColorScheme * hi! link NormalFloat Normal
-  autocmd ColorScheme * hi! link FloatBorder Normal
-  autocmd ColorScheme * hi! link SignColumn LineNr
-augroup END
-
-lua << END
-local monokai = require('monokai')
-local palette = monokai.classic
-local bg = '#181810'
-monokai.setup {
-    palette = {
-        diff_text = '#133337',
-    },
-    custom_hlgroups = {
-        CursorLine = {
-          style = 'underline'
-        },
-        ErrorMsg = {
-          fg = palette.red,
-          style = 'italic'
-        },
-        GitSignsAdd = {
-            fg = palette.green,
-            bg = bg
-        },
-        GitSignsDelete = {
-            fg = palette.pink,
-            bg = bg
-        },
-        GitSignsChange = {
-            fg = palette.orange,
-            bg = bg
-        },
-        LineNr = {
-          bg = bg
-        },
-        Normal = {
-          bg = bg
-        },
-        SignColumn = {
-          bg = bg
-        },
-        TSInclude = {
-            fg = palette.aqua,
-        },
-        Visual = {
-          bg = palette.black,
-        },
-    }
-}
-require 'colorizer'.setup({user_default_options = {mode = "virtualtext",}})
-END
 
 " {{{1 Folds
 lua << EOF
@@ -215,22 +158,6 @@ let g:XkbSwitchAssistSKeymap = 1    " for search lines
 
 set spelllang=en_us,ru_yo " }}}
 
-" {{{ Status line
-lua << END
-require('lualine').setup({
-  options = {
-    section_separators = '', component_separators = ''
-  },
-  sections = {
-    lualine_x = {'filetype'},
-    lualine_z = {'location', 'searchcount'},
-  },
-  inactive_sections = {
-    lualine_b = {'diff', 'diagnostics'},
-  },
-})
-END
-" }}}
 
 
 
