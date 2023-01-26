@@ -162,12 +162,6 @@ set spelllang=en_us,ru_yo " }}}
 
 
 
-" {{{1 UndoTree
-nnoremap <silent> <F12> :UndotreeToggle<CR>
-let g:undotree_WindowLayout = 2 " Tree on the left, diff below
-let g:undotree_HighlightChangedText = 0
-let g:undotree_SetFocusWhenToggle = 1
-
 " {{{1 Registers
 lua << EOF
   local registers = require('registers')
