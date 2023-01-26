@@ -38,3 +38,6 @@ fish_style_pwd_dir_length = 1
 
 [python]
 disabled = true
+
+[c]
+disabled = true
