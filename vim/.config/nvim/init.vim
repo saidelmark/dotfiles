@@ -82,7 +82,6 @@ return require('packer').startup(function(use)
   }
   use {
     'lewis6991/gitsigns.nvim',
-    config = function() require('gitsigns/gitsigns') end
   }
   use 'rhysd/git-messenger.vim'
 
@@ -100,7 +99,6 @@ return require('packer').startup(function(use)
   -- completion
   use {
     'hrsh7th/nvim-cmp',
-    config = function() require('cmp/cmp') end,
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
@@ -116,14 +114,12 @@ return require('packer').startup(function(use)
   use {
     'tami5/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
-    config = function() require('lsp/lspconfig') end,
   }
   use 'j-hui/fidget.nvim'
   use 'simrat39/rust-tools.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
     run=':TSUpdateSync',
-    config = function() require('treesitter/config') end,
   }
 
   -- dev tools

@@ -116,7 +116,7 @@ if vim.fn.executable("yaml-language-server") == 1 then
       yaml = {
         schemas = {
           -- looks like kubernetes schemas are not working
-          kubernetes ={  "/*.yaml" },
+          kubernetes = { "/*.yaml" },
         },
       },
     },
@@ -174,3 +174,4 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] =
 })
 
 require"fidget".setup{}
+
