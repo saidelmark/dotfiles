@@ -90,5 +90,6 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run=':TSUpdateSync',
   }
-end)
 
+  use 'tpope/vim-commentary'
+end)
