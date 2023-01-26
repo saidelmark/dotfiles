@@ -161,16 +161,6 @@ set spelllang=en_us,ru_yo " }}}
 
 
 
-
-" {{{1 Registers
-lua << EOF
-  local registers = require('registers')
-  registers.setup{
-    window = {
-      border = "rounded",
-    },
-  }
-EOF
 " {{{1 Fzf
 lua <<EOF
 require("fzf-lua").setup ({
