@@ -28,7 +28,10 @@ return require('packer').startup(function(use)
   use "chentoast/marks.nvim"
   use "lyokha/vim-xkbswitch"
 
-  use "npxbr/glow.nvim"
+  use {
+    "ellisonleao/glow.nvim",
+    config = function() require 'glow'.setup() end
+  }
 
   -- visual
   use {

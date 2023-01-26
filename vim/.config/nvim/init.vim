@@ -120,11 +120,6 @@ nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
       \ setlocal spell linebreak
   augroup END
 
-  augroup glow
-    autocmd!
-    autocmd FileType markdown nnoremap <buffer> <silent> <leader>p <Cmd>Glow<CR>
-  augroup END
-
   augroup sublime_syntax
     autocmd!
     autocmd BufRead,BufNewFile *.sublime-settings set filetype=json
