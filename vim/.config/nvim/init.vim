@@ -161,16 +161,6 @@ set spelllang=en_us,ru_yo " }}}
 
 
 
-
-" {{{1 Marks
-lua <<EOF
-require'marks'.setup {
-  mappings = {
-    next = "]m",
-    prev = "[m"
-  }
-}
-EOF
 "}}}
 
 let g:rainbow_active = 1

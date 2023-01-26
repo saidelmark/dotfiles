@@ -6,16 +6,7 @@ return require('packer').startup(function(use)
   -- general quality of life
   use 'tpope/vim-sensible'
   use 'tpope/vim-unimpaired'
-  use {
-    'm4xshen/autoclose.nvim',
-    config = function()
-      require("autoclose").setup({
-        options = {
-          disabled_filetypes = { "text", "gitcommit" },
-        },
-      })
-    end
-  }
+  use 'm4xshen/autoclose.nvim'
   use 'stevearc/oil.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
