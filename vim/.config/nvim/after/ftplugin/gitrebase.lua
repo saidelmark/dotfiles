@@ -1,0 +1,8 @@
+vim.keymap.set('n', '<localleader>p', '0ciwpick<esc>0', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>r', '0ciwreword<esc>0', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>d', '0ciwdrop<esc>0', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>e', '0ciwedit<esc>0', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>s', '0ciwsquash<esc>0', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>f', '0ciwfixup<esc>0', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>x', 'oexec <c-g>u', { buffer = true, silent = true })
+vim.keymap.set('n', '<localleader>X', 'Oexec <c-g>u', { buffer = true, silent = true })

@@ -161,30 +161,6 @@ set spelllang=en_us,ru_yo " }}}
 
 
 
-" {{{1 LSP, formatting, etc.
-" {{{1 Git
-augroup git
-  autocmd!
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>p 0ciwpick<esc>0
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>r 0ciwreword<esc>0
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>d 0ciwdrop<esc>0
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>e 0ciwedit<esc>0
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>s 0ciwsquash<esc>0
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>f 0ciwfixup<esc>0
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>x oexec <c-g>u
-  autocmd FileType gitrebase nnoremap <buffer> <silent> <localleader>X Oexec <c-g>u
-augroup END
-" {{{2 Git messenger
-" {{{ Colors
-hi link gitmessengerHeader Statement
-hi link gitmessengerHash Special
-hi link gitmessengerHistory Title
-" }}}
-let g:git_messenger_max_popup_height = 20
-let g:git_messenger_max_popup_width = 80
-let g:git_messenger_floating_win_opts = { 'border': 'rounded' }
-let g:git_messenger_popup_content_margins = v:false
-let g:git_messenger_always_into_popup = v:true
 
 " {{{1 UndoTree
 nnoremap <silent> <F12> :UndotreeToggle<CR>
