@@ -88,7 +88,11 @@ return require('packer').startup(function(use)
   use 'simrat39/rust-tools.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
-    run=':TSUpdateSync',
+    run = ':TSUpdateSync',
+  }
+  use {
+    'm-demare/hlargs.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
   }
 
   use 'tpope/vim-commentary'
