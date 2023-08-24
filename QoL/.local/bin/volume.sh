@@ -19,25 +19,25 @@ notify() {
   if [ "$1" = "mic" ]
   then
     if [ "$(is_mute_input)" = "yes" ]; then
-      icon="/usr/share/icons/Adwaita/96x96/status/microphone-sensitivity-muted-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/microphone-sensitivity-muted-symbolic.svg"
     else
-      icon="/usr/share/icons/Adwaita/96x96/status/microphone-sensitivity-medium-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/microphone-sensitivity-medium-symbolic.svg"
     fi
   else
     volume=$(get_volume)
     mute=$(is_mute)
     if [ "$mute" = "yes" ]; then
-      icon="/usr/share/icons/Adwaita/96x96/status/audio-volume-muted-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/audio-volume-muted-symbolic.svg"
     elif [ "$volume" -eq "0" ]; then
-      icon="/usr/share/icons/Adwaita/96x96/status/audio-volume-muted-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/audio-volume-muted-symbolic.svg"
     elif [ "$volume" -lt "40" ]; then
-      icon="/usr/share/icons/Adwaita/96x96/status/audio-volume-low-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/audio-volume-low-symbolic.svg"
     elif [ "$volume" -lt "60" ]; then
-      icon="/usr/share/icons/Adwaita/96x96/status/audio-volume-medium-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/audio-volume-medium-symbolic.svg"
     elif [ "$volume" -lt "90" ]; then
-      icon="/usr/share/icons/Adwaita/96x96/status/audio-volume-high-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/audio-volume-high-symbolic.svg"
     else
-      icon="/usr/share/icons/Adwaita/96x96/status/audio-volume-overamplified-symbolic.symbolic.png"
+      icon="/usr/share/icons/Adwaita/symbolic/status/audio-volume-overamplified-symbolic.svg"
     fi
   fi
 

@@ -1,5 +1,6 @@
 # vim: ft=cfg
 [global]
+    min_icon_size = 96
     highlight = "#ffffff"
     ### Display ###
 
@@ -179,8 +180,8 @@
     max_icon_size = 128
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Adwaita/96x96/actions/:/usr/share/icons/Adwaita/96x96/apps/:/usr/share/icons/Adwaita/96x96/categories/:/usr/share/icons/Adwaita/96x96/devices/:/usr/share/icons/Adwaita/96x96/emblems/:/usr/share/icons/Adwaita/96x96/emotes/:/usr/share/icons/Adwaita/96x96/mimetypes/:/usr/share/icons/Adwaita/96x96/places/:/usr/share/icons/Adwaita/96x96/status/:/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
+    icon_path = /usr/share/icons/Adwaita/symbolic/
+    
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
@@ -263,6 +264,7 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
+    enable_recursive_icon_lookup = true
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
