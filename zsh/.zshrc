@@ -32,6 +32,5 @@ source ~/.nix-profile/share/fzf-tab/fzf-tab.plugin.zsh
 source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-cowsay -f three-eyes $(fortune -a) | lolcat
 prompt off
 eval "$(starship init zsh)"
