@@ -5,21 +5,6 @@ EOF
 
 " {{{1 Folds
 lua << EOF
-require('ufo').setup({
-    provider_selector = function(bufnr, filetype, buftype)
-        return {'treesitter', 'indent'}
-    end
-})
-
-vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 9 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 9
-vim.o.foldenable = true
-local ufo = require('ufo')
-vim.keymap.set('n', 'zR', ufo.openAllFolds)
-vim.keymap.set('n', 'zM', ufo.closeAllFolds)
-vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
-vim.keymap.set('n', 'zm', ufo.closeFoldsWith)
 EOF
 augroup vim_folding
   autocmd!
