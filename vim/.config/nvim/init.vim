@@ -4,8 +4,6 @@ require 'saidelman/plugins'
 EOF
 
 " {{{1 Folds
-lua << EOF
-EOF
 augroup vim_folding
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
@@ -14,11 +12,9 @@ augroup git_folding
   autocmd!
   autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
 augroup END
-augroup TSfolding
+augroup sxhkdrc
   autocmd!
-  autocmd FileType c,go,lua,nix,terraform,yaml
-    \ setlocal foldmethod=expr |
-    \ setlocal foldexpr=nvim_treesitter#foldexpr()
+  autocmd BufEnter sxhkdrc,*.sxhkdrc set ft=sxhkdrc
 augroup END
 " }}}
 
