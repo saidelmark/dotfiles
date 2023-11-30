@@ -185,7 +185,7 @@ super + d; {s,n,b,e,p}
 	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh,passmenu-otp}
 
 Print
-	flameshot gui
+	flameshot gui -c -p ~/Pictures/Screenshots
 
 super + d; shift + s
 	scrotmenu --timeout
