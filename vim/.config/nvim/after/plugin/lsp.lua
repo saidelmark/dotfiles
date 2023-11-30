@@ -49,7 +49,7 @@ capabilities.textDocument.foldingRange = {
 }
 
 if vim.fn.executable("lua-language-server") == 1 then
-  nvim_lsp.sumneko_lua.setup {
+  nvim_lsp.lua_ls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     settings = {
