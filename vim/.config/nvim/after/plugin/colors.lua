@@ -48,5 +48,7 @@ monokai.setup {
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' })
 vim.api.nvim_set_hl(0, 'SignColumn', { link = 'LineNr' })
+vim.api.nvim_set_hl(0, '@text.diff.add', { link = 'diffAdded' })
+vim.api.nvim_set_hl(0, '@text.diff.delete', { link = 'diffRemoved' })
 
 require 'colorizer'.setup({ user_default_options = { mode = "virtualtext", } })
