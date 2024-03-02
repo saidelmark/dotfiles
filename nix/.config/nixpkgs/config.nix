@@ -8,7 +8,7 @@
         bottom
         delta
         direnv
-        exa
+        eza
         fzf
         htop
         glow
