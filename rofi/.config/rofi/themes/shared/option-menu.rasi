@@ -20,11 +20,14 @@
 #listview {
   layout: horizontal;
 }
-#element {
+element {
   padding: @option-element-padding;
+}
+element.normal.normal,
+element.alternate.normal {
   background-color: @background-light;
 }
-#element.selected {
+element.selected.normal {
   background-color: @accent;
   text-color: @background;
 }

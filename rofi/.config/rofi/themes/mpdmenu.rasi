@@ -55,7 +55,8 @@ element.selected.urgent {
 element.selected.urgent {
   border-color: @accent;
 }
-element.urgent,
+element.alternate.urgent,
+element.normal.urgent,
 element.selected.active {
   background-color: @off;
   text-color: @background;

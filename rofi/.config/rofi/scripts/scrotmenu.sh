@@ -1,21 +1,19 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/scrotmenu.rasi"
-
 ### Options ###
 screen=""
 area=""
 window=""
 # Variable passed to rofi
-options="$screen\n$area\n$window"
+options="$screen\n$window\n$area"
 
 filePattern='%Y-%m-%d_%H-%M-%S_$wx$h.png'
-destination="$HOME/Pictures/screenshots"
+destination="$HOME/Pictures/Screenshots/"
 postCommand='mv $f'
 
 timeout=0
 
-choice="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
+choice="$(echo -e "$options" | rofi -theme-str '@import "scrotmenu.rasi"' -dmenu -selected-row 1)"
 
 if [ "$1" = "--timeout" ]
 then
