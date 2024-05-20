@@ -80,7 +80,7 @@ return require('packer').startup(function(use)
 
   -- lsp and treesitter related
   use {
-    'tami5/lspsaga.nvim',
+    'nvimdev/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
   }
   use "Maan2003/lsp_lines.nvim"

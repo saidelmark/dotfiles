@@ -1,43 +1,54 @@
 local nvim_lsp = require('lspconfig')
 
-require 'lspsaga'.init_lsp_saga{
-  code_action_prompt = {
+require 'lspsaga'.setup {
+  lightbulb = {
     enable = true,
     sign = false,
     virtual_text = false,
+    update_in_insert = true,
   },
-  border_style = "round",
 }
 ---@diagnostic disable-next-line: unused-local
-local on_attach = function (client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local on_attach = function(client, bufnr)
+  local function set_keymap(mapping, command, opts, mode)
+    mode = mode or 'n'
+    opts = opts or {}
+    local default_opts = { noremap = true, silent = true }
+    for k,v in pairs(default_opts) do opts[k] = opts[k] or v end
+    if type(command) == "function" then
+      opts.callback = command
+      command = ""
+    end
+    vim.api.nvim_buf_set_keymap(bufnr, mode, mapping, command, opts)
+  end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-  local opts = { noremap=true, silent=true }
 
+  -- TODO: replace '<cmd>lua ...<CR>' with callbacks
   -- Unimplemented by a lot of servers
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  set_keymap('gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  set_keymap('<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
+  set_keymap('<leader>gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+  set_keymap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+  set_keymap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  set_keymap('<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
   -- TODO: add mapping for range_formatting()
-  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
+  set_keymap('<leader>f', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>')
 
-  buf_set_keymap('n', '<Leader>gh', ":Lspsaga lsp_finder<CR>", opts)
-  buf_set_keymap('n', '<Leader><c-]>', ":Lspsaga preview_definition<CR>", opts)
-  buf_set_keymap('n', '<Leader>ld', ":Lspsaga show_line_diagnostics<CR>", opts)
-  buf_set_keymap('n', '[d', ":Lspsaga diagnostic_jump_prev<CR>", opts)
-  buf_set_keymap('n', ']d', ":Lspsaga diagnostic_jump_next<CR>", opts)
-  buf_set_keymap('n', '<C-k>', ":Lspsaga signature_help<CR>", opts)
-  buf_set_keymap('n', 'K', ":Lspsaga hover_doc<CR>", opts)
+  set_keymap('<Leader>gh', ":Lspsaga finder<CR>")
+  set_keymap('<Leader>go', ":Lspsaga outline<CR>")
+  set_keymap('<Leader><c-]>', ":Lspsaga preview_definition<CR>")
+  set_keymap('<Leader>ld', ":Lspsaga show_line_diagnostics<CR>")
+  set_keymap('[d', ":Lspsaga diagnostic_jump_prev<CR>")
+  set_keymap(']d', ":Lspsaga diagnostic_jump_next<CR>")
+  -- There is no "signature_help" option
+  -- buf_set_keymap('<C-k>', ":Lspsaga signature_help<CR>")
+  set_keymap('K', ":Lspsaga hover_doc<CR>")
   -- TODO: add code action for ranges (visual mode)
-  buf_set_keymap('n', '<leader>ca', ':Lspsaga code_action<CR>', opts)
-  buf_set_keymap('n', '<c-f>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", opts)
-  buf_set_keymap('n', '<c-b>', "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", opts)
-  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  set_keymap('<leader>ca', ':Lspsaga code_action<CR>')
+  set_keymap('<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
   vim.wo.signcolumn = 'yes'
 end
