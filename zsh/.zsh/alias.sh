@@ -1,8 +1,8 @@
 alias _='sudo'
 alias vim='nvim'
 
-alias la='exa -laF --icons --group-directories-first --time-style long-iso --colour-scale'
-alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore --colour-scale'
+alias la='exa -laF --icons --group-directories-first --time-style long-iso --colour-scale=all'
+alias la-git='exa -laF --icons --group-directories-first --time-style long-iso --git --git-ignore --colour-scale=all'
 
 alias -g B='| bat'
 alias -g By='| bat --language=yaml'
