@@ -96,8 +96,8 @@ if vim.fn.executable("terraform-ls") == 1 then
   }
 end
 
-if vim.fn.executable("rnix-lsp") == 1 then
-  nvim_lsp.rnix.setup{
+if vim.fn.executable("nixd") == 1 then
+  nvim_lsp.nixd.setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }

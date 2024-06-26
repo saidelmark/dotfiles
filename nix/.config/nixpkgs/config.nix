@@ -14,12 +14,12 @@
         glow
         jq
         nix-tree
+        nixd
         nodePackages.bash-language-server
         nodePackages.vim-language-server
         mc
         pandoc
         ripgrep
-        rnix-lsp
         shellcheck
         silver-searcher
         skim
