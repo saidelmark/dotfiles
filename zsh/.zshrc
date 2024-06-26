@@ -21,9 +21,9 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --inline-info --ansi'
 # https://gist.github.com/peti/2c818d6cb49b0b0f2fd7c300f8386bc3
 # https://github.com/NixOS/nixpkgs/issues/38991
 export LOCALE_ARCHIVE_2_27=$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive
-source $(fzf-share)/key-bindings.zsh
-source $(fzf-share)/completion.zsh
 export FORGIT_COPY_CMD='xclip -selection clipboard'
+eval "$(fzf --zsh)"
+
 source ~/.nix-profile/share/zsh/zsh-forgit/forgit.plugin.zsh
 
 eval "$(direnv hook zsh)"
