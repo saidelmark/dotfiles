@@ -23,7 +23,6 @@
     # Size and position
     width = (0, 600)
     height = (0, 300)
-    origin = top-right
     offset = 5x35
     origin = top-center
     notification_limit = 3
