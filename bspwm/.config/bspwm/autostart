@@ -1,5 +1,13 @@
 #! /bin/sh
 
+run_once() {
+  program="$1"
+
+  if [ -z "$( pgrep "${program}" )" ]; then
+    $program &
+  fi
+}
+
 # check if hotkey deamon is started,
 # if it is, then reload the settings,
 # if not, then start it
@@ -17,8 +25,9 @@ feh --bg-scale ~/Pictures/Wallpaper/wall.jpg
 
 ~/.config/polybar/launch.sh
 
-telegram-desktop &
-skypeforlinux &
+run_once "telegram-desktop"
+run_once "skypeforlinux"
+nm-applet &
 
 killall alttab; exec alttab -w 1 -mk Super_L -kk grave -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64 &
 
