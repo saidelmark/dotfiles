@@ -21,9 +21,6 @@ wttr() {
   curl -H "Accept-Language: en" --compressed "$request"
 }
 
-alias ghc='stack exec ghc -- '
-alias ghci='stack exec ghci -- '
-alias runhaskell='stack exec runhaskell -- '
 fay() {
   # fuzzy search through arch repos and install selected
   # https://wiki.archlinux.org/index.php/Fzf#Arch_specific_fzf_uses
