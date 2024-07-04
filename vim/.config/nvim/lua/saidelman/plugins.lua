@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons" }
   }
   use "dhruvasagar/vim-table-mode"
-  use "tmux-plugins/vim-tmux-focus-events"
   use "chentoast/marks.nvim"
   use "lyokha/vim-xkbswitch"
 
@@ -94,6 +93,4 @@ return require('packer').startup(function(use)
     'm-demare/hlargs.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },
   }
-
-  use 'tpope/vim-commentary'
 end)
