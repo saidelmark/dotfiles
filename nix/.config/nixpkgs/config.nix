@@ -9,6 +9,7 @@
         delta
         direnv
         eza
+        fd
         fzf
         htop
         glow
