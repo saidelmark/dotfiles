@@ -14,21 +14,21 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
   use 'michaeljsmith/vim-indent-object'
   use 'jeetsukumaran/vim-indentwise'
-  use "tversteeg/registers.nvim"
+  use 'tversteeg/registers.nvim'
   use {
-    "kevinhwang91/nvim-ufo",
-    requires = { "kevinhwang91/promise-async" }
+    'kevinhwang91/nvim-ufo',
+    requires = { 'kevinhwang91/promise-async' }
   }
   use {
-    "ibhagwan/fzf-lua",
-    requires = { "nvim-tree/nvim-web-devicons" }
+    'ibhagwan/fzf-lua',
+    requires = { 'nvim-tree/nvim-web-devicons' }
   }
-  use "dhruvasagar/vim-table-mode"
-  use "chentoast/marks.nvim"
-  use "lyokha/vim-xkbswitch"
+  use 'dhruvasagar/vim-table-mode'
+  use 'chentoast/marks.nvim'
+  use 'lyokha/vim-xkbswitch'
 
   use {
-    "ellisonleao/glow.nvim",
+    'ellisonleao/glow.nvim',
     config = function() require 'glow'.setup() end
   }
 
@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use 'NvChad/nvim-colorizer.lua'
-  use "luochen1990/rainbow"
+  use 'luochen1990/rainbow'
 
   -- git stuff
   use {
@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
     'nvimdev/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
   }
-  use "Maan2003/lsp_lines.nvim"
+  use 'Maan2003/lsp_lines.nvim'
   use 'j-hui/fidget.nvim'
   use 'simrat39/rust-tools.nvim'
   use {

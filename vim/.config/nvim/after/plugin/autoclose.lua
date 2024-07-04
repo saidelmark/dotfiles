@@ -1,5 +1,5 @@
-require("autoclose").setup({
+require('autoclose').setup({
   options = {
-    disabled_filetypes = { "text", "gitcommit" },
+    disabled_filetypes = { 'text', 'gitcommit' },
   },
 })

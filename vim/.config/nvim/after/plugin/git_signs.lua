@@ -2,7 +2,7 @@ require('gitsigns').setup {
   signcolumn = true,
   numhl = false,
   preview_config = {
-    border = 'double',
+    border = 'rounded',
   },
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns

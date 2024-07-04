@@ -1,6 +1,6 @@
-require 'marks'.setup {
+require('marks').setup {
   mappings = {
-    next = "]m",
-    prev = "[m"
+    next = ']m',
+    prev = '[m'
   }
 }
