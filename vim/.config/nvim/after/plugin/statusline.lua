@@ -1,7 +1,11 @@
 require('lualine').setup({
   options = {
-    section_separators = '', component_separators = ''
+    section_separators = '',
+    component_separators = '',
+    theme = require('ofirkai.statuslines.lualine').theme,
   },
+  -- TODO: Find out why this doesn't work
+  extentions = { 'oil', 'fugitive' },
   sections = {
     lualine_x = { 'filetype' },
     lualine_z = { 'location', 'searchcount' },

@@ -2,7 +2,7 @@ vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'tanvirtin/monokai.nvim'
+  use 'ofirgall/ofirkai.nvim'
   -- general quality of life
   use 'tpope/vim-sensible'
   use 'tpope/vim-unimpaired'
@@ -38,7 +38,6 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use 'NvChad/nvim-colorizer.lua'
-  use 'luochen1990/rainbow'
 
   -- git stuff
   use {
@@ -73,7 +72,8 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-nvim-lsp-signature-help',
-      'hrsh7th/cmp-cmdline'
+      'hrsh7th/cmp-cmdline',
+      'onsails/lspkind.nvim',
     }
   }
 
