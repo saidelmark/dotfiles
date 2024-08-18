@@ -27,6 +27,7 @@ feh --bg-scale ~/Pictures/Wallpaper/wall.jpg
 
 run_once "telegram-desktop"
 run_once "skypeforlinux"
+run_once "easyeffects --gapplication-service" # Launches easyeffects in headless mode, so that all the filters are enabled at startup
 nm-applet &
 
 killall alttab; exec alttab -w 1 -mk Super_L -kk grave -fg "#d58681" -bg "#4a4a4a" -frame "#eb564d" -t 128x150 -i 127x64 &
