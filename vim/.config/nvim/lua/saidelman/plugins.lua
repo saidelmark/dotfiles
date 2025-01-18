@@ -84,7 +84,8 @@ return require('packer').startup(function(use)
   }
   use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
   use 'j-hui/fidget.nvim'
-  use 'simrat39/rust-tools.nvim'
+  use { 'saecki/crates.nvim', tag = 'stable' }
+  use { 'mrcjkb/rustaceanvim', version = "^5" }
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdateSync',
@@ -92,5 +93,15 @@ return require('packer').startup(function(use)
   use {
     'm-demare/hlargs.nvim',
     requires = { 'nvim-treesitter/nvim-treesitter' },
+  }
+  -- Test framework with adapters for different languages
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
   }
 end)

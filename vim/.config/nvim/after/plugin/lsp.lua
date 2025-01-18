@@ -99,33 +99,7 @@ if vim.fn.executable('pylsp') == 1 then
 end
 
 if vim.fn.executable('rust-analyzer') == 1 then
-  local rt = require('rust-tools')
-  local on_attach_rust = function(client, bufnr)
-    on_attach(client, bufnr)
-    vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
-  end
-  local rust_opts = {
-    tools = {
-      autoSetHints = true,
-    },
-    server = {
-      on_attach = on_attach_rust,
-      capabilities = capabilities,
-      ['rust-analyzer'] = {
-        assist = {
-          importGranularity = 'module',
-          importPrefix = 'self',
-        },
-        cargo = {
-          loadOutDirsFromCheck = true
-        },
-        procMacro = {
-          enable = true
-        },
-      }
-    },
-  }
-  rt.setup(rust_opts)
+  require('crates').setup {}
 end
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
