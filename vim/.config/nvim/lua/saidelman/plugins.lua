@@ -82,7 +82,7 @@ return require('packer').startup(function(use)
     'nvimdev/lspsaga.nvim',
     requires = { 'neovim/nvim-lspconfig' },
   }
-  use 'Maan2003/lsp_lines.nvim'
+  use 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
   use 'j-hui/fidget.nvim'
   use 'simrat39/rust-tools.nvim'
   use {
