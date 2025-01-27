@@ -1,11 +1,11 @@
 * {
   /* General */
   confirm-text-font:                    "Comfortaa 14";
-  text-font:                            "Comfortaa 16";
+  text-font:                            "Comfortaa 14";
   text-font-mono:                       "RobotoMono Nerd Font Regular 14";
 
-  icon-font:                            "Hurmit Nerd Font Mono 60";
-  icon-font-small:                      "Hurmit Nerd Font Mono 24";
+  icon-font:                            "Hurmit Nerd Font Mono 46";
+  icon-font-small:                      "Hurmit Nerd Font Mono 20";
 
   inputbar-margin:                      4px 4px;
   prompt-padding:                       16px 20px;
