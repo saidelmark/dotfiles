@@ -6,7 +6,7 @@
 xclip -h >/dev/null || exit
 
 if [ -e ~/.local/share/fontawesome ]; then
-      chosen=$(grep -v "#" -h ~/.local/share/emoji ~/.local/share/fontawesome | rofi -dmenu -i -l 20 -fn Monospace-18)
+      chosen=$(grep -v "#" -h ~/.local/share/emoji ~/.local/share/fontawesome | rofi -dmenu -i -l 20 -fn Monospace-18 -theme-str '@import "appsmenu.rasi"')
     else
           chosen=$(grep -v "#" ~/.local/share/emoji | rofi -dmenu -i -l 20 -fn Monospace-18)
 fi
