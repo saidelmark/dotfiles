@@ -181,8 +181,11 @@ super + space
 	appsmenu
 	# rofi -show drun -scroll-method 1 -show-icons
 
-super + d; {s,n,b,e,p}
-	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh,passmenu-otp}
+super + d; {s,n,b,e}
+	{scrotmenu,networkmenu,btmenu,dmenu_emoji.sh}
+
+super + d; p
+  passmenu-otp -theme-str '@import "appsmenu.rasi"' -matching fuzzy
 
 Print
 	flameshot gui -c -p ~/Pictures/Screenshots
