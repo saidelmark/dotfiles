@@ -1,12 +1,26 @@
 * {
   /* General */
-  text-font:                            "Comfortaa 14";
-  text-font-mono:                       "RobotoMono Nerd Font Regular 14";
+  confirm-text-font:                    "Hurmit Nerd Font Mono 18";
+  text-font:                            "Hurmit Nerd Font Regular 14";
+  text-font-mono:                       "Hurmit Nerd Font Regular 14";
+
   icon-font:                            "Hurmit Nerd Font Mono 60";
   icon-font-small:                      "Hurmit Nerd Font Mono 24";
+
   inputbar-margin:                      4px 4px;
   prompt-padding:                       16px 20px;
   entry-padding:                        18px 16px 16px 0px;
+  /* confirmmenu */
+  confirm-window-height:                300px;
+  confirm-window-width:                 627px;
+  confirm-window-border:                2px;
+  confirm-prompt-padding:               20px 30px;
+  confirm-prompt-margin:                8px;
+  confirm-listview-padding:             60px 114px 0px 114px;
+  /* Values bellow are 'no-padding' ones for a size 18 (@confirm-text-font) font, played around using this character: ■
+   * We then add add 30 actual padding around the text.
+   *                                    -4px  -1px  -6px  -28px */
+  confirm-element-padding:              26px  29px  24px  2px;
   /* list menus: appsmenu, networkmenu and nmvpnmenu */
   list-element-padding:                 20px;
   list-element-margin:                  @inputbar-margin;
@@ -17,11 +31,11 @@
    * Values bellow are 'no-padding' ones for a size 60 (@icon-font) font, played around using this character: ■
    * We then add add 100 actual padding around the icons.
    *                                    -12px 0px   -19px -96px */
-  option-element-padding:               88px  100px 81px  4px;
-  option-3-window-padding:              415px 446px;
+  option-element-padding:               90px  100px 90px  -10px;
+  option-3-window-padding:              520px 700px;
   option-3-listview-spacing:            140px;
-  option-5-window-padding:              415px 183px;
-  option-5-listview-spacing:            77px;
+  option-5-window-padding:              520px 420px;
+  option-5-listview-spacing:            80px;
   option-6-listview-spacing:            50px;
   /* appsmenu */
   apps-textbox-prompt-colon-padding:    16px;
