@@ -1,6 +1,6 @@
 {
   packageOverrides = pkgs: with pkgs; {
-    saidelman-common = pkgs.buildEnv {
+    saidelman-common = buildEnv {
       name = "saidelman-common";
       paths = [
         # alttab
@@ -36,7 +36,7 @@
       ];
       extraOutputsToInstall = [ "man" "doc" ];
     };
-    saidelman-devops = pkgs.buildEnv {
+    saidelman-devops = buildEnv {
       name = "saidelman-devops";
       paths = [
         # aws
