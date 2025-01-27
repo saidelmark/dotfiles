@@ -7,15 +7,16 @@
         bat
         bottom
         delta
-        direnv
+        difftastic
         eza
         fd
-        fzf
         htop
+        gh
         glow
         jq
         nix-tree
         nixd
+        nodejs # Only to enable copilot globally, not on every project
         nodePackages.bash-language-server
         nodePackages.vim-language-server
         mc
