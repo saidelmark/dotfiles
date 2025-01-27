@@ -99,7 +99,15 @@ if vim.fn.executable('pylsp') == 1 then
 end
 
 if vim.fn.executable('rust-analyzer') == 1 then
-  require('crates').setup {}
+  require('crates').setup({
+    lsp = {
+      enabled = true,
+      on_attach = on_attach,
+      actions = true,
+      completion = true,
+      hover = true,
+    }
+  })
 end
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
