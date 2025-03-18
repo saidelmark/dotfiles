@@ -105,4 +105,9 @@ return require('packer').startup(function(use)
     }
   }
   use 'github/copilot.vim'
+  use {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    requires = { 'nvim-lua/plenary.nvim', 'github/copilot.vim' },
+    config = function() require('CopilotChat').setup() end,
+  }
 end)
