@@ -51,16 +51,8 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'rhysd/git-messenger.vim'
 
-  -- syntax for all languages I use
-  use 'kovetskiy/sxhkd-vim'
-  use 'neovimhaskell/haskell-vim'
-  use 'chr4/nginx.vim'
-  use 'towolf/vim-helm'
-  use 'hashivim/vim-terraform'
-  use 'tmux-plugins/vim-tmux'
-  use 'LnL7/vim-nix'
-  use 'timmyjose-projects/lox.vim'
-  use 'cespare/vim-toml'
+
+  -- use 'tmux-plugins/vim-tmux'
 
   -- completion
   use {
