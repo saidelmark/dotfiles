@@ -9,7 +9,7 @@ set_keymap(
   function()
     fzf.files({ fzf_opts = { ['--query'] = vim.fn.expand('%:p:.:h') } })
   end,
-  "Fzf: Available commands",
+  "Fzf: Files in the same directory",
   { buffer = false }
 )
 set_keymap('<C-P>', fzf.files, "Fzf: Files", { buffer = false })
