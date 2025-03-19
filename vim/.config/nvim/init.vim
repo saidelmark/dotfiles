@@ -1,17 +1,10 @@
 " {{{1 Plugins
 lua <<EOF
-require 'saidelman/plugins'
+require('saidelman.plugins')
+require('saidelman.keymaps')
 EOF
 
 " {{{1 Folds
-augroup vim_folding
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-augroup git_folding
-  autocmd!
-  autocmd FileType git,gitcommit,fugitive setlocal foldlevel=99
-augroup END
 augroup sxhkdrc
   autocmd!
   autocmd BufEnter sxhkdrc,*.sxhkdrc set ft=sxhkdrc
@@ -69,46 +62,13 @@ augroup END
         \ set ft=vim
   augroup END
 
-" {{{ Key bindings
-nnoremap <Space> <Nop>
-let mapleader = " "
-let maplocalleader = "\\"
-
-" I'm too lazy to hit shift all the time
-nnoremap : ;
-nnoremap ; :
-vnoremap : ;
-vnoremap ; :
-
-" Old habit from Far Manager editor
-nnoremap <silent> <F2> :w<CR>
-inoremap <silent> <F2> <ESC><C-G>:w<CR>a
-
-nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <silent> <leader>es :split $MYVIMRC<cr>
-
-" Open git status in a narrow buffer in the right half of the window
-nnoremap <silent> <leader>G :vert G \| vert resize 70<cr>
-" }}}
-
 " ===========
 " Auto commands
 " ===========
 
-  augroup prose
-    autocmd!
-    autocmd FileType markdown,gitcommit,plaintext,text
-      \ setlocal spell linebreak
-  augroup END
-
   augroup sublime_syntax
     autocmd!
     autocmd BufRead,BufNewFile *.sublime-settings set filetype=json
-  augroup END
-
-  augroup go_syntax
-    autocmd!
-    autocmd FileType go set foldmethod=syntax
   augroup END
 
   augroup refresh_buffers
@@ -132,10 +92,6 @@ let g:XkbSwitchKeymapNames = {'ru' : 'russian-jcukenwin'}
 let g:XkbSwitchAssistNKeymap = 1    " for commands r and f
 
 set spelllang=en_us,ru_yo " }}}
-
-
-
-
 " }}}
 
 let g:rainbow_active = 1

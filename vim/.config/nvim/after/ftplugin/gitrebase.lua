@@ -7,3 +7,4 @@ set_keymap('<localleader>s', '0ciwsquash<esc>0', 'Rebase: Squash this commit')
 set_keymap('<localleader>f', '0ciwfixup<esc>0', 'Rebase: Fixup this commit')
 set_keymap('<localleader>x', 'oexec <c-g>u', 'Rebase: Exec before this commit')
 set_keymap('<localleader>X', 'Oexec <c-g>u', 'Rebase: Exec after this commit')
+vim.opt_local.foldlevel = 99

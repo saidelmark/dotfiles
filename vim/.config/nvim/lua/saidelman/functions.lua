@@ -5,7 +5,7 @@ local M = {}
 --- @param command string | function
 --- @param description string
 --- @param opts? vim.keymap.set.Opts
---- @param mode? string
+--- @param mode? string | string[]
 function M.set_keymap(mapping, command, description, opts, mode)
   mode = mode or 'n'
   opts = opts or {}
