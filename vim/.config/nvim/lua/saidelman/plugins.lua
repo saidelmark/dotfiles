@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
     },
   }
   use 'rhysd/git-messenger.vim'
+  use 'lewis6991/gitsigns.nvim'
 
 
   -- use 'tmux-plugins/vim-tmux'

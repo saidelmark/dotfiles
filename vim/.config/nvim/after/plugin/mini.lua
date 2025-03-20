@@ -10,13 +10,6 @@ require('mini.splitjoin').setup({
   mappings = { toggle = 'ss' }
 })
 require('mini.move').setup()
-require('mini.diff').setup({
-  mappings = {
-    apply = 'hs',
-    reset = 'hr',
-    textobject = 'hs',
-  }
-})
 
 require('mini.tabline').setup()
 
