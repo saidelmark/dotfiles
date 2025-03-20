@@ -5,24 +5,16 @@ return require('packer').startup(function(use)
   use 'ofirgall/ofirkai.nvim'
   -- general quality of life
   use 'tpope/vim-sensible'
-  use 'tpope/vim-unimpaired'
-  use 'm4xshen/autoclose.nvim'
   use 'stevearc/oil.nvim'
-  use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish'
   use 'mbbill/undotree'
-  use 'michaeljsmith/vim-indent-object'
-  use 'jeetsukumaran/vim-indentwise'
   use 'tversteeg/registers.nvim'
   use {
     'kevinhwang91/nvim-ufo',
     requires = { 'kevinhwang91/promise-async' }
   }
-  use {
-    'ibhagwan/fzf-lua',
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
+  use { 'ibhagwan/fzf-lua' }
   use 'dhruvasagar/vim-table-mode'
   use 'chentoast/marks.nvim'
   use 'lyokha/vim-xkbswitch'
@@ -32,11 +24,10 @@ return require('packer').startup(function(use)
     config = function() require 'glow'.setup() end
   }
 
-  -- visual
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use 'echasnovski/mini.nvim'
+
+  -- -- visual
+  use {'nvim-lualine/lualine.nvim'}
   use 'NvChad/nvim-colorizer.lua'
 
   -- git stuff
@@ -48,7 +39,6 @@ return require('packer').startup(function(use)
       'shumphrey/fugitive-gitlab.vim',
     },
   }
-  use 'lewis6991/gitsigns.nvim'
   use 'rhysd/git-messenger.vim'
 
 
