@@ -18,4 +18,30 @@ set_keymap('<F2>', ':w<CR>', 'Save file Far Manager style', { buffer = false }, 
 set_keymap('<leader>ev', ':vsplit $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
 set_keymap('<leader>es', ':split $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
 
-set_keymap(' G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false })
+set_keymap('<leader>G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false })
+
+
+--- @param before boolean
+local function add_new_line(before)
+  local current_line = vim.api.nvim_win_get_cursor(0)
+  if before then
+    vim.api.nvim_command('normal! O')
+  else
+    vim.api.nvim_command('normal! o')
+  end
+  vim.api.nvim_win_set_cursor(0, { 1 + current_line[1], current_line[2] })
+end
+
+set_keymap(
+  '[ ',
+  function() add_new_line(true) end,
+  'Add new line before current',
+  { buffer = false }
+)
+
+set_keymap(
+  '] ',
+  function() add_new_line(false) end,
+  'Add new line after current',
+  { buffer = false }
+)

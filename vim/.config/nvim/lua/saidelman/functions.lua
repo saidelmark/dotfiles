@@ -9,7 +9,12 @@ local M = {}
 function M.set_keymap(mapping, command, description, opts, mode)
   mode = mode or 'n'
   opts = opts or {}
-  local default_opts = { remap = false, silent = true, buffer = true, desc = description }
+  local default_opts = {
+    remap = false,
+    silent = true,
+    buffer = true,
+    desc = description
+  }
   local res_opts = vim.tbl_extend('keep', opts, default_opts)
   if type(command) == 'function' then
     res_opts.callback = command
