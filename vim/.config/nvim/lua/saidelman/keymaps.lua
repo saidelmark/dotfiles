@@ -20,6 +20,7 @@ map('<leader>es', ':split $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
 
 map('<leader>G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false })
 
+-- Things I miss from tpope's unimpaired
 
 --- @param before boolean
 local function add_new_line(before)
@@ -43,3 +44,8 @@ map('] ',
   'Add new line after current',
   { buffer = false }
 )
+
+map('yow', ':set wrap!<cr>', 'Toggle wrap', { buffer = false })
+map('yor', ':set relativenumber!<cr>', 'Toggle relative line numbers', { buffer = false })
+map('yon', ':set relativenumber! number!<cr>', 'Toggle line numbering', { buffer = false })
+map('yos', ':set spell!<cr>', 'Toggle spell checking', { buffer = false })
