@@ -1,4 +1,5 @@
 local map = require('saidelman.functions').map
+local dot = require('saidelman.functions').dot_repeat
 
 -- Reset leader and localleader behaviour
 vim.keymap.set({ 'n', 'v' }, ' ', '<nop>', { buffer = false })
@@ -24,25 +25,26 @@ map('<leader>G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false 
 
 --- @param before boolean
 local function add_new_line(before)
-  local current_line = vim.api.nvim_win_get_cursor(0)
+  local current_pos = vim.api.nvim_win_get_cursor(0)
   if before then
-    vim.api.nvim_command('normal! O')
+    vim.api.nvim_buf_set_lines(0, current_pos[1] - 1, current_pos[1] - 1, false, { "" })
+    current_pos[1] = current_pos[1] + 1
   else
-    vim.api.nvim_command('normal! o')
+    vim.api.nvim_buf_set_lines(0, current_pos[1], current_pos[1], false, { "" })
   end
-  vim.api.nvim_win_set_cursor(0, { 1 + current_line[1], current_line[2] })
+  vim.api.nvim_win_set_cursor(0, current_pos)
 end
 
 map('[ ',
-  function() add_new_line(true) end,
-  'Add new line before current',
-  { buffer = false }
+  dot(function() add_new_line(true) end),
+  'add new line before current',
+  { buffer = false, expr = true, remap = true }
 )
 
 map('] ',
-  function() add_new_line(false) end,
-  'Add new line after current',
-  { buffer = false }
+  dot(function() add_new_line(false) end),
+  'add new line after current',
+  { buffer = false, expr = true, remap = true }
 )
 
 map('yow', ':set wrap!<cr>', 'Toggle wrap', { buffer = false })
