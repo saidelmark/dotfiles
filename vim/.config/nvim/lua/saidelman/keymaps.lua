@@ -1,24 +1,24 @@
-local set_keymap = require('saidelman.functions').set_keymap
+local map = require('saidelman.functions').map
 
 -- Reset leader and localleader behaviour
 vim.keymap.set({ 'n', 'v' }, ' ', '<nop>', { buffer = false })
 vim.keymap.set({ 'n', 'v' }, '\\', '<nop>', { buffer = false })
-set_keymap(' ', '<nop>', 'Reset leader', { buffer = false }, { 'n', 'v' })
-set_keymap('\\', '<nop>', 'Reset leader', { buffer = false }, { 'n', 'v' })
+map(' ', '<nop>', 'Reset leader', { buffer = false }, { 'n', 'v' })
+map('\\', '<nop>', 'Reset leader', { buffer = false }, { 'n', 'v' })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
-set_keymap(';', ':', 'Switch ; and :', { silent = false, buffer = false }, { 'n', 'v' })
-set_keymap(':', ';', 'Switch ; and :', { silent = false, buffer = false }, { 'n', 'v' })
+map(';', ':', 'Switch ; and :', { silent = false, buffer = false }, { 'n', 'v' })
+map(':', ';', 'Switch ; and :', { silent = false, buffer = false }, { 'n', 'v' })
 
-set_keymap('<F2>', ':w<CR>', 'Save file Far Manager style', { buffer = false })
-set_keymap('<F2>', '<ESC><C-G>:w<CR>a', 'Save file Far Manager style', { buffer = false }, 'i')
-set_keymap('<F2>', ':w<CR>', 'Save file Far Manager style', { buffer = false }, 'v')
+map('<F2>', ':w<CR>', 'Save file Far Manager style', { buffer = false })
+map('<F2>', '<ESC><C-G>:w<CR>a', 'Save file Far Manager style', { buffer = false }, 'i')
+map('<F2>', ':w<CR>', 'Save file Far Manager style', { buffer = false }, 'v')
 
-set_keymap('<leader>ev', ':vsplit $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
-set_keymap('<leader>es', ':split $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
+map('<leader>ev', ':vsplit $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
+map('<leader>es', ':split $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
 
-set_keymap('<leader>G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false })
+map('<leader>G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false })
 
 
 --- @param before boolean
@@ -32,15 +32,13 @@ local function add_new_line(before)
   vim.api.nvim_win_set_cursor(0, { 1 + current_line[1], current_line[2] })
 end
 
-set_keymap(
-  '[ ',
+map('[ ',
   function() add_new_line(true) end,
   'Add new line before current',
   { buffer = false }
 )
 
-set_keymap(
-  '] ',
+map('] ',
   function() add_new_line(false) end,
   'Add new line after current',
   { buffer = false }

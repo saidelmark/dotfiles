@@ -6,7 +6,7 @@ local M = {}
 --- @param description string
 --- @param opts? vim.keymap.set.Opts
 --- @param mode? string | string[]
-function M.set_keymap(mapping, command, description, opts, mode)
+function M.map(mapping, command, description, opts, mode)
   mode = mode or 'n'
   opts = opts or {}
   local default_opts = {
