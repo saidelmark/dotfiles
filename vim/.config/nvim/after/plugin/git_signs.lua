@@ -1,45 +1,56 @@
 require('gitsigns').setup {
   signcolumn = true,
   numhl = false,
-  preview_config = {
-    border = 'rounded',
-  },
-  on_attach = function(bufnr)
+  preview_config = { border = 'rounded' },
+  on_attach = function()
     local gs = package.loaded.gitsigns
-
-    local function map(mode, l, r, opts)
-      opts = opts or { silent = true }
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
+    local map = require('saidelman.functions').map
 
     -- Navigation
-    map('n', ']h', function()
-      if vim.wo.diff then return ']h' end
-      vim.schedule(function() gs.next_hunk() end)
-      return '<Ignore>'
-    end, { expr = true })
+    map(']h', function()
+      if vim.wo.diff then
+        vim.cmd.normal({ ']h', bang = true })
+      else
+        gs.next_hunk()
+      end
+    end, '')
 
-    map('n', '[h', function()
-      if vim.wo.diff then return '[h' end
-      vim.schedule(function() gs.prev_hunk() end)
-      return '<Ignore>'
-    end, { expr = true })
+    map('[h', function()
+      if vim.wo.diff then
+        vim.cmd.normal({ '[h', bang = true })
+      else
+        gs.prev_hunk()
+      end
+    end, '')
 
     -- Actions
-    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-    map('n', '<leader>hS', gs.stage_buffer)
-    map('n', '<leader>hu', gs.undo_stage_hunk)
-    map('n', '<leader>hR', gs.reset_buffer)
-    map('n', '<leader>hp', gs.preview_hunk)
-    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
-    map('n', '<leader>tb', gs.toggle_current_line_blame)
-    map('n', '<leader>hd', gs.diffthis)
-    map('n', '<leader>hD', function() gs.diffthis('~') end)
-    map('n', '<leader>td', gs.toggle_deleted)
+    map('<leader>hs', gs.stage_hunk, 'Git: stage hunk or selection', {}, { 'n', 'v' })
+    map('<leader>hr', gs.reset_hunk, 'Git: reset hunk or selection', {}, { 'n', 'v' })
+    map('<leader>hS', gs.stage_buffer, 'Git: stage whole buffer')
+    map('<leader>hR', gs.reset_buffer, 'Git: reset whole buffer')
+    map('<leader>hp', gs.preview_hunk, 'Git: preview hunk')
+    map('<leader>hd', function()
+      if vim.wo.diff then
+        vim.cmd('diffoff!')
+        if #vim.api.nvim_list_tabpages() > 1 then
+          vim.cmd('tabclose')
+        end
+      else
+        vim.cmd('tabnew %')
+        gs.diffthis()
+      end
+    end, 'Git: diff current file')
+    map('<leader>hD', function() if not vim.wo.diff then
+        vim.cmd('tabnew %')
+        gs.diffthis('~')
+      end end, 'Git: diff current file against HEAD~')
+
+    -- Toggles
+    map('<leader>tb', gs.toggle_current_line_blame, 'Git: toggle current line blame')
+    map('<leader>td', gs.toggle_deleted, 'Git: toggle inline deleted')
+    map('<leader>tw', gs.toggle_word_diff, 'Git: toggle word diff')
 
     -- Text object
-    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+    map('ih', ':<C-U>Gitsigns select_hunk<CR>', 'Git: select hunk operator', {}, { 'o', 'x' })
   end
 }
