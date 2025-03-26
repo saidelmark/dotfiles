@@ -1,5 +1,4 @@
 require('mini.ai').setup()
-require('mini.operators').setup()
 require('mini.bracketed').setup()
 require('mini.pairs').setup()
 require('mini.surround').setup()
