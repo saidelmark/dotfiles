@@ -1,18 +1,17 @@
-require('mini.icons').setup()
-require('mini.icons').mock_nvim_web_devicons()
-require('mini.comment').setup()
-require('mini.bracketed').setup()
 require('mini.ai').setup()
 require('mini.operators').setup()
-require('mini.indentscope').setup()
+require('mini.bracketed').setup()
 require('mini.pairs').setup()
 require('mini.surround').setup()
-require('mini.splitjoin').setup({
-  mappings = { toggle = 'ss' }
-})
 require('mini.move').setup()
 
 require('mini.tabline').setup()
+require('mini.icons').setup()
+require('mini.icons').mock_nvim_web_devicons()
+require('mini.notify').setup({
+  lsp_progress = { enable = false },
+  window = { config = { border = 'rounded' } },
+})
 
 local miniclue = require('mini.clue')
 miniclue.setup({
