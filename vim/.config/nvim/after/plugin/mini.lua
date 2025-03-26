@@ -1,7 +1,9 @@
 require('mini.ai').setup()
 require('mini.bracketed').setup()
+require('mini.indentscope').setup()
 require('mini.pairs').setup()
 require('mini.surround').setup()
+require('mini.splitjoin').setup({ mappings = { toggle = 'ss' } })
 require('mini.move').setup()
 
 require('mini.tabline').setup()
@@ -58,6 +60,7 @@ miniclue.setup({
   window = {
     config = {
       border = 'rounded',
-    }
+    },
+    delay = 500,
   },
 })
