@@ -2,7 +2,13 @@ require('mini.ai').setup()
 require('mini.bracketed').setup()
 require('mini.indentscope').setup()
 require('mini.pairs').setup()
-require('mini.surround').setup()
+require('mini.surround').setup({
+  mappings = {
+    add = 'ys',
+    delete = 'ds',
+    replace = 'cs',
+  }
+})
 require('mini.splitjoin').setup({ mappings = { toggle = 'ss' } })
 require('mini.move').setup()
 
