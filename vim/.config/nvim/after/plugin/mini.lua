@@ -26,6 +26,7 @@ miniclue.setup({
     -- Leader triggers
     { mode = 'n', keys = '<Leader>' },
     { mode = 'x', keys = '<Leader>' },
+    { mode = 'n', keys = '\\' },
 
     -- Built-in completion
     { mode = 'i', keys = '<C-x>' },
