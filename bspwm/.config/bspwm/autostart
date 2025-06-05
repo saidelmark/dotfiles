@@ -26,7 +26,7 @@ feh --bg-scale ~/Pictures/Wallpaper/wall.jpg
 ~/.config/polybar/launch.sh
 
 run_once "telegram-desktop"
-run_once "skypeforlinux"
+run_once "teams-for-linux"
 run_once "easyeffects --gapplication-service" # Launches easyeffects in headless mode, so that all the filters are enabled at startup
 nm-applet &
 
