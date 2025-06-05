@@ -39,9 +39,9 @@ function M.lsp_common_keymaps(client, bufnr)
     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
     'LSP: Toggle inlay hints'
   )
-  if require('lsp_lines') then
-    map('<Leader>ll', require('lsp_lines').toggle, 'LSP: Toggle inline diagnostics')
-  end
+  map('<Leader>ll', function()
+    vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+  end, 'LSP: Toggle inline diagnostics')
 
   vim.wo.signcolumn = 'yes'
 end

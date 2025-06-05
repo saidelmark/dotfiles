@@ -110,20 +110,12 @@ if vim.fn.executable('rust-analyzer') == 1 then
   })
 end
 
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = false,
-      signs = true,
-      underline = false,
-      update_in_insert = true,
-    })
+vim.diagnostic.config({
+  signs = true,
+  virtual_text = false,
+  underline = false,
+  virtual_lines = false,
+  update_in_insert = true,
+})
 
 require('fidget').setup({})
--- The line below is a switch to turn the lsp_lines plugin on or off
--- Maybe it would be better to make it into a keymap
--- vim.diagnostic.config({ virtual_lines = true })
--- Another option is to only enable virtual text diagnostics for current line.
--- It looks very strange in rust, when a diagnostic message is spread across the whole file,
--- but may be useful in other languages:
--- vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
-
