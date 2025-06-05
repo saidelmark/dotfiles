@@ -23,30 +23,6 @@ map('<leader>G', ':vert G | vert resize 70<cr>', 'Git status', { buffer = false 
 
 -- Things I miss from tpope's unimpaired
 
---- @param before boolean
-local function add_new_line(before)
-  local current_pos = vim.api.nvim_win_get_cursor(0)
-  if before then
-    vim.api.nvim_buf_set_lines(0, current_pos[1] - 1, current_pos[1] - 1, false, { "" })
-    current_pos[1] = current_pos[1] + 1
-  else
-    vim.api.nvim_buf_set_lines(0, current_pos[1], current_pos[1], false, { "" })
-  end
-  vim.api.nvim_win_set_cursor(0, current_pos)
-end
-
-map('[ ',
-  dot(function() add_new_line(true) end),
-  'add new line before current',
-  { buffer = false, expr = true, remap = true }
-)
-
-map('] ',
-  dot(function() add_new_line(false) end),
-  'add new line after current',
-  { buffer = false, expr = true, remap = true }
-)
-
 map('yow', ':set wrap!<cr>', 'Toggle wrap', { buffer = false })
 map('yor', ':set relativenumber!<cr>', 'Toggle relative line numbers', { buffer = false })
 map('yon', ':set relativenumber! number!<cr>', 'Toggle line numbering', { buffer = false })
