@@ -20,6 +20,18 @@ function M.lsp_common_keymaps(client, bufnr)
   map('<leader>wd', function() fzf.lsp_workspace_diagnostics(fzf_opts) end, 'LSP: Workspace diagnostic')
   -- TODO: add mapping for range_formatting()
   map('<leader>f', function() vim.lsp.buf.format({ async = true }) end, 'LSP: Format document')
+  map('<leader>f', function()
+    local start_pos = vim.fn.getpos("'<")
+    local end_pos = vim.fn.getpos("'>")
+    vim.lsp.buf.format({
+      async = true,
+      range = {
+        start = { line = start_pos[2] - 1, character = start_pos[3] - 1 },
+        ["end"] = { line = end_pos[2] - 1, character = end_pos[3] - 1 },
+      },
+    })
+  end, 'LSP: Format selection', {}, 'v')
+
 
   map('<Leader>gf', function() fzf.lsp_finder(fzf_opts) end, 'LSP: Just find everything')
   map('<Leader>go', ':Lspsaga outline<CR>', 'LSP: Toggle outline')
