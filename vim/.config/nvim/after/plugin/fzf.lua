@@ -1,5 +1,20 @@
 local fzf = require('fzf-lua')
-fzf.setup()
+fzf.setup({
+  keymaps = {
+    show_details    = false,
+    ignore_patterns = { "^<SNR>" },
+    actions         = {
+      ["alt-d"] = function(_, opts)
+        fzf.actions.toggle_opt(opts, 'show_details')
+      end
+    }
+  },
+  grep = {
+    actions = {
+      ["ctrl-r"] = { fzf.actions.toggle_ignore }
+    }
+  }
+})
 fzf.setup_fzfvim_cmds()
 fzf.register_ui_select()
 
