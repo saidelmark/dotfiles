@@ -14,6 +14,7 @@ map(':', ';', 'Switch ; and :', { silent = false, buffer = false }, { 'n', 'v' }
 
 map('<F2>', ':update<CR>', 'Save file Far Manager style', { buffer = false })
 map('<F2>', '<ESC><C-G>:update<CR>a', 'Save file Far Manager style', { buffer = false }, 'i')
+map('<F2>', '<ESC>:update<CR>gv', 'Save file Far Manager style', { buffer = false }, 'v')
 
 map('<leader>ev', ':vsplit $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
 map('<leader>es', ':split $MYVIMRC<CR>', 'Edit init.vim', { buffer = false })
