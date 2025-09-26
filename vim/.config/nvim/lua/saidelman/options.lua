@@ -7,6 +7,7 @@ vim.g.netrw_sort_options = "i"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.winborder = "rounded"
 
 vim.opt.scrolloff = 5
 

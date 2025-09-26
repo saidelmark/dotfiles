@@ -17,7 +17,6 @@ require('mini.icons').setup()
 require('mini.icons').mock_nvim_web_devicons()
 require('mini.notify').setup({
   lsp_progress = { enable = false },
-  window = { config = { border = 'rounded' } },
 })
 
 local miniclue = require('mini.clue')
@@ -65,9 +64,6 @@ miniclue.setup({
     miniclue.gen_clues.z(),
   },
   window = {
-    config = {
-      border = 'rounded',
-    },
     delay = 500,
   },
 })

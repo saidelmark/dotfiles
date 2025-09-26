@@ -13,7 +13,7 @@ cmp.setup({
       winhighlight = "Search:None",
       col_offset = -3,
       side_padding = 0,
-      border = 'rounded',
+      border = vim.o.winborder,
     },
   },
   formatting = {
