@@ -1,5 +1,3 @@
-local nvim_lsp = require('lspconfig')
-
 require('lspsaga').setup {
   lightbulb = {
     enable = true,
@@ -16,86 +14,118 @@ capabilities.textDocument.foldingRange = {
 }
 
 if vim.fn.executable('lua-language-server') == 1 then
-  nvim_lsp.lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        runtime = {
-          version = 'LuaJIT',
-        },
-        diagnostics = {
-          globals = { 'vim' },
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file('', true),
-        },
-        telemetry = {
-          enable = false,
+  vim.lsp.enable("lua_ls")
+  vim.lsp.config(
+    "lua_ls",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file('', true),
+          },
+          telemetry = {
+            enable = false,
+          },
         },
       },
-    },
-  }
+    }
+  )
 end
 
 if vim.fn.executable('haskell-language-server-wrapper') == 1 then
-  nvim_lsp.hls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  vim.lsp.enable("hls")
+  vim.lsp.config(
+    "hls",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('terraform-ls') == 1 then
-  nvim_lsp.terraformls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  vim.lsp.enable("terraformls")
+  vim.lsp.config(
+    "terraformls",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('nixd') == 1 then
-  nvim_lsp.nixd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  vim.lsp.enable("nixd")
+  vim.lsp.config(
+    "nixd",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('bash-language-server') == 1 then
-  nvim_lsp.bashls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  vim.lsp.enable("bashls")
+  vim.lsp.config(
+    "bashls",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('vim-language-server') == 1 then
-  nvim_lsp.vimls.setup {
-    on_attach = on_attach,
-    init_options = {
-      isNeovim = true,
-    },
-    capabilities = capabilities,
-  }
+  vim.lsp.enable("vimls")
+  vim.lsp.config(
+    "vimls",
+    {
+      on_attach = on_attach,
+      init_options = {
+        isNeovim = true,
+      },
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('yaml-language-server') == 1 then
-  nvim_lsp.yamlls.setup {
-    on_attach = on_attach,
-    settings = {
-      yaml = {
-        schemas = {
-          -- looks like kubernetes schemas are not working
-          kubernetes = { '/*.yaml' },
+  vim.lsp.enable("yamlls")
+  vim.lsp.config(
+    "yamlls",
+    {
+      on_attach = on_attach,
+      settings = {
+        yaml = {
+          schemas = {
+            -- looks like kubernetes schemas are not working
+            kubernetes = { '/*.yaml' },
+          },
         },
       },
-    },
-    capabilities = capabilities,
-  }
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('pylsp') == 1 then
-  nvim_lsp.pylsp.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  vim.lsp.enable("pylsp")
+  vim.lsp.config(
+    "pylsp",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  )
 end
 
 if vim.fn.executable('rust-analyzer') == 1 then
