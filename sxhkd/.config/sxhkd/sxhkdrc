@@ -42,8 +42,16 @@ super + t
 super + f
 	bspc node -t {fullscreen,\~fullscreen}
 
-super + s
+super + shift + s
 	bspc node -t {floating,\~floating}
+
+super + s
+	postCommand='mv $f'; \
+	filePattern='%Y-%m-%d_%H-%M-%S_$wx$h.png'; \
+	destination="$HOME/Pictures/Screenshots"; \
+	scrot --focused --silent $filePattern --exec "$postCommand $destination"; \
+	fileName=$(ls -t $destination | head -n 1); \
+	xclip -selection clipboard -t image/png -i $destination/$fileName
 
 super + shift + t
 	bspc node -t {pseudo_tiled,\~pseudo_tiled}
