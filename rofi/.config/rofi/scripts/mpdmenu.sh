@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/mpdmenu.rasi"
-
 ### Options ###
 # Gets the current status of mpd (for us to parse it later on)
 status="$(mpc status)"
@@ -45,7 +43,7 @@ if [[ -z "$current" ]]; then
 fi
 
 # Spawn the mpd menu with the "Play / Pause" entry selected by default
-chosen="$(echo -e "$options" | $rofi_command -p "$current" -dmenu "$active" "$urgent" -selected-row 1)"
+chosen="$(echo -e "$options" | rofi -theme-str '@import "themes/mpdmenu.rasi"' -p "$current" -dmenu "$active" "$urgent" -selected-row 1)"
 case $chosen in
     "$previous")
         mpc -q prev
