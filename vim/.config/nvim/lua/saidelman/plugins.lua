@@ -41,6 +41,11 @@ return require('packer').startup(function(use)
   }
   use 'rhysd/git-messenger.vim'
   use 'lewis6991/gitsigns.nvim'
+  use 'barrettruth/diffs.nvim' -- Treesitter-based diff colors for fugitive
+  use {
+    'esmuellert/codediff.nvim', -- Better diffview
+    requires = { 'MunifTanjim/nui.nvim' },
+  }
 
 
   -- use 'tmux-plugins/vim-tmux'
