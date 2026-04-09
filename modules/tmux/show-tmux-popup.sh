@@ -1,6 +1,12 @@
 #!/bin/bash
 
 session="_popup_$(tmux display -p '#S_#{pane_current_path}')"
+# Maybe I'll change things in the future.
+# There will be one session for all popups,
+# and every path will have its own window.
+# So I'll be able to create this session on startup
+# and then set all the options for it.
+# current_path="$(tmux display -p '#{pane_current_path}')"
 
 if ! tmux has -t "$session" 2> /dev/null; then
   parent_session="$(tmux display -p '#{session_id}')"

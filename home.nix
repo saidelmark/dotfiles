@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/nvim
+    ./modules/tmux
   ];
   home = {
     username = "mark";
