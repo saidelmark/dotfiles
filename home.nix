@@ -22,6 +22,7 @@
       gh
       glow
       jq
+      nix
       nix-tree
       nodejs # Only to enable copilot globally, not on every project
       mc
