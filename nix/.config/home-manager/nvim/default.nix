@@ -50,9 +50,6 @@ in
 {
   programs.neovim = {
     enable = true;
-    # Ruby and Python are disabled because the default for my state version is to enable them, while I don't think I need them.
-    withRuby = false;
-    withPython3 = false;
     defaultEditor = true;
     extraPackages = with pkgs; [
         bash-language-server
