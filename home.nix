@@ -1,22 +1,53 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./nvim ];
+  imports = [
+    ./modules/nvim
+  ];
   home = {
     username = "mark";
     homeDirectory = "/home/mark";
 
     stateVersion = "26.05";
 
-    packages = [
-      pkgs.saidelman-common
+    packages = with pkgs; [
+      bat
+      bottom
+      cargo
+      delta
+      difftastic
+      eza
+      fd
+      htop
+      gh
+      glow
+      jq
+      nix-tree
+      nodejs # Only to enable copilot globally, not on every project
+      mc
+      pandoc
+      ripgrep
+      shellcheck
+      silver-searcher
+      skim
+      tmux
+      yq-go
+      zoxide
+      zsh-autosuggestions
+      zsh-completions
+      zsh-forgit
+      zsh-fzf-tab
+      zsh-syntax-highlighting
+      nix-zsh-completions
     ];
+  };
 
-    file = { };
-
-    sessionVariables = { };
-
-
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   programs = {
@@ -65,6 +96,7 @@
         nodejs.disabled = true;
         package.disabled = true;
         python.disabled = true;
+        rust.disabled = true;
       };
     };
   };
