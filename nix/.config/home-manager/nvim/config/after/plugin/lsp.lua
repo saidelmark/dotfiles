@@ -40,17 +40,6 @@ if vim.fn.executable('lua-language-server') == 1 then
   )
 end
 
-if vim.fn.executable('haskell-language-server-wrapper') == 1 then
-  vim.lsp.enable("hls")
-  vim.lsp.config(
-    "hls",
-    {
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
-  )
-end
-
 if vim.fn.executable('terraform-ls') == 1 then
   vim.lsp.enable("terraformls")
   vim.lsp.config(

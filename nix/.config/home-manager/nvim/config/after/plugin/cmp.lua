@@ -1,12 +1,13 @@
 local cmp = require('cmp')
 cmp.setup({
   enabled = true,
+  -- NOTE(08.04.2026): snippets break the config, i'll have to get back to them later
   -- Enable LSP snippets
-  snippet = {
-    expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
-    end,
-  },
+  -- snippet = {
+  --   expand = function(args)
+  --     vim.fn['vsnip#anonymous'](args.body)
+  --   end,
+  -- },
   window = {
     documentation = cmp.config.window.bordered(),
     completion = {
@@ -49,7 +50,7 @@ cmp.setup({
   sources = cmp.config.sources(
     {
       { name = 'nvim_lsp' },
-      { name = 'vsnip' },
+      -- { name = 'vsnip' },
       { name = 'nvim_lsp_signature_help' },
     },
     {

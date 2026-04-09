@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./nvim ];
   home = {
     username = "mark";
     homeDirectory = "/home/mark";
