@@ -4,6 +4,7 @@
   imports = [
     ./modules/nvim
     ./modules/tmux
+    ./modules/zsh
   ];
   home = {
     username = "mark";
@@ -35,12 +36,6 @@
       tmux
       yq-go
       zoxide
-      zsh-autosuggestions
-      zsh-completions
-      zsh-forgit
-      zsh-fzf-tab
-      zsh-syntax-highlighting
-      nix-zsh-completions
     ];
   };
 
@@ -56,22 +51,16 @@
     home-manager.enable = true;
     direnv = {
       enable = true;
-      # TODO: Enable when/if zsh is configured via home-manager
-      # enableZshIntegration = true;
       nix-direnv.enable = true;
     };
     fzf = {
       enable = true;
-      # TODO: Enable when/if zsh is configured via home-manager
-      # enableZshIntegration = true;
       changeDirWidget.command = "fd --hidden --type=d";
       fileWidget.command = "fd --hidden --type=f";
     };
 
     starship = {
       enable = true;
-      # TODO: Enable when/if zsh is configured via home-manager
-      # enableZshIntegration = true;
       settings = {
         add_newline = false;
         directory.fish_style_pwd_dir_length = 1;
