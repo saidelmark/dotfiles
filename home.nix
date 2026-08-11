@@ -94,6 +94,7 @@
         aws.disabled = true;
         c.disabled = true;
         gcloud.disabled = true;
+        golang.disabled = true;
         hg_branch.disabled = true;
         nodejs.disabled = true;
         package.disabled = true;
