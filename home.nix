@@ -64,8 +64,8 @@
       enable = true;
       # TODO: Enable when/if zsh is configured via home-manager
       # enableZshIntegration = true;
-      changeDirWidgetCommand = "fd --hidden --type=d";
-      fileWidgetCommand = "fd --hidden --type=f";
+      changeDirWidget.command = "fd --hidden --type=d";
+      fileWidget.command = "fd --hidden --type=f";
     };
 
     starship = {
