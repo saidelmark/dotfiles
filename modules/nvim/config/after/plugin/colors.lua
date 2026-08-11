@@ -1,7 +1,7 @@
 vim.o.background = 'dark'
 
 local ofirkai = require('ofirkai')
--- local scheme = ofirkai.scheme
+local scheme = ofirkai.scheme
 ofirkai.setup({
   theme = 'dark_blue',
   custom_hlgroups = {
@@ -20,8 +20,17 @@ ofirkai.setup({
     gitmessengerHistory = { link = 'Title' },
     CopilotSuggestion = { link = 'Comment', italic = true, },
     SagaLightBulb = { link = 'CursorLineNr' },
+    ['@variable.parameter'] = { fg = scheme.mid_orange },
+    ['@lsp.type.parameter'] = { fg = scheme.mid_orange },
+    -- I liked how it's highlighted in python and didn't like default rust version
+    ['@attribute'] = { italic = true, fg = scheme.teal },
   }
 })
+
+-- In some languages (hello, lua) lsp-based comment highlighting has higher priority
+-- than treesitter-based, but I highlight TODOs via treesitter,
+-- so I'm disabling lsp-based highlight group
+vim.api.nvim_set_hl(0, '@lsp.type.comment', {})
 
 require('colorizer').setup({
   options = {
