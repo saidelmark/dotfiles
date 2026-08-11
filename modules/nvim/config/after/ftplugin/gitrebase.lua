@@ -1,4 +1,4 @@
-local map = require('saidelman/functions').map
+local map = require('saidelman/functions').mapbuf
 
 map('<localleader>d', '0ciwdrop<esc>0', 'Rebase: Drop this commit')
 map('<localleader>e', '0ciwedit<esc>0', 'Rebase: Edit this commit')

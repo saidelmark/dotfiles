@@ -12,7 +12,7 @@ function M.map(mapping, command, description, opts, mode)
   local default_opts = {
     remap = false,
     silent = true,
-    buffer = true,
+    buffer = false,
     desc = description
   }
   local res_opts = vim.tbl_extend('keep', opts, default_opts)
@@ -21,6 +21,15 @@ function M.map(mapping, command, description, opts, mode)
     command = ''
   end
   vim.keymap.set(mode, mapping, command, res_opts)
+end
+
+--- Same as map, but local to a buffer
+function M.mapbuf( mapping, command, description, opts, mode)
+  local default_opts = {
+    buffer = true,
+  }
+  local res_opts = vim.tbl_extend('keep', opts or {}, default_opts)
+  M.map(mapping, command, description, res_opts, mode)
 end
 
 --- Returns a dot repeatable version of a function to be used in keymaps
@@ -32,11 +41,11 @@ end
 function M.dot_repeat(
     callback --[[Function]]
 )
-    return function()
-        _G.dot_repeat_callback = callback
-        vim.go.operatorfunc = 'v:lua.dot_repeat_callback'
-        return 'g@l'
-    end
+  return function()
+    _G.dot_repeat_callback = callback
+    vim.go.operatorfunc = 'v:lua.dot_repeat_callback'
+    return 'g@l'
+  end
 end
 
 return M

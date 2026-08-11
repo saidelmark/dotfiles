@@ -23,7 +23,6 @@ map('<C-M-P>',
   function()
     fzf.files({ fzf_opts = { ['--query'] = vim.fn.expand('%:p:.:h') } })
   end,
-  "Fzf: Files in the same directory",
-  { buffer = false }
+  "Fzf: Files in the same directory"
 )
-map('<C-P>', fzf.files, "Fzf: Files", { buffer = false })
+map('<C-P>', fzf.files, "Fzf: Files")

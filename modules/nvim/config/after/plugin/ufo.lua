@@ -1,5 +1,5 @@
 local ufo = require('ufo')
-local map = require('saidelman.functions').map
+local map = require('saidelman.functions').mapbuf
 
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 15

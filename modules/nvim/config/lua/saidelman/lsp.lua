@@ -1,6 +1,6 @@
 local M = {}
 
-local map = require('saidelman/functions').map
+local map = require('saidelman/functions').mapbuf
 
 ---@diagnostic disable-next-line: unused-local
 function M.lsp_common_keymaps(client, bufnr)

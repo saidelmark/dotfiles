@@ -3,7 +3,7 @@ require('gitsigns').setup {
   numhl = false,
   on_attach = function()
     local gs = package.loaded.gitsigns
-    local map = require('saidelman.functions').map
+    local map = require('saidelman.functions').mapbuf
 
     -- Navigation
     map(']h', function()
