@@ -31,7 +31,6 @@
       pandoc
       ripgrep
       shellcheck
-      silver-searcher
       skim
       tmux
       yq-go
