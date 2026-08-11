@@ -1,5 +1,15 @@
 { pkgs, lib, ... }:
 let
+  registers = pkgs.vimUtils.buildVimPlugin {
+    name = "registers-nvim";
+    src = pkgs.fetchFromGitea {
+      domain = "codeberg.org";
+      owner = "fosk";
+      repo = "registers.nvim";
+      rev = "c217f8f369e0886776cda6c94eab839b30a8940d";
+      hash = "sha256-M7uR3yXYUQ4I8Gt8P6k25q67UNwksRDPKGrS/FCqrt0=";
+    };
+  };
   theme = pkgs.vimUtils.buildVimPlugin {
     name = "ofirkai-nvim";
     src = pkgs.fetchFromGitHub {
@@ -84,7 +94,7 @@ in
       vim-repeat # allows plugins to support the . operator for repeating actions
       vim-abolish # better support for searching and replacing, especially with different cases. Not sure if I use it that much
       undotree # undotree is built-in to neovim now, but this plugin is nicer
-      registers-nvim # shows contents of every occupied register
+      registers # shows contents of every occupied register
       nvim-ufo # better folding, especially with treesitter
       fzf-lua # fzf integration
       vim-table-mode # markdown tables
