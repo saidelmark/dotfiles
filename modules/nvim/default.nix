@@ -62,18 +62,18 @@ in
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
-        bash-language-server
-        copilot-language-server
-        fzf
-        git
-        github-copilot-cli
-        gopls
-        lua-language-server
-        nixd
-        nixfmt
-        ripgrep
-        rust-analyzer
-        vim-language-server
+      bash-language-server
+      copilot-language-server
+      fzf
+      git
+      github-copilot-cli
+      gopls
+      lua-language-server
+      nixd
+      nixfmt
+      ripgrep
+      rust-analyzer
+      vim-language-server
     ];
     initLua =
       let
@@ -114,8 +114,8 @@ in
       cmp-nvim-lsp # LSP source for nvim-cmp
       cmp-buffer # buffer source for nvim-cmp
       cmp-path # path source for nvim-cmp
-      # cmp-vsnip 
-      # vim-vsnip
+      cmp-vsnip
+      vim-vsnip
       cmp-nvim-lsp-signature-help # shows function signature help as you type
       cmp-cmdline # command line source for nvim-cmp
       lspkind-nvim # pretiier autocompletion menu
