@@ -62,6 +62,17 @@ if vim.fn.executable('nixd') == 1 then
   )
 end
 
+if vim.fn.executable('gopls') == 1 then
+  vim.lsp.enable('gopls')
+  vim.lsp.config(
+    "gopls",
+    {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  )
+end
+
 if vim.fn.executable('bash-language-server') == 1 then
   vim.lsp.enable("bashls")
   vim.lsp.config(
@@ -118,6 +129,7 @@ if vim.fn.executable('pylsp') == 1 then
 end
 
 if vim.fn.executable('rust-analyzer') == 1 then
+  vim.lsp.enable('rust_analyzer')
   require('crates').setup({
     lsp = {
       enabled = true,
