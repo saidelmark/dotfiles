@@ -108,6 +108,18 @@ in
 
       initContent =
         let
+          # Set up fpath for Nix completions BEFORE grml-zsh-config is sourced
+          # This ensures compinit picks up all completions from ~/.nix-profile
+          fpathConfig = lib.mkOrder 0 /* zsh */ ''
+            typeset -U path cdpath fpath manpath
+            for profile in ''${(z)NIX_PROFILES}; do
+              fpath+=(
+                $profile/share/zsh/site-functions
+                $profile/share/zsh/$ZSH_VERSION/functions
+                $profile/share/zsh/vendor-completions
+              )
+            done
+          '';
           grmlConfig = lib.mkBefore /* zsh */ ''
             source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
             prompt off
@@ -139,6 +151,7 @@ in
           '';
         in
         lib.mkMerge [
+          fpathConfig
           grmlConfig
           defaultConfig
           autopairConfig
