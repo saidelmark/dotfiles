@@ -31,6 +31,7 @@ in
 
       plugins = with pkgs; [
         {
+          # This requires `delta` to be configured with `dark = true` (or pass is as flag)
           name = "zsh-forgit";
           src = zsh-forgit;
           file = "share/zsh/zsh-forgit/forgit.plugin.zsh";
@@ -39,6 +40,11 @@ in
           name = "fzf-tab";
           src = zsh-fzf-tab;
           file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+        {
+          # This allows shell completions in direnv
+          name = "zsh-completion-sync";
+          src = zsh-completion-sync;
         }
         {
           name = "autopair";
