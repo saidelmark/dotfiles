@@ -167,9 +167,49 @@ in
       enable = true;
       enableZshIntegration = true;
     };
-    direnv.enableZshIntegration = true;
-    fzf.enableZshIntegration = true;
-    starship.enableZshIntegration = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+      enableZshIntegration = true;
+    };
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      changeDirWidget.command = "fd --hidden --type=d";
+      fileWidget.command = "fd --hidden --type=f";
+    };
+    starship = {
+      enable = true;
+      settings = {
+        add_newline = false;
+        directory.fish_style_pwd_dir_length = 1;
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+        };
+        git_metrics.disabled = false;
+        git_status = {
+          disabled = false;
+          format = "([\\[$ahead_behind$conflicted\\]]($style))";
+        };
+        status = {
+          disabled = false;
+          symbol = "";
+        };
+        time.disabled = false;
+
+        # Just disabled modules
+        aws.disabled = true;
+        c.disabled = true;
+        gcloud.disabled = true;
+        golang.disabled = true;
+        hg_branch.disabled = true;
+        nodejs.disabled = true;
+        package.disabled = true;
+        python.disabled = true;
+        rust.disabled = true;
+      };
+    };
   };
 
   home.packages = with pkgs; [
