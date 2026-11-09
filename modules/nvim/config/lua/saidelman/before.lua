@@ -5,6 +5,10 @@ vim.g.rustaceanvim = {
 }
 vim.g.diffs = {
   -- NOTE: This dict is the configuration for diffs.nvim, it *has* to be loaded before the plugin itself
+  view = {
+    -- Don't render + and - signs
+    prefix = false,
+  },
   integrations    = {
     fugitive = true,
     gitsigns = true,
